@@ -1,16 +1,19 @@
 
 
 import UIKit
-
+import RealmSwift
 class AddTaskViewController: UIViewController {
+    
     let dateFormatter = DateFormatter()
+    
     var timeTextField :UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
     var timeDatePicker = UIDatePicker()
     @IBOutlet weak var doneButton: UIButton!
     
-   
+    @IBOutlet weak var titleTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()        
         setDoneButton()
@@ -20,10 +23,8 @@ class AddTaskViewController: UIViewController {
         startTimeTextField.clearsOnBeginEditing = true
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
-        
     }
 
-    
     @IBAction func homeButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: {});
         self.navigationController?.popViewController(animated: true);
@@ -49,20 +50,77 @@ class AddTaskViewController: UIViewController {
     func createDatePicker() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
+        var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneToolbarButtonPressed))
         toolBar.setItems([doneButton], animated: false)
         timeDatePicker.datePickerMode = .time
         timeTextField.inputView = timeDatePicker
         timeTextField.inputAccessoryView = toolBar
     }
-    @objc func doneButtonPressed(sender: UIBarButtonItem) {
+    @objc func doneToolbarButtonPressed(sender: UIBarButtonItem) {
         dateFormatter.timeStyle = .short
         timeTextField.text = dateFormatter.string(from: timeDatePicker.date)
         self.view.endEditing(true)
     }
  
+    func inputTaskData()->Object
+    {
+        var startIntegerValue = 0
+        var endIntegerValue = 0
+        let task=Task()
+        task.tasktitle = titleTextField.text!
+        task.starttime = startTimeTextField.text!
+        task.endtime = endTimeTextField.text!
+     
+        
+        
+        var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
+        var splitEndTime = endTimeTextField.text?.characters.split(separator: " ").map{String($0)}
+        
+        var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
+        var endTimeArray = splitEndTime![0].characters.split(separator:":").map{String($0)}
+        
+        if(splitStartTime![1]=="PM") {
+            startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
+            task.integerStime = startIntegerValue
+            
+        }else if(splitStartTime![1]=="AM"){
+            startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
+            task.integerStime = startIntegerValue
+        }
+        
+        if(splitEndTime![1]=="PM") {
+            endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
+            task.integerEtime = endIntegerValue
+        }else if(splitEndTime![1]=="AM"){
+            endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
+            task.integerEtime = endIntegerValue
+        }
+       
+        var timeInterval = endIntegerValue-startIntegerValue
+        if(timeInterval<0) {
+            timeInterval = (-1)*timeInterval
+            task.timeinterval = timeInterval
+        }
+        else {
+            task.timeinterval = timeInterval
+        }
+        return task
+    }
     
-    
+    @IBAction func taskSaved(_ sender: Any) {
+        var taskData = inputTaskData()
+        let realm = try?Realm()
+        try? realm?.beginWrite()
+        try? realm?.add(taskData)
+        try? realm?.commitWrite()
+        print(realm)
+        print("**")
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        titleTextField.text = ""
+        startTimeTextField.text = ""
+        endTimeTextField.text = ""
+ 
+    }
     
     
     

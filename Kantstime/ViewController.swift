@@ -30,7 +30,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
         transition.transitionMode = .dismiss
         transition.startingPoint = menuButton.center
         transition.circleColor = UIColor.black
-        
         return transition
     }
     
