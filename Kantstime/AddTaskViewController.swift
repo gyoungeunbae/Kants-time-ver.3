@@ -5,7 +5,6 @@ import RealmSwift
 class AddTaskViewController: UIViewController {
     
     let dateFormatter = DateFormatter()
-    
     var timeTextField :UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
@@ -26,8 +25,10 @@ class AddTaskViewController: UIViewController {
     }
 
     @IBAction func homeButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: {});
-        self.navigationController?.popViewController(animated: true);
+        let mainViewController = ViewController()
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
+        
     }
     
     func setDoneButton() {
@@ -98,7 +99,7 @@ class AddTaskViewController: UIViewController {
        
         var timeInterval = endIntegerValue-startIntegerValue
         if(timeInterval<0) {
-            timeInterval = (-1)*timeInterval
+            timeInterval = startIntegerValue - endIntegerValue
             task.timeinterval = timeInterval
         }
         else {
@@ -113,17 +114,28 @@ class AddTaskViewController: UIViewController {
         try? realm?.beginWrite()
         try? realm?.add(taskData)
         try? realm?.commitWrite()
-        print(realm)
-        print("**")
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         titleTextField.text = ""
         startTimeTextField.text = ""
         endTimeTextField.text = ""
  
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        //let setCount = ad?.taskCount
+        
+        print(ad?.taskdata)
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("addviewadd")
+        
+    }
     
+    }
     
-    
-}
+
+
 
