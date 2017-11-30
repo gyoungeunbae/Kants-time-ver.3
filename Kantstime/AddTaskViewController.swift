@@ -3,7 +3,8 @@
 import UIKit
 import RealmSwift
 class AddTaskViewController: UIViewController {
-    
+    var didAddHandler:((Taskmodel)-> Void)?
+   
     let dateFormatter = DateFormatter()
     var timeTextField :UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
@@ -23,10 +24,16 @@ class AddTaskViewController: UIViewController {
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.titleTextField.becomeFirstResponder()
+        
+    }
+    
     @IBAction func homeButtonClicked(_ sender: Any) {
-        let mainViewController = ViewController()
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.titleTextField.resignFirstResponder()
+        self.dismiss(animated: true, completion: nil)
 
         
     }
@@ -63,77 +70,24 @@ class AddTaskViewController: UIViewController {
         self.view.endEditing(true)
     }
  
-    func inputTaskData()->Object
+    func inputTaskData()//->Object
     {
-        var startIntegerValue = 0
-        var endIntegerValue = 0
-        let task=Task()
-        task.tasktitle = titleTextField.text!
-        task.starttime = startTimeTextField.text!
-        task.endtime = endTimeTextField.text!
-     
-        
-        
-        var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
-        var splitEndTime = endTimeTextField.text?.characters.split(separator: " ").map{String($0)}
-        
-        var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
-        var endTimeArray = splitEndTime![0].characters.split(separator:":").map{String($0)}
-        
-        if(splitStartTime![1]=="PM") {
-            startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
-            task.integerStime = startIntegerValue
-            
-        }else if(splitStartTime![1]=="AM"){
-            startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
-            task.integerStime = startIntegerValue
-        }
-        
-        if(splitEndTime![1]=="PM") {
-            endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
-            task.integerEtime = endIntegerValue
-        }else if(splitEndTime![1]=="AM"){
-            endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
-            task.integerEtime = endIntegerValue
-        }
-       
-        var timeInterval = endIntegerValue-startIntegerValue
-        if(timeInterval<0) {
-            timeInterval = startIntegerValue - endIntegerValue
-            task.timeinterval = timeInterval
-        }
-        else {
-            task.timeinterval = timeInterval
-        }
-        return task
+  
     }
     
     @IBAction func taskSaved(_ sender: Any) {
-        var taskData = inputTaskData()
-        let realm = try?Realm()
-        try? realm?.beginWrite()
-        try? realm?.add(taskData)
-        try? realm?.commitWrite()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        titleTextField.text = ""
-        startTimeTextField.text = ""
-        endTimeTextField.text = ""
+        guard let title = self.titleTextField.text else {
+            return
+        }
+        self.titleTextField.resignFirstResponder()
+        let newTask = Taskmodel(tasktitle: title, starttime: startTimeTextField.text!, endtime: endTimeTextField.text!)
+        self.didAddHandler?(newTask)
+        self.dismiss(animated: true, completion: nil)
  
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        //let setCount = ad?.taskCount
-        
-        print(ad?.taskdata)
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("addviewadd")
-        
-    }
     
+
     }
     
 
