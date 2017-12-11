@@ -32,7 +32,6 @@ class Circlebasic: UIButton {
         
     }
     
-    
 }
 
 
