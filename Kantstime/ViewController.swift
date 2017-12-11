@@ -37,7 +37,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("testttttttt")
     }
     
     

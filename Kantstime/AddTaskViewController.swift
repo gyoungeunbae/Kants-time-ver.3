@@ -3,7 +3,8 @@
 import UIKit
 import RealmSwift
 class AddTaskViewController: UIViewController {
-    
+    var didAddHandler:((Taskmodel)-> Void)?
+   
     let dateFormatter = DateFormatter()
     var timeTextField :UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
@@ -25,10 +26,16 @@ class AddTaskViewController: UIViewController {
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.titleTextField.becomeFirstResponder()
+        
+    }
+    
     @IBAction func homeButtonClicked(_ sender: Any) {
-        let mainViewController = ViewController()
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.titleTextField.resignFirstResponder()
+        self.dismiss(animated: true, completion: nil)
 
         
     }

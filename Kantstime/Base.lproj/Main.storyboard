@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a06-l9-gQh">
-                                <rect key="frame" x="20" y="602" width="55" height="20"/>
+                                <rect key="frame" x="20" y="602" width="54.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="pHK-Py-Lq9"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="end" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLX-q0-stw">
-                                <rect key="frame" x="182" y="602" width="38" height="20"/>
+                                <rect key="frame" x="182.5" y="602" width="37.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="3ok-9i-kvB"/>
                                 </constraints>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4Z-P5-tU3">
-                                <rect key="frame" x="122" y="602" width="20" height="20"/>
+                                <rect key="frame" x="122.5" y="602" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="elA-b4-wZY"/>
                                 </constraints>
@@ -446,7 +446,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgu-YV-snN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="-1664"/>
+            <point key="canvasLocation" x="2658" y="-1743"/>
         </scene>
     </scenes>
     <resources>
