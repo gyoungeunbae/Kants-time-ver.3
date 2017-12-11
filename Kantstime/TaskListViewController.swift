@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class TaskListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var fetchedTask:Results<Task>!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = fetchedTask?.count {
+        if let count = fetchedTask.count {
             return count
         }
         return 0
