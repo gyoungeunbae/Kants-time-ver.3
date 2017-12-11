@@ -4,6 +4,7 @@ import UIKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
+    
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var circleBorderView: UIView!
     let transition = MenuCircularTransition()
@@ -12,6 +13,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
        // self.navigationController?.delegate = self as! UINavigationControllerDelegate
         
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let secondVC = segue.destination as! MenuViewController
         secondVC.transitioningDelegate = self

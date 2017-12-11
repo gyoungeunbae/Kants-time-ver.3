@@ -10,12 +10,14 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var endTimeTextField: UITextField!
     var timeDatePicker = UIDatePicker()
     @IBOutlet weak var doneButton: UIButton!
-    
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
-    
+    var endIntegerValue = 0
+    var startIntegerValue = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()        
-        setDoneButton()
+        setButton()
         startTimeTextField.text = "시작시간"
         endTimeTextField.text = "종료시간"
         startTimeTextField.isUserInteractionEnabled = true
@@ -31,9 +33,16 @@ class AddTaskViewController: UIViewController {
         
     }
     
-    func setDoneButton() {
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    func setButton() {
         doneButton.layer.borderColor = UIColor.black.cgColor
         doneButton.layer.borderWidth = 1.0
+        
+        deleteButton.layer.borderColor = UIColor.black.cgColor
+        deleteButton.layer.borderWidth = 1.0
+        
     }
 
     
@@ -63,10 +72,8 @@ class AddTaskViewController: UIViewController {
         self.view.endEditing(true)
     }
  
-    func inputTaskData()->Object
+   /* func inputTaskData()->Object
     {
-        var startIntegerValue = 0
-        var endIntegerValue = 0
         let task=Task()
         task.tasktitle = titleTextField.text!
         task.starttime = startTimeTextField.text!
@@ -74,66 +81,84 @@ class AddTaskViewController: UIViewController {
      
         
         
-        var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
-        var splitEndTime = endTimeTextField.text?.characters.split(separator: " ").map{String($0)}
-        
-        var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
-        var endTimeArray = splitEndTime![0].characters.split(separator:":").map{String($0)}
-        
-        if(splitStartTime![1]=="PM") {
-            startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
-            task.integerStime = startIntegerValue
-            
-        }else if(splitStartTime![1]=="AM"){
-            startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
-            task.integerStime = startIntegerValue
-        }
-        
-        if(splitEndTime![1]=="PM") {
-            endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
-            task.integerEtime = endIntegerValue
-        }else if(splitEndTime![1]=="AM"){
-            endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
-            task.integerEtime = endIntegerValue
-        }
-       
-        var timeInterval = endIntegerValue-startIntegerValue
-        if(timeInterval<0) {
-            timeInterval = startIntegerValue - endIntegerValue
-            task.timeinterval = timeInterval
-        }
-        else {
-            task.timeinterval = timeInterval
-        }
+     
+     
         return task
-    }
+    }*/
     
     @IBAction func taskSaved(_ sender: Any) {
-        var taskData = inputTaskData()
-        let realm = try?Realm()
-        try? realm?.beginWrite()
-        try? realm?.add(taskData)
-        try? realm?.commitWrite()
+        //var taskData = inputTaskData()
+        let newTask:Task!
+        newTask = Task()
+        if let name = titleTextField.text {
+            newTask.tasktitle = name
+        } else {
+            //TODO:::notification
+        }
+        if let startTime = startTimeTextField.text {
+            if startTime != "시작시간" {
+                if startTime != ""{
+                    
+                    newTask.starttime = startTime
+                    print("******\(newTask.starttime)")
+                    var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
+                    var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
+                    if(splitStartTime![1]=="PM") {
+                        startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
+                        newTask.integerStime = startIntegerValue
+                    } else if(splitStartTime![1]=="AM"){
+                        startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
+                        newTask.integerStime = startIntegerValue
+                }
+            } else {
+                //
+            }
+        } else {
+            
+        }
+        if let endTime = endTimeTextField.text {
+            if endTime != "종료시간" {
+                if endTime != ""{
+                    newTask.endtime = endTime
+                    var splitEndTime = endTime.characters.split(separator: " ").map{String($0)}
+                    var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
+                
+                if(splitEndTime[1]=="PM") {
+                    endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
+                    newTask.integerEtime = endIntegerValue
+                } else if(splitEndTime[1]=="AM"){
+                    endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
+                    newTask.integerEtime = endIntegerValue
+                }
+                
+                var timeInterval = endIntegerValue-startIntegerValue
+                if(timeInterval<0) {
+                    timeInterval = startIntegerValue - endIntegerValue
+                    newTask.timeinterval = timeInterval
+                } else {
+                    newTask.timeinterval = timeInterval
+                }
+            } else {
+                    //Todo: 종료시간을 입력해 주세여
+                }
+            
+            } else {
+                //Todo: 종료시간을 입력해 주세여
+            }
+        }
+        let realm = try? Realm()
+        try? realm?.write {
+            realm?.add(newTask)
+        }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        titleTextField.text = ""
-        startTimeTextField.text = ""
-        endTimeTextField.text = ""
- 
+        navigationController?.popViewController(animated: true)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        //let setCount = ad?.taskCount
+}
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
-        print(ad?.taskdata)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("addviewadd")
+        self.view.endEditing(true)
         
     }
-    
     }
     
 
