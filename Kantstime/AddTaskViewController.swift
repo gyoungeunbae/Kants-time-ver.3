@@ -28,14 +28,13 @@ class AddTaskViewController: UIViewController {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
             endTimeTextField.text = passedtask.endtime
-            print("&&&&&&&&\(passedtask.tasktitle)")
         }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.titleTextField.becomeFirstResponder()
+        
         
     }
     
