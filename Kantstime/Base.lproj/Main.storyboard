@@ -154,6 +154,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="u2S-5t-mbm" kind="show" identifier="editSegue" id="LgZ-cS-afu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -452,4 +455,7 @@
     <resources>
         <image name="close" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LgZ-cS-afu"/>
+    </inferredMetricsTieBreakers>
 </document>
