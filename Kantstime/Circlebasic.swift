@@ -9,8 +9,7 @@
 import UIKit
 class Circlebasic: UIButton {
     @IBInspectable var circleOutLineColor: UIColor = UIColor.black
-    
-    override func draw(_ rect: CGRect) {
+    override func draw(_ rect:CGRect){
         let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
         let radius: CGFloat = max(bounds.width, bounds.height)//지름
         let arcWidth: CGFloat = 1//굵기

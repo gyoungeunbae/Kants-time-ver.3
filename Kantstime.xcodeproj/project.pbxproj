@@ -109,12 +109,12 @@
 				6FBCCE8D1FB5C5D600A1A272 /* MenuViewController.swift */,
 				6F4594A51FDE9948001825C9 /* TaskListViewController.swift */,
 				6FBCCE821FB42DFB00A1A272 /* BackgroungCircle.swift */,
-				6FBCCE8B1FB5C05300A1A272 /* Circlebasic.swift */,
 				6FBCCE761FB40DCF00A1A272 /* Assets.xcassets */,
 				6FBCCE781FB40DCF00A1A272 /* LaunchScreen.storyboard */,
 				6FBCCE7B1FB40DCF00A1A272 /* Info.plist */,
 				6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */,
 				6FBCCE911FB5CD4800A1A272 /* MenuButtonCircularTransition.swift */,
+				6FBCCE8B1FB5C05300A1A272 /* Circlebasic.swift */,
 				6FBCCE9F1FBDE31C00A1A272 /* CircleBorderView.swift */,
 				6FD2073F1FC8FF42008458CE /* Taskmodel.swift */,
 			);
