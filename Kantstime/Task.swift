@@ -1,11 +1,10 @@
 import Foundation
 import RealmSwift
 
-//class Routine: Object {
-//    var rid = Int()
-//    @objc dynamic var rtitle = ""
-//    var task = List<Task>()
-//}
+class Routine: Object {
+    @objc dynamic var routinetitle = ""
+    var task = List<Task>()
+}
 
 class Task: Object {
     @objc dynamic var tasktitle = ""

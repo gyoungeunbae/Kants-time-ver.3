@@ -31,7 +31,7 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         return 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +54,7 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         }
         
         cell.taskTitle.text = task.tasktitle
-        cell.startTime.text = task.starttime + "        -"
+        cell.startTime.text = task.starttime + "   -"
         cell.endTime.text = task.endtime
         
         return cell
