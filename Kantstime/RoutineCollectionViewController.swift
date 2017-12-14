@@ -12,13 +12,14 @@ import RealmSwift
 class RoutineCollectionViewController: ViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
     @IBOutlet weak var routineCollectionView: UICollectionView!
-    
-    
+    var routineNameFromTextField:UITextField!
     var fetchedRoutine : Results<Routine>!
     override func viewDidLoad() {
         super.viewDidLoad()
         routineCollectionView.delegate = self
         routineCollectionView.dataSource = self
+        let realm = try? Realm()
+        fetchedRoutine = (realm?.objects(Routine.self))?.sorted(byKeyPath: "routinetitle", ascending: true)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -54,10 +55,49 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
         cell.layer.cornerRadius = 10
-        //cell.routineName.text = fetchedRoutine[indexPath.row]
-        
+        let routine = fetchedRoutine[indexPath.row]
+        cell.routineName.text = routine.routinetitle
         return cell
+    }
+    func configurationTextField(textField: UITextField!)
+    {
+        textField.placeholder = "Enter an item"
+        routineNameFromTextField = textField
     }
 
 
+    @IBAction func addNewRoutine(_ sender: Any) {
+        let realm = try? Realm()
+        var newRoutine:Routine!
+        var newTaskList:List<Task>!
+        newRoutine = Routine()
+        //newTaskList = List<Task>
+        let alert = UIAlertController(title: "Routine", message:"Routine 이름을 입력해주세요" , preferredStyle: .alert)
+        alert.addTextField(configurationHandler: configurationTextField)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler:{(action:UIAlertAction!) in
+            try? realm?.write {
+                if let name = self.routineNameFromTextField.text {
+                    newRoutine.routinetitle = name
+                }
+                //newRoutine.task = newTaskList
+
+                realm?.add(newRoutine)
+                
+            }
+            self.routineCollectionView.reloadData()
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+
+        })
+        let cancelAction = UIAlertAction(title: "CANCEL", style: .default, handler:{(action:UIAlertAction!) in
+        })
+        //let routineTextField = UI
+       // let textField = text
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
