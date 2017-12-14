@@ -22,24 +22,6 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         fetchedRoutine = (realm?.objects(Routine.self))?.sorted(byKeyPath: "routinetitle", ascending: true)
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 10, height: 10)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout
-        collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
-    }
-
      func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -59,6 +41,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         cell.routineName.text = routine.routinetitle
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
     func configurationTextField(textField: UITextField!)
     {
         textField.placeholder = "Enter an item"
@@ -69,20 +54,28 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     @IBAction func addNewRoutine(_ sender: Any) {
         let realm = try? Realm()
         var newRoutine:Routine!
-        var newTaskList:List<Task>!
+        //var newTaskList:List<Task>!
         newRoutine = Routine()
-        //newTaskList = List<Task>
         let alert = UIAlertController(title: "Routine", message:"Routine 이름을 입력해주세요" , preferredStyle: .alert)
         alert.addTextField(configurationHandler: configurationTextField)
-        
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default, handler:{(action:UIAlertAction!) in
-            try? realm?.write {
-                if let name = self.routineNameFromTextField.text {
-                    newRoutine.routinetitle = name
-                }
-                //newRoutine.task = newTaskList
+            if let name = self.routineNameFromTextField.text {
+                
+                let trimName = name.trimmingCharacters(in:.whitespaces)
+                if trimName == "" {
+                    let alertTitle = UIAlertController(title: "Routine 이름을 입력해주세요!", message:"" , preferredStyle: .alert)
+                    alertTitle.addAction(doneAction)
+                    self.present(alertTitle, animated: true, completion: nil)
+                    
+                } else{
+                    try? realm?.write {
+             
+                        newRoutine.routinetitle = name
+                        realm?.add(newRoutine)
 
-                realm?.add(newRoutine)
+                }
+            }
                 
             }
             self.routineCollectionView.reloadData()
@@ -91,13 +84,15 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         })
         let cancelAction = UIAlertAction(title: "CANCEL", style: .default, handler:{(action:UIAlertAction!) in
         })
-        //let routineTextField = UI
-       // let textField = text
         alert.addAction(okAction)
         alert.addAction(cancelAction)
 
         present(alert, animated: true, completion: nil)
     }
+   
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 }
+
