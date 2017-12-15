@@ -7,10 +7,13 @@
 //
 
 import UIKit
-
-
+import RealmSwift
 class RoutineCollectionViewCell: UICollectionViewCell {
+    var routineList: Routine!
+    let realm = try? Realm()
     @IBOutlet weak var routineName: UILabel!
-    @IBAction func switchTapped(_ sender: Any) {
-    }
+    @IBOutlet weak var routineButton: UISwitch!
+
+    
+    
 }

@@ -13,6 +13,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     
     @IBOutlet weak var routineCollectionView: UICollectionView!
     var routineNameFromTextField:UITextField!
+    
     var fetchedRoutine : Results<Routine>!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         routineCollectionView.dataSource = self
         let realm = try? Realm()
         fetchedRoutine = (realm?.objects(Routine.self))?.sorted(byKeyPath: "routinetitle", ascending: true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        routineCollectionView.reloadData()
     }
 
      func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -38,14 +42,37 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         cell.layer.cornerRadius = 10
         let routine = fetchedRoutine[indexPath.row]
         cell.routineName.text = routine.routinetitle
-        
-     
+        cell.routineButton.tag = indexPath.row
+        cell.routineButton.isOn = routine.routineButton
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
           let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
-        //cell.routineButton.is
+
+        
     }
+    @IBAction func switchTapped(_ sender: UISwitch) {
+        routineCollectionView.reloadData()
+        let realm = try? Realm()
+        if  sender.isOn == true {
+            print(sender.tag)
+            try? realm?.write {
+                fetchedRoutine[sender.tag].routineButton = true
+            }
+            setFalse(tagNumber: sender.tag)
+        }
+    }
+    func setFalse(tagNumber: Int) {
+        let realm = try? Realm()
+        for i in 0..<fetchedRoutine.count {
+            if i != tagNumber {
+                try? realm?.write {
+                    fetchedRoutine[i].routineButton = false
+                    }
+            }
+        }
+    }
+
     func configurationTextField(textField: UITextField!)
     {
         textField.placeholder = "Routine 이름을 입력하세요"
@@ -93,5 +120,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
+    
+    
+    
 }
+
 
