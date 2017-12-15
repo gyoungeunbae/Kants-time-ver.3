@@ -8,6 +8,9 @@
 
 import UIKit
 
+
 class RoutineCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var routineName: UILabel!
+    @IBAction func switchTapped(_ sender: Any) {
+    }
 }
