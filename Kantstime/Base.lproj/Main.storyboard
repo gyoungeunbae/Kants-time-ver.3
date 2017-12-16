@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qgE-cJ-grw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1xt-Ld-Dbs">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -292,7 +292,6 @@
         <!--Task List View Controller-->
         <scene sceneID="JET-Rv-8d1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NUF-9S-awi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="rjz-fQ-qWL" customClass="TaskListViewController" customModule="Kantstime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KrC-be-1Ep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
@@ -386,6 +385,7 @@
                         <segue destination="u2S-5t-mbm" kind="show" identifier="editSegue" id="RdA-4Z-I5F"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NUF-9S-awi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3155" y="-973"/>
         </scene>
@@ -467,10 +467,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2y-xZ-C2W">
-                                <rect key="frame" x="30" y="585" width="140" height="60"/>
+                                <rect key="frame" x="30" y="585" width="354" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Jcz-Oc-oC7"/>
-                                    <constraint firstAttribute="width" constant="140" id="iah-yg-ios"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                 <state key="normal" title="Done">
@@ -494,23 +493,11 @@
                                     <action selector="setEndTime:" destination="u2S-5t-mbm" eventType="editingDidEnd" id="uj8-my-prL"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrF-O1-k5Y">
-                                <rect key="frame" x="200" y="585" width="140" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="mod-jX-CCA"/>
-                                    <constraint firstAttribute="height" constant="60" id="xIz-Ia-xgy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SD6-LA-ekY" firstAttribute="top" secondItem="NIG-DP-RIu" secondAttribute="top" id="0r8-ci-jEy"/>
                             <constraint firstItem="bnw-Iu-TrD" firstAttribute="top" secondItem="NIG-DP-RIu" secondAttribute="bottom" constant="3" id="3yb-dq-zVm"/>
-                            <constraint firstItem="yrF-O1-k5Y" firstAttribute="width" secondItem="I2y-xZ-C2W" secondAttribute="width" id="8Fc-VR-zcY"/>
                             <constraint firstItem="Gm6-HN-VwI" firstAttribute="leading" secondItem="lW2-DP-bXv" secondAttribute="trailing" constant="7" id="Dww-0g-l8a"/>
                             <constraint firstItem="NIG-DP-RIu" firstAttribute="top" secondItem="bJJ-mC-Sb5" secondAttribute="bottom" constant="15" id="FBa-WG-xlj"/>
                             <constraint firstItem="dm0-LE-O9C" firstAttribute="trailing" secondItem="tzn-cg-bRX" secondAttribute="trailing" constant="13" id="Hnf-JD-1zU"/>
@@ -518,15 +505,13 @@
                             <constraint firstItem="0Yo-XL-2vV" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="13" id="KwO-Ff-YLX"/>
                             <constraint firstItem="0Yo-XL-2vV" firstAttribute="top" secondItem="dm0-LE-O9C" secondAttribute="top" constant="85" id="P9R-in-7YM"/>
                             <constraint firstItem="tzn-cg-bRX" firstAttribute="top" secondItem="0Yo-XL-2vV" secondAttribute="bottom" constant="8" id="Pc2-Bx-ZZ3"/>
-                            <constraint firstItem="yrF-O1-k5Y" firstAttribute="top" secondItem="I2y-xZ-C2W" secondAttribute="top" id="RfI-75-Nyk"/>
                             <constraint firstItem="dm0-LE-O9C" firstAttribute="bottom" secondItem="I2y-xZ-C2W" secondAttribute="bottom" constant="27" id="TLQ-L4-3Wt"/>
                             <constraint firstItem="bJJ-mC-Sb5" firstAttribute="top" secondItem="tzn-cg-bRX" secondAttribute="bottom" constant="63" id="W6w-GV-70L"/>
                             <constraint firstItem="Gm6-HN-VwI" firstAttribute="top" secondItem="lW2-DP-bXv" secondAttribute="top" id="a5U-Q0-Hp1"/>
                             <constraint firstItem="dm0-LE-O9C" firstAttribute="trailing" secondItem="Gm6-HN-VwI" secondAttribute="trailing" constant="13" id="aIW-ox-Cyg"/>
-                            <constraint firstItem="yrF-O1-k5Y" firstAttribute="height" secondItem="I2y-xZ-C2W" secondAttribute="height" id="cyU-u5-I4a"/>
                             <constraint firstItem="lW2-DP-bXv" firstAttribute="leading" secondItem="bnw-Iu-TrD" secondAttribute="trailing" constant="7" id="dge-ET-SjD"/>
                             <constraint firstItem="SD6-LA-ekY" firstAttribute="leading" secondItem="NIG-DP-RIu" secondAttribute="trailing" constant="151" id="dwq-Ae-Ryk"/>
-                            <constraint firstItem="yrF-O1-k5Y" firstAttribute="leading" secondItem="I2y-xZ-C2W" secondAttribute="trailing" constant="30" id="hnc-ll-Pvp"/>
+                            <constraint firstItem="dm0-LE-O9C" firstAttribute="trailing" secondItem="I2y-xZ-C2W" secondAttribute="trailing" constant="30" id="hOy-xP-v8W"/>
                             <constraint firstItem="tzn-cg-bRX" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="13" id="kSr-S0-lt3"/>
                             <constraint firstItem="I2y-xZ-C2W" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="30" id="nkn-C9-9xW"/>
                             <constraint firstItem="NIG-DP-RIu" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="13" id="vcT-ix-AdM"/>
@@ -545,7 +530,6 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="deleteButton" destination="yrF-O1-k5Y" id="GcT-X1-MVr"/>
                         <outlet property="doneButton" destination="I2y-xZ-C2W" id="n2W-p8-M9M"/>
                         <outlet property="endTimeTextField" destination="Gm6-HN-VwI" id="jrv-Dp-c3l"/>
                         <outlet property="startTimeTextField" destination="bnw-Iu-TrD" id="wFv-Ei-yMc"/>

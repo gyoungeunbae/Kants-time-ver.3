@@ -51,10 +51,6 @@ class AddTaskViewController: UIViewController {
     func setButton() {
         doneButton.layer.borderColor = UIColor.black.cgColor
         doneButton.layer.borderWidth = 1.0
-        
-        deleteButton.layer.borderColor = UIColor.black.cgColor
-        deleteButton.layer.borderWidth = 1.0
-        
     }
 
     
@@ -83,20 +79,6 @@ class AddTaskViewController: UIViewController {
         timeTextField.text = dateFormatter.string(from: timeDatePicker.date)
         self.view.endEditing(true)
     }
- 
-   /* func inputTaskData()->Object
-    {
-        let task=Task()
-        task.tasktitle = titleTextField.text!
-        task.starttime = startTimeTextField.text!
-        task.endtime = endTimeTextField.text!
-     
-        
-        
-     
-     
-        return task
-    }*/
     
     @IBAction func taskSaved(_ sender: Any) {
         //var taskData = inputTaskData()
@@ -113,7 +95,6 @@ class AddTaskViewController: UIViewController {
                     if startTime != ""{
                         
                         newTask.starttime = startTime
-                        print("******\(newTask.starttime)")
                         var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                         var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
                         if(splitStartTime![1]=="PM") {
@@ -220,7 +201,6 @@ class AddTaskViewController: UIViewController {
                         } else {
                             //Todo: 종료시간을 입력해 주세여
                         }
-                        
                     } else {
                         //Todo: 종료시간을 입력해 주세여
                     }
