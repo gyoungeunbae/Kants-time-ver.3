@@ -9,7 +9,6 @@ import UIKit
 import RealmSwift
 
 class TaskListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
- 
     var fetchedTask:Results<Task>!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

@@ -10,7 +10,6 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var endTimeTextField: UITextField!
     var timeDatePicker = UIDatePicker()
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     var endIntegerValue = 0
     var startIntegerValue = 0
@@ -35,13 +34,6 @@ class AddTaskViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-    }
-    
-    @IBAction func homeButtonClicked(_ sender: Any) {
-        self.titleTextField.resignFirstResponder()
-        self.dismiss(animated: true, completion: nil)
-
         
     }
     

@@ -217,30 +217,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yf9-2W-4I8" customClass="RoutineCircle" customModule="Kantstime" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="20" width="70" height="70"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="8Na-DP-sxL"/>
-                                                        <constraint firstAttribute="width" constant="70" id="hIY-Ke-aDQ"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="circleOutLineColor">
-                                                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rxK-JF-O5V">
-                                                    <rect key="frame" x="30.666666666666671" y="95" width="51" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="31" id="WcR-So-jih"/>
-                                                        <constraint firstAttribute="width" constant="49" id="ler-MM-GFU"/>
-                                                    </constraints>
-                                                    <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <connections>
-                                                        <action selector="switchTapped:" destination="Has-vx-0Di" eventType="valueChanged" id="MLG-Dq-EdJ"/>
-                                                    </connections>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-vG-DFJ">
                                                     <rect key="frame" x="23" y="63" width="284" height="24"/>
                                                     <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
@@ -252,15 +228,10 @@
                                         <color key="backgroundColor" red="0.18914955854415894" green="0.21098636090755463" blue="0.24716709554195404" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="vz7-vG-DFJ" secondAttribute="trailing" constant="15" id="1hX-cc-g3N"/>
-                                            <constraint firstItem="rxK-JF-O5V" firstAttribute="centerX" secondItem="Yf9-2W-4I8" secondAttribute="centerX" id="J7n-GL-9ln"/>
-                                            <constraint firstItem="rxK-JF-O5V" firstAttribute="top" secondItem="Yf9-2W-4I8" secondAttribute="bottom" constant="5" id="Kul-MU-2dC"/>
-                                            <constraint firstItem="Yf9-2W-4I8" firstAttribute="top" secondItem="SoH-cr-YMV" secondAttribute="top" constant="20" id="Vqp-CF-iDp"/>
                                             <constraint firstItem="vz7-vG-DFJ" firstAttribute="centerX" secondItem="SoH-cr-YMV" secondAttribute="centerX" id="Wbi-ba-JLw"/>
-                                            <constraint firstItem="Yf9-2W-4I8" firstAttribute="leading" secondItem="SoH-cr-YMV" secondAttribute="leading" constant="20" id="ZEd-Dd-CsH"/>
                                             <constraint firstItem="vz7-vG-DFJ" firstAttribute="centerY" secondItem="SoH-cr-YMV" secondAttribute="centerY" id="olO-Yk-fcF"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="routineButton" destination="rxK-JF-O5V" id="5aR-Ks-GN2"/>
                                             <outlet property="routineName" destination="vz7-vG-DFJ" id="5RT-lv-13R"/>
                                         </connections>
                                     </collectionViewCell>

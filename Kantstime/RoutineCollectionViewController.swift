@@ -54,8 +54,8 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         //cell.layer.insertSublayer(gradient(frame: cell.bounds), at:0)
         let routine = fetchedRoutine[indexPath.row]
         cell.routineName.text = routine.routinetitle
-        cell.routineButton.tag = indexPath.row
-        cell.routineButton.isOn = routine.routineButton
+        //cell.routineButton.tag = indexPath.row
+        //cell.routineButton.isOn = routine.routineButton
         
         return cell
     }
@@ -66,7 +66,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
 
         
     }
-    @IBAction func switchTapped(_ sender: UISwitch) {
+  /*  @IBAction func switchTapped(_ sender: UISwitch) {
         routineCollectionView.reloadData()
         let realm = try? Realm()
         if  sender.isOn == true {
@@ -86,7 +86,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
                     }
             }
         }
-    }
+    }*/
 
     func configurationTextField(textField: UITextField!)
     {
@@ -112,7 +112,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
                     self.present(alertTitle, animated: true, completion: nil)
                     
                 } else{
+                    
                     try? realm?.write {
+                        //newRoutine.routineid
                         newRoutine.routinetitle = name
                         newRoutine.routineButton = false
                         
@@ -134,8 +136,15 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goTaskSegue" {
+            if let destination = segue.destination as? TaskListViewController {
+                if let task = sender as? Task {
+                    
+                    //destination.existingTask = task
+                }
+            }
+        }
     }
-    
     
     
 }
