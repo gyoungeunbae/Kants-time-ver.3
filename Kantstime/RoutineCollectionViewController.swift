@@ -19,11 +19,21 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         super.viewDidLoad()
         routineCollectionView.delegate = self
         routineCollectionView.dataSource = self
+       
         let realm = try? Realm()
         fetchedRoutine = (realm?.objects(Routine.self))?.sorted(byKeyPath: "routinetitle", ascending: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         routineCollectionView.reloadData()
+    }
+    func gradient(frame:CGRect) -> CAGradientLayer {
+        let layer = CAGradientLayer()
+        layer.frame = frame
+        layer.startPoint = CGPoint(x:0,y:0.5)
+        layer.endPoint = CGPoint(x:1,y:0.5)
+        layer.colors = [
+            UIColor.init ( red: 99.0/255.0, green: 47.0/255.0, blue: 191.0/255.0, alpha: 1 ).cgColor,UIColor.init ( red: 112.0/255.0, green: 172.0/255.0, blue: 221.0/255.0, alpha: 1 ).cgColor]
+        return layer
     }
 
      func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -38,14 +48,19 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
         let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
         cell.layer.cornerRadius = 10
+        //cell.layer.insertSublayer(gradient(frame: cell.bounds), at:0)
         let routine = fetchedRoutine[indexPath.row]
         cell.routineName.text = routine.routinetitle
         cell.routineButton.tag = indexPath.row
         cell.routineButton.isOn = routine.routineButton
+        
         return cell
     }
+    
+   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
           let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
 

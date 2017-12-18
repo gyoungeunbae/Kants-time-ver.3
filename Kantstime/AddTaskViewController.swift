@@ -85,10 +85,17 @@ class AddTaskViewController: UIViewController {
         var newTask:Task!
         if existingTask == nil {
             newTask = Task()
-            if let name = titleTextField.text {
-                newTask.tasktitle = name
-            } else {
-                //TODO:::notification
+            let trimName =  titleTextField.text?.trimmingCharacters(in:.whitespaces)
+            if let name = trimName {
+                if name == "" {
+                    let alertTitle = UIAlertController(title: "Task", message:"Task 이름을 입력해주세요" , preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    alertTitle.addAction(doneAction)
+                    self.present(alertTitle, animated: true, completion: nil)
+                } else {
+                    newTask.tasktitle = name
+                }
+                
             }
             if let startTime = startTimeTextField.text {
                 if startTime != "시작시간" {
@@ -149,18 +156,25 @@ class AddTaskViewController: UIViewController {
 
         }else {
             newTask = existingTask
+            let trimName =  titleTextField.text?.trimmingCharacters(in:.whitespaces)
+            if let name = trimName {
+                if name == "" {
+                    let alertTitle = UIAlertController(title: "Task", message:"Task 이름을 입력해주세요" , preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+                    alertTitle.addAction(doneAction)
+                    self.present(alertTitle, animated: true, completion: nil)
+                } else {
+                    newTask.tasktitle = name
+                }
+                
+            }
             let realm = try? Realm()
             try? realm?.write {
            
-                if let name = titleTextField.text {
-                    newTask.tasktitle = name
-                } else {
-                    //TODO:::notification
-                }
+             
                 if let startTime = startTimeTextField.text {
                     if startTime != "시작시간" {
                         if startTime != ""{
-                            
                             newTask.starttime = startTime
                             print("******\(newTask.starttime)")
                             var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
@@ -208,10 +222,8 @@ class AddTaskViewController: UIViewController {
         }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             
-            
         }
         navigationController?.popViewController(animated: true)
-    
 }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
