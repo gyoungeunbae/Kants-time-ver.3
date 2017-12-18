@@ -13,7 +13,6 @@ class RoutineCollectionViewCell: UICollectionViewCell {
     let realm = try? Realm()
     @IBOutlet weak var routineName: UILabel!
     @IBOutlet weak var routineButton: UISwitch!
-
-    
+    @IBOutlet weak var routineColor: UIView!
     
 }

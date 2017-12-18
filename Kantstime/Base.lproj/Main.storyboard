@@ -217,21 +217,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSB-0O-4bc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="150"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-vG-DFJ">
                                                     <rect key="frame" x="23" y="63" width="284" height="24"/>
                                                     <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
-                                                    <color key="textColor" red="1" green="0.9999879599" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.4823529412" green="0.48627450979999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rxK-JF-O5V">
+                                                    <rect key="frame" x="20" y="20" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="WcR-So-jih"/>
+                                                        <constraint firstAttribute="width" constant="49" id="ler-MM-GFU"/>
+                                                    </constraints>
+                                                    <color key="onTintColor" red="0.56862745100000001" green="0.12941176469999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="switchTapped:" destination="Has-vx-0Di" eventType="valueChanged" id="rUh-Dn-Yvz"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.18914955854415894" green="0.21098636090755463" blue="0.24716709554195404" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="vz7-vG-DFJ" secondAttribute="trailing" constant="15" id="1hX-cc-g3N"/>
+                                            <constraint firstItem="rxK-JF-O5V" firstAttribute="top" secondItem="SoH-cr-YMV" secondAttribute="topMargin" constant="12" id="7wb-RB-Svg"/>
+                                            <constraint firstItem="JSB-0O-4bc" firstAttribute="centerY" secondItem="SoH-cr-YMV" secondAttribute="centerY" id="ALF-uA-4NE"/>
+                                            <constraint firstItem="JSB-0O-4bc" firstAttribute="height" secondItem="SoH-cr-YMV" secondAttribute="height" id="Ech-P8-krb"/>
+                                            <constraint firstItem="rxK-JF-O5V" firstAttribute="leading" secondItem="SoH-cr-YMV" secondAttribute="leadingMargin" constant="12" id="H1h-ir-xf8"/>
+                                            <constraint firstItem="JSB-0O-4bc" firstAttribute="centerX" secondItem="SoH-cr-YMV" secondAttribute="centerX" id="Kbc-Sb-JUO"/>
                                             <constraint firstItem="vz7-vG-DFJ" firstAttribute="centerX" secondItem="SoH-cr-YMV" secondAttribute="centerX" id="Wbi-ba-JLw"/>
                                             <constraint firstItem="vz7-vG-DFJ" firstAttribute="centerY" secondItem="SoH-cr-YMV" secondAttribute="centerY" id="olO-Yk-fcF"/>
+                                            <constraint firstItem="JSB-0O-4bc" firstAttribute="width" secondItem="SoH-cr-YMV" secondAttribute="width" id="yf0-3d-tKZ"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="routineButton" destination="rxK-JF-O5V" id="5aR-Ks-GN2"/>
+                                            <outlet property="routineColor" destination="JSB-0O-4bc" id="t3I-VV-Ue4"/>
                                             <outlet property="routineName" destination="vz7-vG-DFJ" id="5RT-lv-13R"/>
                                         </connections>
                                     </collectionViewCell>

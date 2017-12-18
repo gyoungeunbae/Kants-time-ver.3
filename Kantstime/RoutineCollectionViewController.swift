@@ -26,17 +26,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         routineCollectionView.reloadData()
     }
-    func gradient(frame:CGRect) -> CAGradientLayer {
-        let layer = CAGradientLayer()
-        layer.frame = frame
-        layer.startPoint = CGPoint(x:0,y:0.5)
-        layer.endPoint = CGPoint(x:1,y:0.5)
-        layer.colors = [
-            UIColor.init ( red: 99.0/255.0, green: 47.0/255.0, blue: 191.0/255.0, alpha: 1 ).cgColor,UIColor.init ( red: 112.0/255.0, green: 172.0/255.0, blue: 221.0/255.0, alpha: 1 ).cgColor]
-        return layer
-    }
-
-     func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
@@ -45,28 +35,39 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
             return count
         }
         return 0
-        
     }
+   
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
         cell.layer.cornerRadius = 10
-        //cell.layer.insertSublayer(gradient(frame: cell.bounds), at:0)
         let routine = fetchedRoutine[indexPath.row]
-        cell.routineName.text = routine.routinetitle
-        //cell.routineButton.tag = indexPath.row
-        //cell.routineButton.isOn = routine.routineButton
+        let buttonValue = routine.routineButton
         
+        cell.routineButton.isOn = routine.routineButton
+        if buttonValue == true {
+            //cell.collectionviewColor.image = UIImage.imageWithLayer(layer: gradient)
+            //cell.collectionviewColor.backgroundColor = UIColor.blue
+            cell.routineColor.applyGradient(colours: [UIColor.init ( red: 99.0/255.0, green: 47.0/255.0, blue: 191.0/255.0, alpha: 1 ),UIColor.init ( red: 112.0/255.0, green: 172.0/255.0, blue: 221.0/255.0, alpha: 1 )])
+            cell.routineName.textColor = UIColor.white
+        }else {
+          //  cell.collectionviewColor.image = UIImage.imageWithLayer(layer: <#T##CALayer#>)
+            //cell.collectionviewColor.backgroundColor = UIColor.init(red: 52.0/255.0, green: 57.0/255.0, blue: 66.0/255.0, alpha: 1)
+            cell.routineName.textColor = UIColor.gray
+            cell.routineColor.applyGradient(colours: [UIColor.darkGray,UIColor.init(red: 52.0/255.0, green: 57.0/255.0, blue: 66.0/255.0, alpha: 1)])
+
+        }
+        //cell.layer.insertSublayer(gradient(frame: cell.bounds), at:UInt32(cell.routineButton.tag))
+        cell.routineName.text = routine.routinetitle
+        cell.routineButton.tag = indexPath.row
+        
+  
         return cell
     }
     
    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
-
-        
-    }
-  /*  @IBAction func switchTapped(_ sender: UISwitch) {
+    
+ @IBAction func switchTapped(_ sender: UISwitch) {
         routineCollectionView.reloadData()
         let realm = try? Realm()
         if  sender.isOn == true {
@@ -86,14 +87,14 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
                     }
             }
         }
-    }*/
+    }
 
     func configurationTextField(textField: UITextField!)
     {
         textField.placeholder = "Routine 이름을 입력하세요"
         routineNameFromTextField = textField
     }
-
+    
 
     @IBAction func addNewRoutine(_ sender: Any) {
         let realm = try? Realm()
@@ -148,5 +149,22 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     
     
 }
+
+extension UIView {
+    func applyGradient(colours: [UIColor]) -> Void {
+        self.applyGradient(colours: colours, locations: nil)
+    }
+    
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> Void {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.startPoint = CGPoint(x:0,y:0.5)
+        gradient.endPoint = CGPoint(x:1,y:0.5)
+        gradient.locations = locations
+        self.layer.addSublayer(gradient)
+    }
+}
+
 
 
