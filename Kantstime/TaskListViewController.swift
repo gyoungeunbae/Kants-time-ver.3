@@ -18,16 +18,12 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         tableView.dataSource = self
         let realm = try? Realm()
         fetchedTask = (realm?.objects(Task.self).sorted(byKeyPath: "integerStime", ascending: true))!
-        print("***\(existingRoutine.routinetitle)")
-      
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if let count = fetchedTask?.count {
             return count
         }
@@ -39,9 +35,6 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TaskTableViewCell
-        let task = existingRoutine.task[indexPath.row]
-        //let task = fetchedTask[indexPath.row]
-
         let count = indexPath.row%6
         if count==0 {
             cell.colorChip.backgroundColor=UIColor.init ( red: 33.0/255.0, green: 255.0/255.0, blue: 194.0/255.0, alpha: 1 )
@@ -56,10 +49,17 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         }else if count==5 {
             cell.colorChip.backgroundColor=UIColor.init ( red: 145.0/255.0, green: 33.0/255.0, blue: 255.0/255.0, alpha: 1 )
         }
-        //cell.taskTitle.text = task.tasktitle
-        //cell.startTime.text = task.starttime + "   -"
-        //cell.endTime.text = task.endtime
-        
+        if existingRoutine.task.endIndex != 0{
+            let task = existingRoutine.task[indexPath.row]
+            cell.taskTitle.text = task.tasktitle
+            cell.startTime.text = task.starttime + "   -"
+            cell.endTime.text = task.endtime
+        } else {
+            cell.taskTitle.text = ""
+            cell.startTime.text = ""
+            cell.endTime.text = ""
+            cell.colorChip.backgroundColor = UIColor.clear
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,7 +81,6 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
             }
         }
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "editSegue" {
