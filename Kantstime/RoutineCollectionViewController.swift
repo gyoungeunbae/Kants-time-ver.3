@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RoutineCollectionViewController: ViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class RoutineCollectionViewController: ViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var routineCollectionView: UICollectionView!
     var routineNameFromTextField:UITextField!
@@ -43,34 +43,34 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         cell.layer.cornerRadius = 10
         let routine = fetchedRoutine[indexPath.row]
         let buttonValue = routine.routineButton
-        
+        cell.routineButton.transform = CGAffineTransform(scaleX: 0.75, y: 0.8)
         cell.routineButton.isOn = routine.routineButton
-        if buttonValue == true {
-            //cell.collectionviewColor.image = UIImage.imageWithLayer(layer: gradient)
-            //cell.collectionviewColor.backgroundColor = UIColor.blue
+        
+       if buttonValue == true {
             cell.routineColor.applyGradient(colours: [UIColor.init ( red: 99.0/255.0, green: 47.0/255.0, blue: 191.0/255.0, alpha: 1 ),UIColor.init ( red: 112.0/255.0, green: 172.0/255.0, blue: 221.0/255.0, alpha: 1 )])
             cell.routineName.textColor = UIColor.white
             cell.routineButton.thumbTintColor = UIColor.white
         }else {
-            //cell.collectionviewColor.image = UIImage.imageWithLayer(layer: <#T##CALayer#>)
-            //cell.collectionviewColor.backgroundColor = UIColor.init(red: 52.0/255.0, green: 57.0/255.0, blue: 66.0/255.0, alpha: 1)
             cell.routineName.textColor = UIColor.init(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1)
-            cell.routineButton.tintColor = UIColor.gray
-            cell.routineButton.thumbTintColor = UIColor.darkGray
-            cell.routineColor.applyGradient(colours: [UIColor.init(red: 64.0/255.0, green: 64.0/255.0, blue: 64.0/255.0, alpha: 1),UIColor.init(red: 64.0/255.0, green: 64.0/255.0, blue: 63.0/255.0, alpha: 1)])
-
+            cell.routineName.textColor = UIColor.gray
+            cell.routineColor.applyGradient(colours: [UIColor.darkGray,UIColor.init(red: 52.0/255.0, green: 57.0/255.0, blue: 66.0/255.0, alpha: 1)])
         }
-        //cell.layer.insertSublayer(gradient(frame: cell.bounds), at:UInt32(cell.routineButton.tag))
         cell.routineName.text = routine.routinetitle
         cell.routineButton.tag = indexPath.row
         
   
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+        let fetched = fetchedRoutine[indexPath.row]
+        let realm = try? Realm()
+        try? realm?.write {
+            realm?.delete(fetched)
+            routineCollectionView.reloadData()
+        }
+    }
    
-    
- @IBAction func switchTapped(_ sender: UISwitch) {
+    @IBAction func switchTapped(_ sender: UISwitch) {
         routineCollectionView.reloadData()
         let realm = try? Realm()
         if  sender.isOn == true {
@@ -149,6 +149,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
             }
         }
     }
+    
     
     
 }
