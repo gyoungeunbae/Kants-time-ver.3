@@ -13,9 +13,9 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     var endIntegerValue = 0
     var startIntegerValue = 0
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         setButton()
         startTimeTextField.text = "시작시간"
         endTimeTextField.text = "종료시간"
@@ -44,7 +44,7 @@ class AddTaskViewController: UIViewController {
         doneButton.layer.borderColor = UIColor.black.cgColor
         doneButton.layer.borderWidth = 1.0
     }
-
+    
     
     @IBAction func setStartTime(_ sender: Any) {
         timeTextField = startTimeTextField
@@ -54,9 +54,9 @@ class AddTaskViewController: UIViewController {
     @IBAction func setEndTime(_ sender: Any) {
         timeTextField = endTimeTextField
         createDatePicker()
-
+        
     }
-
+    
     func createDatePicker() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -92,7 +92,7 @@ class AddTaskViewController: UIViewController {
             if let startTime = startTimeTextField.text {
                 if startTime != "시작시간" {
                     if startTime != ""{
-                        
+
                         newTask.starttime = startTime
                         var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                         var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
@@ -104,8 +104,8 @@ class AddTaskViewController: UIViewController {
                             newTask.integerStime = startIntegerValue
                             
                         }
+                    } else {}
                 } else {}
-            } else {}
             }
             
             
@@ -115,7 +115,7 @@ class AddTaskViewController: UIViewController {
                         newTask.endtime = endTime
                         var splitEndTime = endTime.characters.split(separator: " ").map{String($0)}
                         var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
-                    
+                        
                         if(splitEndTime[1]=="PM") {
                             endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
                             newTask.integerEtime = endIntegerValue
@@ -123,7 +123,7 @@ class AddTaskViewController: UIViewController {
                             endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
                             newTask.integerEtime = endIntegerValue
                         }
-                    
+                        
                         var timeInterval = endIntegerValue-startIntegerValue
                         if(timeInterval<0) {
                             timeInterval = startIntegerValue - endIntegerValue
@@ -131,10 +131,10 @@ class AddTaskViewController: UIViewController {
                         } else {
                             newTask.timeinterval = timeInterval
                         }
-                } else {
+                    } else {
                         //Todo: 종료시간을 입력해 주세여
                     }
-                
+                    
                 } else {
                     //Todo: 종료시간을 입력해 주세여
                 }
@@ -142,10 +142,10 @@ class AddTaskViewController: UIViewController {
             let realm = try? Realm()
             try? realm?.write {
                 realm?.add(newTask)
-
+                
             }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
-
+            
         }else {
             newTask = existingTask
             let trimName =  titleTextField.text?.trimmingCharacters(in:.whitespaces)
@@ -162,8 +162,8 @@ class AddTaskViewController: UIViewController {
             }
             let realm = try? Realm()
             try? realm?.write {
-           
-             
+                
+                
                 if let startTime = startTimeTextField.text {
                     if startTime != "시작시간" {
                         if startTime != ""{
@@ -210,19 +210,18 @@ class AddTaskViewController: UIViewController {
                     } else {
                         //Todo: 종료시간을 입력해 주세여
                     }
+                }
             }
-        }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             
         }
         navigationController?.popViewController(animated: true)
-}
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
         
     }
-    }
-    
+}
 
 
 

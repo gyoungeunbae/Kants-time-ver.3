@@ -70,7 +70,7 @@ class RoutineCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelega
                 let indexPath: IndexPath = collectionView.indexPathForItem(at: self.center)!
                     collectionView.delegate?.collectionView!(collectionView, performAction: #selector(onPan(_:)), forItemAt: indexPath, withSender: nil)
             } else {
-                UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: 0.3, animations: {
                     self.setNeedsLayout()
                     self.layoutIfNeeded()
                 })

@@ -10,6 +10,7 @@ import RealmSwift
 
 class TaskListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var fetchedTask:Results<Task>!
+    var existingRoutine:Routine!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,9 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         tableView.dataSource = self
         let realm = try? Realm()
         fetchedTask = (realm?.objects(Task.self).sorted(byKeyPath: "integerStime", ascending: true))!
+        print("***\(existingRoutine.routinetitle)")
+      
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +39,8 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TaskTableViewCell
-        let task = fetchedTask[indexPath.row]
+        let task = existingRoutine.task[indexPath.row]
+        //let task = fetchedTask[indexPath.row]
 
         let count = indexPath.row%6
         if count==0 {
@@ -51,16 +56,16 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         }else if count==5 {
             cell.colorChip.backgroundColor=UIColor.init ( red: 145.0/255.0, green: 33.0/255.0, blue: 255.0/255.0, alpha: 1 )
         }
-        
-        cell.taskTitle.text = task.tasktitle
-        cell.startTime.text = task.starttime + "   -"
-        cell.endTime.text = task.endtime
+        //cell.taskTitle.text = task.tasktitle
+        //cell.startTime.text = task.starttime + "   -"
+        //cell.endTime.text = task.endtime
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = fetchedTask[indexPath.row]
-        performSegue(withIdentifier: "editSegue", sender: task)
+        let routine = existingRoutine.task[indexPath.row]
+        performSegue(withIdentifier: "editSegue", sender: Task())
+        
 
     }
     
@@ -68,7 +73,9 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         if editingStyle == .delete {
             let realm = try? Realm()
             try? realm?.write {
-                let fetched = fetchedTask[indexPath.row]
+                //let fetched = fetchedTask[indexPath.row]
+                let fetched = existingRoutine.task[indexPath.row]
+
                 realm?.delete(fetched)
                 tableView.reloadData()
             }
@@ -76,6 +83,7 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "editSegue" {
             if let destination = segue.destination as? AddTaskViewController {
                 if let task = sender as? Task {

@@ -43,7 +43,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         cell.layer.cornerRadius = 10
         let routine = fetchedRoutine[indexPath.row]
         let buttonValue = routine.routineButton
-        cell.routineButton.transform = CGAffineTransform(scaleX: 0.75, y: 0.8)
+        cell.routineButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         cell.routineButton.isOn = routine.routineButton
         
        if buttonValue == true {
@@ -68,6 +68,11 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
             realm?.delete(fetched)
             routineCollectionView.reloadData()
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let routine = fetchedRoutine[indexPath.row]
+        performSegue(withIdentifier: "goTaskSegue", sender: routine)
+
     }
    
     @IBAction func switchTapped(_ sender: UISwitch) {
@@ -100,6 +105,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     
 
     @IBAction func addNewRoutine(_ sender: Any) {
+
         let realm = try? Realm()
         var newRoutine:Routine!
         //var newTaskList:List<Task>!
@@ -114,7 +120,6 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
                     let alertTitle = UIAlertController(title: "Routine", message:"Routine 이름을 입력해주세요" , preferredStyle: .alert)
                     alertTitle.addAction(doneAction)
                     self.present(alertTitle, animated: true, completion: nil)
-                    
                 } else{
                     
                     try? realm?.write {
@@ -135,6 +140,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         })
         alert.addAction(okAction)
         alert.addAction(cancelAction)
+
         present(alert, animated: true, completion: nil)
     }
    
@@ -142,16 +148,13 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goTaskSegue" {
             if let destination = segue.destination as? TaskListViewController {
-                if let task = sender as? Task {
+                if let routine = sender as? Routine {
+                    destination.existingRoutine = routine
                     
-                    //destination.existingTask = task
                 }
             }
         }
-    }
-    
-    
-    
+    } 
 }
 
 extension UIView {
