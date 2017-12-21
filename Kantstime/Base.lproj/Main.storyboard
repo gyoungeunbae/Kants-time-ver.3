@@ -203,7 +203,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vDc-zI-Efi">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" sectionInsetReference="layoutMargins" id="ghf-l4-Sfp">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="200" sectionInsetReference="layoutMargins" id="ghf-l4-Sfp">
                                     <size key="itemSize" width="300" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -211,7 +211,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="routineCell" id="SoH-cr-YMV" customClass="RoutineCollectionViewCell" customModule="Kantstime" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="8" width="300" height="300"/>
+                                        <rect key="frame" x="13" y="181" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -225,7 +225,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-vG-DFJ">
-                                                    <rect key="frame" x="23" y="135.66666666666666" width="254" height="29"/>
+                                                    <rect key="frame" x="23" y="136" width="254" height="29"/>
                                                     <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="24"/>
                                                     <color key="textColor" red="0.4823529412" green="0.48627450979999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -265,10 +265,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vDc-zI-Efi" firstAttribute="top" secondItem="5Ww-QK-5V8" secondAttribute="top" id="E7L-H7-FSl"/>
+                            <constraint firstItem="vDc-zI-Efi" firstAttribute="centerY" secondItem="GFc-oy-SJH" secondAttribute="centerY" id="2gC-6y-7bV"/>
                             <constraint firstItem="vDc-zI-Efi" firstAttribute="centerY" secondItem="GFc-oy-SJH" secondAttribute="centerY" id="KzX-mS-kFc"/>
+                            <constraint firstItem="vDc-zI-Efi" firstAttribute="top" secondItem="5Ww-QK-5V8" secondAttribute="top" id="QEl-pn-Bfd"/>
                             <constraint firstItem="vDc-zI-Efi" firstAttribute="leading" secondItem="5Ww-QK-5V8" secondAttribute="leading" id="Qzj-bZ-GhQ"/>
-                            <constraint firstItem="5Ww-QK-5V8" firstAttribute="bottom" secondItem="vDc-zI-Efi" secondAttribute="bottom" id="WdR-7F-CZD"/>
                             <constraint firstItem="vDc-zI-Efi" firstAttribute="trailing" secondItem="5Ww-QK-5V8" secondAttribute="trailing" id="ol9-hf-c6e"/>
                             <constraint firstItem="vDc-zI-Efi" firstAttribute="centerY" secondItem="GFc-oy-SJH" secondAttribute="centerY" id="y5i-gO-sKP"/>
                         </constraints>
