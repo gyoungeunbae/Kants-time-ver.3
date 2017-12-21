@@ -29,18 +29,15 @@ class RoutineCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelega
     }
     private func commonInit() {
         self.contentView.backgroundColor = UIColor.gray
-        self.backgroundColor = UIColor.red
+        self.backgroundColor = UIColor.black
         
        
         deleteLabel1 = UILabel()
-        deleteLabel1.text = "Delete"
+        deleteLabel1.text = "Delete?"
         deleteLabel1.textColor = UIColor.white
         self.insertSubview(deleteLabel1, belowSubview: self.contentView)
         
-        deleteLabel2 = UILabel()
-        deleteLabel2.text = "Delete"
-        deleteLabel2.textColor = UIColor.white
-        self.insertSubview(deleteLabel2, belowSubview: self.contentView)
+      
         
         pan = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         pan.delegate = self
@@ -53,9 +50,10 @@ class RoutineCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelega
             let p: CGPoint = pan.translation(in: self)
             let width = self.contentView.frame.width
             let height = self.contentView.frame.height
-            self.contentView.frame = CGRect(x: p.x,y: 0, width: width, height: height);
-            self.deleteLabel1.frame = CGRect(x: p.x - deleteLabel1.frame.size.width-10, y: 0, width: 100, height: height)
-            self.deleteLabel2.frame = CGRect(x: p.x + width + deleteLabel2.frame.size.width, y: 0, width: 100, height: height)
+            self.contentView.frame = CGRect(x: 0,y: p.y, width: width, height: height)
+            
+            self.deleteLabel1.frame = CGRect(x: self.bounds.midX/2+30, y: height/12, width: width, height: height)
+            deleteLabel1.font = UIFont(name: "BM DoHyeon OTF", size: 30.0)
         }
         
     }
@@ -65,7 +63,7 @@ class RoutineCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelega
         } else if pan.state == UIGestureRecognizerState.changed {
             self.setNeedsLayout()
         } else {
-            if abs(pan.velocity(in: self).x) > 500 {
+            if abs(pan.velocity(in: self).y) > 500 {
                 let collectionView: UICollectionView = self.superview as! UICollectionView
                 let indexPath: IndexPath = collectionView.indexPathForItem(at: self.center)!
                     collectionView.delegate?.collectionView!(collectionView, performAction: #selector(onPan(_:)), forItemAt: indexPath, withSender: nil)
@@ -83,6 +81,6 @@ class RoutineCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelega
     }
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return abs((pan.velocity(in: pan.view)).x) > abs((pan.velocity(in: pan.view)).y)
+        return abs((pan.velocity(in: pan.view)).y) > abs((pan.velocity(in: pan.view)).x)
     }
 }

@@ -9,9 +9,13 @@ import UIKit
 import RealmSwift
 
 class TaskListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    
+    @IBOutlet weak var routineNameLabel: UILabel!
     var fetchedTask:List<Task>!
     var existingRoutine:Routine!
     @IBOutlet weak var tableView: UITableView!
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -19,12 +23,14 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         let realm = try? Realm()
         let name = existingRoutine.routinetitle
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
+        routineNameLabel.text = existingRoutine.routinetitle
     }
-    
+   
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-    
+
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = fetchedTask?.count {
             return count
@@ -63,7 +69,7 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = fetchedTask[indexPath.row]
-        performSegue(withIdentifier: "editSegue", sender: Task())
+        performSegue(withIdentifier: "editSegue", sender: task)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -71,22 +77,33 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
             let realm = try? Realm()
             try? realm?.write {
                 let fetched = fetchedTask[indexPath.row]
-
                 realm?.delete(fetched)
+            
                 tableView.reloadData()
             }
         }
     }
+   
+    @IBAction func openAddVC(_ sender: Any) {
+        let routine = existingRoutine
+        performSegue(withIdentifier: "passRoutine", sender: routine)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "editSegue" {
+        if segue.identifier == "editSegue"{
             if let destination = segue.destination as? AddTaskViewController {
-                if let task = sender as? Task {
-
-                    destination.existingTask = task
+                if let taskAndRoutine = sender as? Task {
+                    destination.existingTask = taskAndRoutine 
                 }
             }
         }
+        if segue.identifier == "passRoutine" {
+            if let destination = segue.destination as? AddTaskViewController {
+                if let routine = sender as? Routine {
+                    destination.existingRoutine = routine
+                }
+            }
+        }
+        
     }
 }

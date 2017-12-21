@@ -40,7 +40,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         let cell = routineCollectionView.dequeueReusableCell(withReuseIdentifier: "routineCell", for: indexPath) as! RoutineCollectionViewCell
-        cell.layer.cornerRadius = 10
+        let cellRadius = cell.layer.frame.height/2
+        cell.layer.cornerRadius = cellRadius
+       
         let routine = fetchedRoutine[indexPath.row]
         let buttonValue = routine.routineButton
         cell.routineButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -51,9 +53,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
             cell.routineName.textColor = UIColor.white
             cell.routineButton.thumbTintColor = UIColor.white
         }else {
-            cell.routineName.textColor = UIColor.init(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1)
+            //cell.routineName.textColor = UIColor.init(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1)
             cell.routineName.textColor = UIColor.gray
-            cell.routineColor.applyGradient(colours: [UIColor.darkGray,UIColor.init(red: 52.0/255.0, green: 57.0/255.0, blue: 66.0/255.0, alpha: 1)])
+            cell.routineColor.applyGradient(colours: [UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1),UIColor.init(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1)])
         }
         cell.routineName.text = routine.routinetitle
         cell.routineButton.tag = indexPath.row
@@ -167,7 +169,7 @@ extension UIView {
         gradient.frame = self.bounds
         gradient.colors = colours.map { $0.cgColor }
         gradient.startPoint = CGPoint(x:0,y:0.5)
-        gradient.endPoint = CGPoint(x:1,y:0.5)
+        gradient.endPoint = CGPoint(x:1,y:0.8)
         gradient.locations = locations
         self.layer.addSublayer(gradient)
     }

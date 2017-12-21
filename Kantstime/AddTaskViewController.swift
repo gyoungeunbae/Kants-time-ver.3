@@ -4,6 +4,10 @@ import UIKit
 import RealmSwift
 class AddTaskViewController: UIViewController {
     var existingTask:Task!
+    var existingRoutine:Routine!
+    var passedData:[Any]!
+    let index:Int! = nil
+    var fetchedTask:List<Task>!
     let dateFormatter = DateFormatter()
     var timeTextField :UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
@@ -23,6 +27,12 @@ class AddTaskViewController: UIViewController {
         startTimeTextField.clearsOnBeginEditing = true
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
+        let realm = try? Realm()
+        if existingRoutine != nil {
+            let name = existingRoutine.routinetitle
+            fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
+        }
+        
         if let passedtask = existingTask {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
@@ -33,8 +43,6 @@ class AddTaskViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -141,14 +149,17 @@ class AddTaskViewController: UIViewController {
             }
             let realm = try? Realm()
             try? realm?.write {
-                realm?.add(newTask)
-                
+                //existingTask.append(newTask)
+                fetchedTask.append(newTask)
             }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             
         }else {
+            let realm = try? Realm()
             newTask = existingTask
-            let trimName =  titleTextField.text?.trimmingCharacters(in:.whitespaces)
+            try? realm?.write {
+            
+            let trimName =  titleTextField?.text?.trimmingCharacters(in:.whitespaces)
             if let name = trimName {
                 if name == "" {
                     let alertTitle = UIAlertController(title: "Task", message:"Task 이름을 입력해주세요" , preferredStyle: .alert)
@@ -160,10 +171,6 @@ class AddTaskViewController: UIViewController {
                 }
                 
             }
-            let realm = try? Realm()
-            try? realm?.write {
-                
-                
                 if let startTime = startTimeTextField.text {
                     if startTime != "시작시간" {
                         if startTime != ""{
@@ -196,7 +203,6 @@ class AddTaskViewController: UIViewController {
                                 endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
                                 newTask.integerEtime = endIntegerValue
                             }
-                            
                             var timeInterval = endIntegerValue-startIntegerValue
                             if(timeInterval<0) {
                                 timeInterval = startIntegerValue - endIntegerValue
@@ -210,13 +216,17 @@ class AddTaskViewController: UIViewController {
                     } else {
                         //Todo: 종료시간을 입력해 주세여
                     }
+                    
                 }
-            }
+           
+        }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
-            
+         print(newTask)
         }
         navigationController?.popViewController(animated: true)
     }
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
         
