@@ -62,18 +62,15 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let routine = existingRoutine.task[indexPath.row]
+        let task = fetchedTask[indexPath.row]
         performSegue(withIdentifier: "editSegue", sender: Task())
-        
-
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let realm = try? Realm()
             try? realm?.write {
-                //let fetched = fetchedTask[indexPath.row]
-                let fetched = existingRoutine.task[indexPath.row]
+                let fetched = fetchedTask[indexPath.row]
 
                 realm?.delete(fetched)
                 tableView.reloadData()
