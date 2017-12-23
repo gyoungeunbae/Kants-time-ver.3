@@ -5,8 +5,6 @@ import RealmSwift
 class AddTaskViewController: UIViewController {
     var existingTask:Task!
     var existingRoutine:Routine!
-    var passedData:[Any]!
-    let index:Int! = nil
     var fetchedTask:List<Task>!
     let dateFormatter = DateFormatter()
     var timeTextField :UITextField!
@@ -32,7 +30,6 @@ class AddTaskViewController: UIViewController {
             let name = existingRoutine.routinetitle
             fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
         }
-        
         if let passedtask = existingTask {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
@@ -147,10 +144,47 @@ class AddTaskViewController: UIViewController {
                     //Todo: 종료시간을 입력해 주세여
                 }
             }
-            let realm = try? Realm()
-            try? realm?.write {
-                //existingTask.append(newTask)
-                fetchedTask.append(newTask)
+            var timeOverap = false
+            for i in 0..<fetchedTask.count {
+                var startTime = fetchedTask[i].integerStime
+                var endTime = fetchedTask[i].integerEtime
+                var checkStartTime = newTask.integerStime
+                var checkEndTime = newTask.integerEtime
+                
+                if(checkStartTime > startTime && checkEndTime < endTime)
+                {
+                    print(fetchedTask[i].tasktitle)
+                    timeOverap = true
+                }else if(checkStartTime > startTime && checkStartTime < endTime){
+                     print(fetchedTask[i].tasktitle)
+                     timeOverap = true
+                    doneButton.isUserInteractionEnabled = false
+                }else if(checkEndTime > startTime && checkEndTime < endTime){
+                     print(fetchedTask[i].tasktitle)
+                     timeOverap = true
+                    doneButton.isUserInteractionEnabled = false
+                }else if(checkStartTime==startTime || checkEndTime==endTime){
+                    //Check start or end time is at the border of start and end time
+                     print(fetchedTask[i].tasktitle)
+                     timeOverap = true
+                    doneButton.isUserInteractionEnabled = false
+                }else if(startTime > checkStartTime && endTime < checkEndTime){
+                    //#-> start and end time is in between  the check start and end time.
+                     print(fetchedTask[i].tasktitle)
+                     timeOverap = true
+                    doneButton.isUserInteractionEnabled = false
+                }
+            }
+            if timeOverap == false {
+                let realm = try? Realm()
+                try? realm?.write {
+                    //existingTask.append(newTask)
+                    fetchedTask.append(newTask)
+                }
+                navigationController?.popViewController(animated: true)
+
+            } else {
+                print("다시 알림")
             }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             
@@ -158,7 +192,7 @@ class AddTaskViewController: UIViewController {
             let realm = try? Realm()
             newTask = existingTask
             try? realm?.write {
-            
+                
             let trimName =  titleTextField?.text?.trimmingCharacters(in:.whitespaces)
             if let name = trimName {
                 if name == "" {
@@ -221,11 +255,9 @@ class AddTaskViewController: UIViewController {
            
         }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
-         print(newTask)
+        
         }
-        navigationController?.popViewController(animated: true)
     }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)

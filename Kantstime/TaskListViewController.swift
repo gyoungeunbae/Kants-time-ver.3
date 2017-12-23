@@ -14,8 +14,7 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     var fetchedTask:List<Task>!
     var existingRoutine:Routine!
     @IBOutlet weak var tableView: UITableView!
-    
- 
+    var taskList:[Task]!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -23,6 +22,8 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         let realm = try? Realm()
         let name = existingRoutine.routinetitle
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
+    
+       
         routineNameLabel.text = existingRoutine.routinetitle
     }
    
@@ -58,27 +59,34 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         }else if count==5 {
             cell.colorChip.backgroundColor=UIColor.init ( red: 145.0/255.0, green: 33.0/255.0, blue: 255.0/255.0, alpha: 1 )
         }
-      
-            let task = fetchedTask[indexPath.row]//existingRoutine.task[indexPath.row]
-            cell.taskTitle.text = task.tasktitle
-            cell.startTime.text = task.starttime + "   -"
-            cell.endTime.text = task.endtime
+        let sort = Sorting()
+        taskList = sort.mergeSort(list: fetchedTask)
+        let realm = try? Realm()
+        print("\(taskList[indexPath.row].tasktitle)******\(indexPath.row)")
+        cell.taskTitle.text = taskList[indexPath.row].tasktitle
+        cell.startTime.text = (taskList[indexPath.row].starttime) + "   -"
+        cell.endTime.text = taskList[indexPath.row].endtime
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = fetchedTask[indexPath.row]
+        let task = taskList[indexPath.row]
         performSegue(withIdentifier: "editSegue", sender: task)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let realm = try? Realm()
+            var task = taskList[indexPath.row]
+            for i in 0 ..< fetchedTask.count {
+                if task.starttime == fetchedTask[i].starttime {
+                    task = fetchedTask[i]
+                }
+            }
             try? realm?.write {
-                let fetched = fetchedTask[indexPath.row]
-                realm?.delete(fetched)
-            
+                
+                realm?.delete(task)
                 tableView.reloadData()
             }
         }
@@ -92,8 +100,8 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSegue"{
             if let destination = segue.destination as? AddTaskViewController {
-                if let taskAndRoutine = sender as? Task {
-                    destination.existingTask = taskAndRoutine 
+                if let task = sender as? Task {
+                    destination.existingTask = task
                 }
             }
         }
