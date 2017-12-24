@@ -70,6 +70,7 @@ class AddTaskViewController: UIViewController {
         timeDatePicker.datePickerMode = .time
         timeTextField.inputView = timeDatePicker
         timeTextField.inputAccessoryView = toolBar
+        
     }
     @objc func doneToolbarButtonPressed(sender: UIBarButtonItem) {
         dateFormatter.timeStyle = .short
@@ -80,6 +81,8 @@ class AddTaskViewController: UIViewController {
     @IBAction func taskSaved(_ sender: Any) {
         //var taskData = inputTaskData()
         var newTask:Task!
+        var nilTime:Bool!
+        nilTime = false
         if existingTask == nil {
             newTask = Task()
             let trimName =  titleTextField.text?.trimmingCharacters(in:.whitespaces)
@@ -96,8 +99,9 @@ class AddTaskViewController: UIViewController {
             }
             if let startTime = startTimeTextField.text {
                 if startTime != "시작시간" {
+                    print(startTime)
                     if startTime != ""{
-
+                        print(startTime)
                         newTask.starttime = startTime
                         var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                         var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
@@ -109,8 +113,12 @@ class AddTaskViewController: UIViewController {
                             newTask.integerStime = startIntegerValue
                             
                         }
-                    } else {}
-                } else {}
+                    }else {
+                        nilTime = true
+                    }
+                }else {
+                        nilTime = true
+                }
             }
             
             
@@ -136,15 +144,15 @@ class AddTaskViewController: UIViewController {
                         } else {
                             newTask.timeinterval = timeInterval
                         }
-                    } else {
-                        //Todo: 종료시간을 입력해 주세여
+                    }else {
+                        nilTime = true
                     }
-                    
                 } else {
-                    //Todo: 종료시간을 입력해 주세여
+                    nilTime = true
                 }
             }
             var timeOverap = false
+            var index:Int!
             for i in 0..<fetchedTask.count {
                 var startTime = fetchedTask[i].integerStime
                 var endTime = fetchedTask[i].integerEtime
@@ -155,36 +163,55 @@ class AddTaskViewController: UIViewController {
                 {
                     print(fetchedTask[i].tasktitle)
                     timeOverap = true
+                     index = i
                 }else if(checkStartTime > startTime && checkStartTime < endTime){
                      print(fetchedTask[i].tasktitle)
                      timeOverap = true
+                     index = i
                     doneButton.isUserInteractionEnabled = false
                 }else if(checkEndTime > startTime && checkEndTime < endTime){
                      print(fetchedTask[i].tasktitle)
                      timeOverap = true
+                     index = i
                     doneButton.isUserInteractionEnabled = false
                 }else if(checkStartTime==startTime || checkEndTime==endTime){
-                    //Check start or end time is at the border of start and end time
                      print(fetchedTask[i].tasktitle)
                      timeOverap = true
+                     index = i
                     doneButton.isUserInteractionEnabled = false
                 }else if(startTime > checkStartTime && endTime < checkEndTime){
-                    //#-> start and end time is in between  the check start and end time.
                      print(fetchedTask[i].tasktitle)
                      timeOverap = true
+                     index = i
                     doneButton.isUserInteractionEnabled = false
                 }
+               
             }
-            if timeOverap == false {
+            if timeOverap == false && nilTime == false {
                 let realm = try? Realm()
                 try? realm?.write {
-                    //existingTask.append(newTask)
                     fetchedTask.append(newTask)
                 }
                 navigationController?.popViewController(animated: true)
 
             } else {
+                if timeOverap == true {
+                    let alert = UIAlertController(title: "다시 입력해주세요", message: "\n\(fetchedTask[index].tasktitle) (\(fetchedTask[index].starttime)~\(fetchedTask[index].endtime))와 \n시간이 겹칩니다.", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
+                    timeOverap = true
+                    self.doneButton.isUserInteractionEnabled = true
+                    })
+                    alert.addAction(doneAction)
+                    self.present(alert, animated: true, completion: nil)
+
+                }
+                if nilTime == true {
+                    
+                }
                 print("다시 알림")
+                print(timeOverap)
+                print(nilTime)
+                
             }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             
@@ -209,7 +236,6 @@ class AddTaskViewController: UIViewController {
                     if startTime != "시작시간" {
                         if startTime != ""{
                             newTask.starttime = startTime
-                            print("******\(newTask.starttime)")
                             var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                             var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
                             if(splitStartTime![1]=="PM") {
