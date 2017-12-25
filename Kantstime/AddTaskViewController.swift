@@ -106,10 +106,17 @@ class AddTaskViewController: UIViewController {
                         var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                         var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
                         if(splitStartTime![1]=="PM") {
+                            if startTimeArray[0] == "12" {
+                                startTimeArray[0] = "0"
+                            }
                             startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
                             newTask.integerStime = startIntegerValue
                         } else if(splitStartTime![1]=="AM"){
+                            if startTimeArray[0] == "12" {
+                                startTimeArray[0] = "24"
+                            }
                             startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
+
                             newTask.integerStime = startIntegerValue
                             
                         }
@@ -130,11 +137,17 @@ class AddTaskViewController: UIViewController {
                         var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
                         
                         if(splitEndTime[1]=="PM") {
+                            if endTimeArray[0] == "12" {
+                                endTimeArray[0] = "0"
+                            }
                             endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
-                            newTask.integerEtime = endIntegerValue
+                            newTask.integerEtime = endIntegerValue-1
                         } else if(splitEndTime[1]=="AM"){
+                            if endTimeArray[0] == "12" {
+                                endTimeArray[0] = "24"
+                            }
                             endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
-                            newTask.integerEtime = endIntegerValue
+                            newTask.integerEtime = endIntegerValue-1
                         }
                         
                         var timeInterval = endIntegerValue-startIntegerValue
@@ -153,38 +166,75 @@ class AddTaskViewController: UIViewController {
             }
             var timeOverap = false
             var index:Int!
+            dateFormatter.dateFormat = "hh:mm a"
+            
+            var checkStartTime = dateFormatter.date(from: newTask.starttime)
+            var checkEndTime = dateFormatter.date(from: newTask.endtime)
+           
             for i in 0..<fetchedTask.count {
-                var startTime = fetchedTask[i].integerStime
-                var endTime = fetchedTask[i].integerEtime
-                var checkStartTime = newTask.integerStime
-                var checkEndTime = newTask.integerEtime
-                
-                if(checkStartTime > startTime && checkEndTime < endTime)
+                var startTime = dateFormatter.date(from: fetchedTask[i].starttime)
+                var endTime = dateFormatter.date(from: fetchedTask[i].endtime)
+                print("\(startTime)!!!!!!!!!!!!!!!!!!!!!")
+                if(checkEndTime! > startTime! && checkStartTime! < endTime!)
                 {
                     print(fetchedTask[i].tasktitle)
                     timeOverap = true
                      index = i
-                }else if(checkStartTime > startTime && checkStartTime < endTime){
-                     print(fetchedTask[i].tasktitle)
-                     timeOverap = true
-                     index = i
-                    doneButton.isUserInteractionEnabled = false
-                }else if(checkEndTime > startTime && checkEndTime < endTime){
-                     print(fetchedTask[i].tasktitle)
-                     timeOverap = true
-                     index = i
-                    doneButton.isUserInteractionEnabled = false
-                }else if(checkStartTime==startTime || checkEndTime==endTime){
-                     print(fetchedTask[i].tasktitle)
-                     timeOverap = true
-                     index = i
-                    doneButton.isUserInteractionEnabled = false
-                }else if(startTime > checkStartTime && endTime < checkEndTime){
-                     print(fetchedTask[i].tasktitle)
-                     timeOverap = true
-                     index = i
-                    doneButton.isUserInteractionEnabled = false
+                    print("\(startTime)??????")
+                    print("\(endTime)??????")
+                    print("\(checkStartTime)>>>>>>>>>>")
+                    print("\(checkEndTime)>>>>>>>>>>")
+                    print("1")
                 }
+//                }else if(checkStartTime! > startTime! && checkStartTime! < endTime!){
+//                     print(fetchedTask[i].tasktitle)
+//                     timeOverap = true
+//                     index = i
+//                    print("\(startTime)??????")
+//                    print("\(endTime)??????")
+//                    print("\(checkStartTime)>>>>>>>>>>")
+//                    print("\(checkEndTime)>>>>>>>>>>")
+//                    print("2")
+//
+//
+//                    doneButton.isUserInteractionEnabled = false
+//                }else if(checkEndTime! > startTime! && checkEndTime! < endTime!){
+//                     print(fetchedTask[i].tasktitle)
+//                     timeOverap = true
+//                     index = i
+//                    print("\(startTime)??????")
+//                    print("\(endTime)??????")
+//                    print("\(checkStartTime)>>>>>>>>>>")
+//                    print("\(checkEndTime)>>>>>>>>>>")
+//                    print("3")
+//
+//
+//                    doneButton.isUserInteractionEnabled = false
+//                }else if(checkStartTime==startTime || checkEndTime==endTime){
+//                     print(fetchedTask[i].tasktitle)
+//                     timeOverap = true
+//                     index = i
+//                    print("\(startTime)??????")
+//                    print("\(endTime)??????")
+//                    print("\(checkStartTime)>>>>>>>>>>")
+//                    print("\(checkEndTime)>>>>>>>>>>")
+//                    print("4")
+//
+//
+//                    doneButton.isUserInteractionEnabled = false
+//                }else if(startTime! > checkStartTime! && endTime! < checkEndTime!){
+//                     print(fetchedTask[i].tasktitle)
+//                     timeOverap = true
+//                     index = i
+//                    print("\(startTime)??????")
+//                    print("\(endTime)??????")
+//                    print("\(checkStartTime)>>>>>>>>>>")
+//                    print("\(checkEndTime)>>>>>>>>>>")
+//                    print("5")
+//
+//
+//                    doneButton.isUserInteractionEnabled = false
+//                }
                
             }
             if timeOverap == false && nilTime == false {
@@ -258,10 +308,10 @@ class AddTaskViewController: UIViewController {
                             
                             if(splitEndTime[1]=="PM") {
                                 endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
-                                newTask.integerEtime = endIntegerValue
+                                newTask.integerEtime = endIntegerValue-1
                             } else if(splitEndTime[1]=="AM"){
                                 endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
-                                newTask.integerEtime = endIntegerValue
+                                newTask.integerEtime = endIntegerValue-1
                             }
                             var timeInterval = endIntegerValue-startIntegerValue
                             if(timeInterval<0) {

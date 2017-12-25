@@ -15,7 +15,6 @@ class Task: Object {
     @objc dynamic var integerStime=0
     @objc dynamic var integerEtime=0
     @objc dynamic var timeinterval=0
-    
 }
 
 
