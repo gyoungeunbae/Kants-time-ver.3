@@ -21,7 +21,9 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         routineCollectionView.dataSource = self
         let realm = try? Realm()
         fetchedRoutine = (realm?.objects(Routine.self))?.sorted(byKeyPath: "routinetitle", ascending: true)
+        
     }
+
     override func viewWillAppear(_ animated: Bool) {
         routineCollectionView.reloadData()
     }
@@ -45,17 +47,23 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         let buttonValue = routine.routineButton
         cell.routineButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         cell.routineButton.isOn = routine.routineButton
-        
+      
        if buttonValue == true {
-            cell.routineColor.applyGradient(colours: [UIColor.init ( red: 99.0/255.0, green: 47.0/255.0, blue: 191.0/255.0, alpha: 1 ),UIColor.init ( red: 112.0/255.0, green: 172.0/255.0, blue: 221.0/255.0, alpha: 1 )])
-            cell.routineName.textColor = UIColor.white
-            cell.routineButton.thumbTintColor = UIColor.white
+             var colors = [UIColor]()
+             colors.append(UIColor.init(red: 0.0/255.0, green: 219.0/255.0, blue: 222.0/255.0, alpha: 1))
+             colors.append(UIColor.init(red: 252.0/255.0, green: 0.0/255.0, blue: 255.0/255.0, alpha: 1))
+             cell.routineColor.applyGradient(colors: colors)
+             cell.routineName.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.7)
+             cell.routineButton.thumbTintColor = UIColor.white
 
         }else {
-            //cell.routineName.textColor = UIColor.init(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1)
-            cell.routineName.textColor = UIColor.gray
-            cell.routineColor.applyGradient(colours: [UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1),UIColor.init(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1)])
-
+            var colors = [UIColor]()
+            colors.append(UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1))
+            colors.append(UIColor.init(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1))
+            cell.routineColor.applyGradient(colors: colors)
+            //cell.routineName.textColor = UIColor.gray
+            cell.routineColor.applyGradient(colors: colors)
+        
         }
         cell.routineName.text = routine.routinetitle
         cell.routineButton.tag = indexPath.row
@@ -158,7 +166,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         }
     } 
 }
-
+/*
 extension UIView {
     func applyGradient(colours: [UIColor]) -> Void {
         self.applyGradient(colours: colours, locations: nil)
@@ -175,5 +183,4 @@ extension UIView {
     }
 }
 
-
-
+*/

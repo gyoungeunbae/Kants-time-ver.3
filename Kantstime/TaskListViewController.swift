@@ -22,9 +22,8 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         let realm = try? Realm()
         let name = existingRoutine.routinetitle
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
-    
-       
-        routineNameLabel.text = existingRoutine.routinetitle
+       routineNameLabel.text = existingRoutine.routinetitle
+        
     }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -40,33 +39,23 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 200
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TaskTableViewCell
         let count = indexPath.row%6
-        if count==0 {
-            cell.colorChip.backgroundColor=UIColor.init ( red: 33.0/255.0, green: 255.0/255.0, blue: 194.0/255.0, alpha: 1 )
-        }else if count==1 {
-            cell.colorChip.backgroundColor=UIColor.init ( red: 255.0/255.0, green: 33.0/255.0, blue: 199.0/255.0, alpha: 1 )
-        }else if count==2 {
-            cell.colorChip.backgroundColor=UIColor.init ( red: 33.0/255.0, green: 203.0/255.0, blue: 255.0/255.0, alpha: 1 )
-        }else if count==3 {
-            cell.colorChip.backgroundColor=UIColor.init ( red: 255.0/255.0, green: 33.0/255.0, blue: 73.0/255.0, alpha: 1 )
-        }else if count==4 {
-            cell.colorChip.backgroundColor=UIColor.init ( red: 245.0/255.0, green: 255.0/255.0, blue: 33.0/255.0, alpha: 1 )
-        }else if count==5 {
-            cell.colorChip.backgroundColor=UIColor.init ( red: 145.0/255.0, green: 33.0/255.0, blue: 255.0/255.0, alpha: 1 )
-        }
+        let view = UIView()
+        cell.colorChip.applyGradient(colors:view.colorList(index: count))
         let sort = Sorting()
         taskList = sort.mergeSort(list: fetchedTask)
+        
         let realm = try? Realm()
-        print("\(taskList[indexPath.row].tasktitle)******\(indexPath.row)")
         cell.taskTitle.text = taskList[indexPath.row].tasktitle
         cell.startTime.text = (taskList[indexPath.row].starttime) + "   -"
         cell.endTime.text = taskList[indexPath.row].endtime
-
+        //cell.colorChip.backgroundColor = 
         return cell
     }
     
@@ -115,3 +104,4 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         
     }
 }
+
