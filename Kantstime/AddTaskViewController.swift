@@ -3,8 +3,9 @@
 import UIKit
 import RealmSwift
 class AddTaskViewController: UIViewController {
+    var routineName:String!
     var existingTask:Task!
-    var existingRoutine:Routine!
+    var passedRoutineName:String!
     var fetchedTask:List<Task>!
     let dateFormatter = DateFormatter()
     var timeTextField :UITextField!
@@ -26,10 +27,8 @@ class AddTaskViewController: UIViewController {
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
         let realm = try? Realm()
-        if existingRoutine != nil {
-            let name = existingRoutine.routinetitle
-            fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
-        }
+        
+        
         if let passedtask = existingTask {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
@@ -80,11 +79,16 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func taskSaved(_ sender: Any) {
         //var taskData = inputTaskData()
+        let realm = try? Realm()
         var newTask:Task!
         var nilTime:Bool!
         nilTime = false
+        
         if existingTask == nil {
             newTask = Task()
+            routineName = passedRoutineName
+            fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(passedRoutineName!)'").first?.task
+
             let trimName =  titleTextField.text?.trimmingCharacters(in:.whitespaces)
             if let name = trimName {
                 if name == "" {
@@ -93,6 +97,7 @@ class AddTaskViewController: UIViewController {
                     alertTitle.addAction(doneAction)
                     self.present(alertTitle, animated: true, completion: nil)
                 } else {
+                    newTask.routinetitle = routineName
                     newTask.tasktitle = name
                 }
                 
@@ -164,81 +169,25 @@ class AddTaskViewController: UIViewController {
                     nilTime = true
                 }
             }
-            var timeOverap = false
-            var index:Int!
-            dateFormatter.dateFormat = "hh:mm a"
             
-            var checkStartTime = dateFormatter.date(from: newTask.starttime)
-            var checkEndTime = dateFormatter.date(from: newTask.endtime)
-           
-            for i in 0..<fetchedTask.count {
-                var startTime = dateFormatter.date(from: fetchedTask[i].starttime)
-                var endTime = dateFormatter.date(from: fetchedTask[i].endtime)
-                print("\(startTime)!!!!!!!!!!!!!!!!!!!!!")
-                if(checkEndTime! > startTime! && checkStartTime! < endTime!)
-                {
-                    print(fetchedTask[i].tasktitle)
-                    timeOverap = true
-                     index = i
-                    print("\(startTime)??????")
-                    print("\(endTime)??????")
-                    print("\(checkStartTime)>>>>>>>>>>")
-                    print("\(checkEndTime)>>>>>>>>>>")
-                    print("1")
+                var timeOverap = false
+                var index:Int!
+                dateFormatter.dateFormat = "hh:mm a"
+                if fetchedTask != nil {
+                    var checkStartTime = dateFormatter.date(from: newTask.starttime)
+                    var checkEndTime = dateFormatter.date(from: newTask.endtime)
+                    for i in 0..<fetchedTask.count {
+                        var startTime = dateFormatter.date(from: fetchedTask[i].starttime)
+                        var endTime = dateFormatter.date(from: fetchedTask[i].endtime)
+                        print("\(startTime)!!!!!!!!!!!!!!!!!!!!!")
+                        if(checkEndTime! > startTime! && checkStartTime! < endTime!)
+                        {
+                            timeOverap = true
+                            index = i
+                        }
                 }
-//                }else if(checkStartTime! > startTime! && checkStartTime! < endTime!){
-//                     print(fetchedTask[i].tasktitle)
-//                     timeOverap = true
-//                     index = i
-//                    print("\(startTime)??????")
-//                    print("\(endTime)??????")
-//                    print("\(checkStartTime)>>>>>>>>>>")
-//                    print("\(checkEndTime)>>>>>>>>>>")
-//                    print("2")
-//
-//
-//                    doneButton.isUserInteractionEnabled = false
-//                }else if(checkEndTime! > startTime! && checkEndTime! < endTime!){
-//                     print(fetchedTask[i].tasktitle)
-//                     timeOverap = true
-//                     index = i
-//                    print("\(startTime)??????")
-//                    print("\(endTime)??????")
-//                    print("\(checkStartTime)>>>>>>>>>>")
-//                    print("\(checkEndTime)>>>>>>>>>>")
-//                    print("3")
-//
-//
-//                    doneButton.isUserInteractionEnabled = false
-//                }else if(checkStartTime==startTime || checkEndTime==endTime){
-//                     print(fetchedTask[i].tasktitle)
-//                     timeOverap = true
-//                     index = i
-//                    print("\(startTime)??????")
-//                    print("\(endTime)??????")
-//                    print("\(checkStartTime)>>>>>>>>>>")
-//                    print("\(checkEndTime)>>>>>>>>>>")
-//                    print("4")
-//
-//
-//                    doneButton.isUserInteractionEnabled = false
-//                }else if(startTime! > checkStartTime! && endTime! < checkEndTime!){
-//                     print(fetchedTask[i].tasktitle)
-//                     timeOverap = true
-//                     index = i
-//                    print("\(startTime)??????")
-//                    print("\(endTime)??????")
-//                    print("\(checkStartTime)>>>>>>>>>>")
-//                    print("\(checkEndTime)>>>>>>>>>>")
-//                    print("5")
-//
-//
-//                    doneButton.isUserInteractionEnabled = false
-//                }
-               
             }
             if timeOverap == false && nilTime == false {
-                let realm = try? Realm()
                 try? realm?.write {
                     fetchedTask.append(newTask)
                 }
@@ -256,7 +205,7 @@ class AddTaskViewController: UIViewController {
 
                 }
                 if nilTime == true {
-                    
+                    //ALERT
                 }
                 print("다시 알림")
                 print(timeOverap)
@@ -266,8 +215,8 @@ class AddTaskViewController: UIViewController {
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             
         }else {
-            let realm = try? Realm()
             newTask = existingTask
+            routineName = existingTask.routinetitle
             try? realm?.write {
                 
             let trimName =  titleTextField?.text?.trimmingCharacters(in:.whitespaces)
@@ -278,7 +227,9 @@ class AddTaskViewController: UIViewController {
                     alertTitle.addAction(doneAction)
                     self.present(alertTitle, animated: true, completion: nil)
                 } else {
+                    newTask.routinetitle = routineName
                     newTask.tasktitle = name
+                    print("\(newTask.routinetitle)")
                 }
                 
             }
@@ -328,6 +279,8 @@ class AddTaskViewController: UIViewController {
                     }
                     
                 }
+                navigationController?.popViewController(animated: true)
+
            
         }
             print(Realm.Configuration.defaultConfiguration.fileURL!)

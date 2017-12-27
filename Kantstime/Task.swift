@@ -9,6 +9,7 @@ class Routine: Object {
 }
 
 class Task: Object {
+    @objc dynamic var routinetitle = ""
     @objc dynamic var tasktitle = ""
     @objc dynamic var starttime=""
     @objc dynamic var endtime=""

@@ -28,13 +28,14 @@ extension UIView {
     
         switch index {
         case 0:
-            return[UIColor.init(red: 247.0/255.0, green: 112.0/255.0, blue: 98.0/255.0, alpha: 1),UIColor.init(red: 254.0/255.0, green: 81.0/255.0, blue: 150.0/255.0, alpha: 1)]
+            return[UIColor.init(red: 255.0/255.0, green: 154.0/255.0, blue: 158.0/255.0, alpha: 1),UIColor.init(red: 250.0/255.0, green: 208.0/255.0, blue: 196.0/255.0, alpha: 1)]
         case 1:
-           return[UIColor.init(red: 255.0/255.0, green: 110.0/255.0, blue: 127.0/255.0, alpha: 0),UIColor.init(red: 191.0/255.0, green: 233.0/255.0, blue: 2550.0/255.0, alpha: 0.51),UIColor.init(red: 255.0/255.0, green: 110.0/255.0, blue: 127.0/255.0, alpha: 1)]
+            return[UIColor.init(red: 247.0/255.0, green: 112.0/255.0, blue: 98.0/255.0, alpha: 1),UIColor.init(red: 254.0/255.0, green: 81.0/255.0, blue: 150.0/255.0, alpha: 1)]
         case 2:
-            return[UIColor.init(red: 247.0/255.0, green: 112.0/255.0, blue: 98.0/255.0, alpha: 1),UIColor.init(red: 254.0/255.0, green: 81.0/255.0, blue: 150.0/255.0, alpha: 1)]
+            return[UIColor.init(red: 125.0/255.0, green: 226.0/255.0, blue: 252.0/255.0, alpha: 0.6),UIColor.init(red: 185.0/255.0, green: 182.0/255.0, blue: 229.0/255.0, alpha: 1)]
         case 3:
-            return[UIColor.init(red: 247.0/255.0, green: 112.0/255.0, blue: 98.0/255.0, alpha: 1),UIColor.init(red: 254.0/255.0, green: 81.0/255.0, blue: 150.0/255.0, alpha: 1)]
+            return[UIColor.init(red: 250.0/255.0, green: 208.0/255.0, blue: 196.0/255.0, alpha: 1),UIColor.init(red: 255.0/255.0, green: 209.0/255.0, blue: 255.0/255.0, alpha: 1)]
+            
         case 4:
             return[UIColor.init(red: 247.0/255.0, green: 112.0/255.0, blue: 98.0/255.0, alpha: 1),UIColor.init(red: 254.0/255.0, green: 81.0/255.0, blue: 150.0/255.0, alpha: 1)]
         case 5:
