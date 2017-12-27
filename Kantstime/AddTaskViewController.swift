@@ -27,8 +27,6 @@ class AddTaskViewController: UIViewController {
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
         let realm = try? Realm()
-        
-        
         if let passedtask = existingTask {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
@@ -58,7 +56,6 @@ class AddTaskViewController: UIViewController {
     @IBAction func setEndTime(_ sender: Any) {
         timeTextField = endTimeTextField
         createDatePicker()
-        
     }
     
     func createDatePicker() {
@@ -67,6 +64,7 @@ class AddTaskViewController: UIViewController {
         var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneToolbarButtonPressed))
         toolBar.setItems([doneButton], animated: false)
         timeDatePicker.datePickerMode = .time
+        timeDatePicker.minuteInterval = 5
         timeTextField.inputView = timeDatePicker
         timeTextField.inputAccessoryView = toolBar
         
@@ -104,9 +102,7 @@ class AddTaskViewController: UIViewController {
             }
             if let startTime = startTimeTextField.text {
                 if startTime != "시작시간" {
-                    print(startTime)
                     if startTime != ""{
-                        print(startTime)
                         newTask.starttime = startTime
                         var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                         var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
@@ -179,7 +175,6 @@ class AddTaskViewController: UIViewController {
                     for i in 0..<fetchedTask.count {
                         var startTime = dateFormatter.date(from: fetchedTask[i].starttime)
                         var endTime = dateFormatter.date(from: fetchedTask[i].endtime)
-                        print("\(startTime)!!!!!!!!!!!!!!!!!!!!!")
                         if(checkEndTime! > startTime! && checkStartTime! < endTime!)
                         {
                             timeOverap = true
@@ -229,7 +224,6 @@ class AddTaskViewController: UIViewController {
                 } else {
                     newTask.routinetitle = routineName
                     newTask.tasktitle = name
-                    print("\(newTask.routinetitle)")
                 }
                 
             }
