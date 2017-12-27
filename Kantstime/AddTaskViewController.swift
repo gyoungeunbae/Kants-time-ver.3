@@ -19,7 +19,6 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setButton()
         startTimeTextField.text = "시작시간"
         endTimeTextField.text = "종료시간"
         startTimeTextField.isUserInteractionEnabled = true
@@ -42,10 +41,7 @@ class AddTaskViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    func setButton() {
-        doneButton.layer.borderColor = UIColor.black.cgColor
-        doneButton.layer.borderWidth = 1.0
-    }
+   
     
     
     @IBAction func setStartTime(_ sender: Any) {
@@ -65,6 +61,8 @@ class AddTaskViewController: UIViewController {
         toolBar.setItems([doneButton], animated: false)
         timeDatePicker.datePickerMode = .time
         timeDatePicker.minuteInterval = 5
+        dateFormatter.dateFormat = "hh:mm a"
+        timeDatePicker.date = dateFormatter.date(from: "06:30 AM")!
         timeTextField.inputView = timeDatePicker
         timeTextField.inputAccessoryView = toolBar
         
@@ -165,7 +163,6 @@ class AddTaskViewController: UIViewController {
                     nilTime = true
                 }
             }
-            
                 var timeOverap = false
                 var index:Int!
                 dateFormatter.dateFormat = "hh:mm a"
@@ -225,7 +222,6 @@ class AddTaskViewController: UIViewController {
                     newTask.routinetitle = routineName
                     newTask.tasktitle = name
                 }
-                
             }
                 if let startTime = startTimeTextField.text {
                     if startTime != "시작시간" {
@@ -239,7 +235,6 @@ class AddTaskViewController: UIViewController {
                             } else if(splitStartTime![1]=="AM"){
                                 startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
                                 newTask.integerStime = startIntegerValue
-                                
                             }
                         } else {}
                     } else {}
@@ -273,9 +268,7 @@ class AddTaskViewController: UIViewController {
                     }
                     
                 }
-                navigationController?.popViewController(animated: true)
-
-           
+                navigationController?.popViewController(animated: true)      
         }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
         

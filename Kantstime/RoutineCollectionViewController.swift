@@ -118,6 +118,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
 
         let realm = try? Realm()
         var newRoutine:Routine!
+        var checkPrimaryKey:Bool!
         //var newTaskList:List<Task>!
         newRoutine = Routine()
         let alert = UIAlertController(title: "Routine", message:"Routine 이름을 입력해주세요" , preferredStyle: .alert)
@@ -126,17 +127,20 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         let okAction = UIAlertAction(title: "OK", style: .default, handler:{(action:UIAlertAction!) in
             if let name = self.routineNameFromTextField.text {
                 let trimName = name.trimmingCharacters(in:.whitespaces)
+                checkPrimaryKey = self.ifPrimaryKeyExists(id: trimName)
                 if trimName == "" {
-                    let alertTitle = UIAlertController(title: "Routine", message:"Routine 이름을 입력해주세요" , preferredStyle: .alert)
+                    let alertTitle = UIAlertController(title: "Routine", message:"\nRoutine 이름을 입력해주세요" , preferredStyle: .alert)
                     alertTitle.addAction(doneAction)
                     self.present(alertTitle, animated: true, completion: nil)
-                } else{
-                    
+                }
+                if checkPrimaryKey == true {
+                    let alertTitle = UIAlertController(title: "Routine", message:"\n이미 존재하는 이름 입니다\n다시 입력해주세요" , preferredStyle: .alert)
+                    alertTitle.addAction(doneAction)
+                    self.present(alertTitle, animated: true, completion: nil)
+                }else{
                     try? realm?.write {
-                        //newRoutine.routineid
                         newRoutine.routinetitle = name
                         newRoutine.routineButton = false
-                        
                         realm?.add(newRoutine)
                 }
             }
@@ -153,7 +157,16 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
 
         present(alert, animated: true, completion: nil)
     }
-   
+    func ifPrimaryKeyExists(id: String) -> Bool{
+        let realm = try?Realm()
+        let predicate = NSPredicate(format: "routinetitle = %@", id)
+        let object = try?realm?.objects(Routine.self).filter(predicate).first
+        if object??.routinetitle == id {
+            return true
+        }
+        return false
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goTaskSegue" {
@@ -166,21 +179,4 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         }
     } 
 }
-/*
-extension UIView {
-    func applyGradient(colours: [UIColor]) -> Void {
-        self.applyGradient(colours: colours, locations: nil)
-    }
-    
-    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> Void {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = colours.map { $0.cgColor }
-        gradient.startPoint = CGPoint(x:0,y:0.5)
-        gradient.endPoint = CGPoint(x:1,y:0.8)
-        gradient.locations = locations
-        self.layer.addSublayer(gradient)
-    }
-}
 
-*/

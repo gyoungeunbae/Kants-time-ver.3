@@ -334,7 +334,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="7Ov-LJ-YFf"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="21"/>
                                                     <color key="textColor" white="0.22788089513778687" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -412,7 +412,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uJy-aC-8x2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -506,7 +506,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="PkI-NS-3iO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnw-Iu-TrD">
@@ -529,19 +529,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2y-xZ-C2W">
-                                <rect key="frame" x="30" y="649" width="354" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Jcz-Oc-oC7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="taskSaved:" destination="u2S-5t-mbm" eventType="touchUpInside" id="ahH-X8-EIB"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-HN-VwI">
                                 <rect key="frame" x="249" y="327" width="140" height="60"/>
                                 <constraints>
@@ -569,25 +556,37 @@
                             <constraint firstItem="lW2-DP-bXv" firstAttribute="bottom" secondItem="bnw-Iu-TrD" secondAttribute="bottom" id="M7m-97-v5C"/>
                             <constraint firstItem="0Yo-XL-2vV" firstAttribute="top" secondItem="dm0-LE-O9C" secondAttribute="top" constant="85" id="P9R-in-7YM"/>
                             <constraint firstItem="tzn-cg-bRX" firstAttribute="top" secondItem="0Yo-XL-2vV" secondAttribute="bottom" constant="8" id="Pc2-Bx-ZZ3"/>
-                            <constraint firstItem="dm0-LE-O9C" firstAttribute="bottom" secondItem="I2y-xZ-C2W" secondAttribute="bottom" constant="27" id="TLQ-L4-3Wt"/>
                             <constraint firstItem="bJJ-mC-Sb5" firstAttribute="top" secondItem="tzn-cg-bRX" secondAttribute="bottom" constant="63" id="W6w-GV-70L"/>
                             <constraint firstItem="Gm6-HN-VwI" firstAttribute="top" secondItem="lW2-DP-bXv" secondAttribute="top" id="a5U-Q0-Hp1"/>
                             <constraint firstItem="dm0-LE-O9C" firstAttribute="trailing" secondItem="Gm6-HN-VwI" secondAttribute="trailing" constant="25" id="aIW-ox-Cyg"/>
                             <constraint firstItem="lW2-DP-bXv" firstAttribute="leading" secondItem="bnw-Iu-TrD" secondAttribute="trailing" constant="7" id="dge-ET-SjD"/>
                             <constraint firstItem="NIG-DP-RIu" firstAttribute="centerX" secondItem="bnw-Iu-TrD" secondAttribute="centerX" id="gbq-BT-4Zu"/>
-                            <constraint firstItem="dm0-LE-O9C" firstAttribute="trailing" secondItem="I2y-xZ-C2W" secondAttribute="trailing" constant="30" id="hOy-xP-v8W"/>
                             <constraint firstItem="SD6-LA-ekY" firstAttribute="centerX" secondItem="Gm6-HN-VwI" secondAttribute="centerX" id="jdh-wM-zgI"/>
                             <constraint firstItem="tzn-cg-bRX" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="20" id="kSr-S0-lt3"/>
-                            <constraint firstItem="I2y-xZ-C2W" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="30" id="nkn-C9-9xW"/>
                             <constraint firstItem="lW2-DP-bXv" firstAttribute="top" secondItem="bnw-Iu-TrD" secondAttribute="top" id="wgY-ej-4Pb"/>
                             <constraint firstItem="bnw-Iu-TrD" firstAttribute="leading" secondItem="dm0-LE-O9C" secondAttribute="leading" constant="25" id="xRD-Hs-3eB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dm0-LE-O9C"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8aK-33-odi"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="gnK-Ds-8ZX"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="8aK-33-odi">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="zfi-1a-8rd">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="u2S-5t-mbm" id="rGq-2E-qGT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="✓" id="hvR-VX-5jm">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="taskSaved:" destination="u2S-5t-mbm" id="ezW-dB-DsG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="doneButton" destination="I2y-xZ-C2W" id="n2W-p8-M9M"/>
                         <outlet property="endTimeTextField" destination="Gm6-HN-VwI" id="jrv-Dp-c3l"/>
                         <outlet property="startTimeTextField" destination="bnw-Iu-TrD" id="wFv-Ei-yMc"/>
                         <outlet property="titleTextField" destination="tzn-cg-bRX" id="6CH-dD-ONV"/>

@@ -82,6 +82,9 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         }
     }
    
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     @IBAction func openAddVC(_ sender: Any) {
         let routine  = existingRoutine.routinetitle
         print(routine)
