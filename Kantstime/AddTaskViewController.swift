@@ -120,9 +120,11 @@ class AddTaskViewController: UIViewController {
                             
                         }
                     }else {
+                        //alert
                         nilTime = true
                     }
                 }else {
+                        //alert
                         nilTime = true
                 }
             }

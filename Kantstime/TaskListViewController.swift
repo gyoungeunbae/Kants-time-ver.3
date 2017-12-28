@@ -75,7 +75,6 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
                 }
             }
             try? realm?.write {
-                
                 realm?.delete(task)
                 tableView.reloadData()
             }

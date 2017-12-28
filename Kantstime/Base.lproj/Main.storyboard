@@ -26,6 +26,12 @@
         <array key="KimNamyun.ttf">
             <string>KimNamyun</string>
         </array>
+        <array key="Seoulhangang_B.otf">
+            <string>SeH-CB</string>
+        </array>
+        <array key="Seoulhangang_L.otf">
+            <string>SeH-CL</string>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -242,13 +248,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz7-vG-DFJ">
-                                                    <rect key="frame" x="23" y="86.666666666666671" width="154" height="27"/>
-                                                    <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="25"/>
+                                                    <rect key="frame" x="23" y="87" width="154" height="27"/>
+                                                    <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="27"/>
                                                     <color key="textColor" red="0.4823529412" green="0.48627450979999998" blue="0.48627450979999998" alpha="0.30110231164383572" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rxK-JF-O5V">
-                                                    <rect key="frame" x="75.666666666666671" y="138.66666666666666" width="51" height="15"/>
+                                                    <rect key="frame" x="75.666666666666671" y="139" width="51" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="WcR-So-jih"/>
                                                         <constraint firstAttribute="width" constant="49" id="ler-MM-GFU"/>
@@ -334,7 +340,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="7Ov-LJ-YFf"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="21"/>
                                                     <color key="textColor" white="0.22788089513778687" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -343,7 +349,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="5o2-RT-V41"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -352,7 +358,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="KJ1-Wm-uLY"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -412,7 +418,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uJy-aC-8x2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="32"/>
+                                <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -506,7 +512,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="PkI-NS-3iO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KimNamyun" family="Kim Namyun" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnw-Iu-TrD">

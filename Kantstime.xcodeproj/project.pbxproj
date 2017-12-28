@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		18147067CC25CC495049CCB1 /* Pods_Kantstime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD92BA19CB24817214BC50 /* Pods_Kantstime.framework */; };
+		6F0031991FF500E6007641E0 /* Seoulhangang_L.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F0031981FF500DE007641E0 /* Seoulhangang_L.otf */; };
+		6F00319A1FF500EA007641E0 /* Seoulhangang_M.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F0031961FF500DD007641E0 /* Seoulhangang_M.otf */; };
+		6F00319B1FF500EE007641E0 /* Seoulhangang_B.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F0031971FF500DD007641E0 /* Seoulhangang_B.otf */; };
 		6F20DF461FF244B1004BF78F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F20DF451FF244B1004BF78F /* GradientView.swift */; };
-		6F20DF4E1FF3EAFA004BF78F /* KimNamyun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F20DF4D1FF3EAF1004BF78F /* KimNamyun.ttf */; };
 		6F35DDEF1FEDE4B100B84AA5 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35DDEE1FEDE4B100B84AA5 /* Sorting.swift */; };
 		6F4594A61FDE9948001825C9 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594A51FDE9948001825C9 /* TaskListViewController.swift */; };
 		6FA8D5A71FE01D480048098F /* TaskTableViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */; };
@@ -34,8 +36,10 @@
 /* Begin PBXFileReference section */
 		4291246907ED1BDAB8DF4539 /* Pods-Kantstime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kantstime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kantstime/Pods-Kantstime.debug.xcconfig"; sourceTree = "<group>"; };
 		46ED091D738D9DC571490646 /* Pods-Kantstime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kantstime.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kantstime/Pods-Kantstime.release.xcconfig"; sourceTree = "<group>"; };
+		6F0031961FF500DD007641E0 /* Seoulhangang_M.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seoulhangang_M.otf; sourceTree = "<group>"; };
+		6F0031971FF500DD007641E0 /* Seoulhangang_B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seoulhangang_B.otf; sourceTree = "<group>"; };
+		6F0031981FF500DE007641E0 /* Seoulhangang_L.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seoulhangang_L.otf; sourceTree = "<group>"; };
 		6F20DF451FF244B1004BF78F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		6F20DF4D1FF3EAF1004BF78F /* KimNamyun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KimNamyun.ttf; sourceTree = "<group>"; };
 		6F35DDEE1FEDE4B100B84AA5 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
 		6F4594A51FDE9948001825C9 /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TaskTableViewCell .swift"; sourceTree = "<group>"; };
@@ -92,7 +96,9 @@
 		6FBCCE631FB40DCF00A1A272 = {
 			isa = PBXGroup;
 			children = (
-				6F20DF4D1FF3EAF1004BF78F /* KimNamyun.ttf */,
+				6F0031971FF500DD007641E0 /* Seoulhangang_B.otf */,
+				6F0031981FF500DE007641E0 /* Seoulhangang_L.otf */,
+				6F0031961FF500DD007641E0 /* Seoulhangang_M.otf */,
 				6FBCCE6E1FB40DCF00A1A272 /* Kantstime */,
 				6FBCCE6D1FB40DCF00A1A272 /* Products */,
 				22E946C79EBA917F68E756DE /* Pods */,
@@ -198,9 +204,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F00319B1FF500EE007641E0 /* Seoulhangang_B.otf in Resources */,
+				6F0031991FF500E6007641E0 /* Seoulhangang_L.otf in Resources */,
 				6FBCCE7A1FB40DCF00A1A272 /* LaunchScreen.storyboard in Resources */,
+				6F00319A1FF500EA007641E0 /* Seoulhangang_M.otf in Resources */,
 				6FBCCE771FB40DCF00A1A272 /* Assets.xcassets in Resources */,
-				6F20DF4E1FF3EAFA004BF78F /* KimNamyun.ttf in Resources */,
 				6FBCCE751FB40DCF00A1A272 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

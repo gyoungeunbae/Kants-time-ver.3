@@ -22,7 +22,9 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IropkeBatangM.otf</string>
+		<string>Seoulhangang_B.otf</string>
+		<string>Seoulhangang_L.otf</string>
+		<string>Seoulhangang_M.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -61,7 +61,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
             colors.append(UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1))
             colors.append(UIColor.init(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1))
             cell.routineColor.applyGradient(colors: colors)
-            //cell.routineName.textColor = UIColor.gray
+            cell.routineName.textColor = UIColor.gray
             cell.routineColor.applyGradient(colors: colors)
         
         }
@@ -113,9 +113,7 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         routineNameFromTextField = textField
     }
     
-
     @IBAction func addNewRoutine(_ sender: Any) {
-
         let realm = try? Realm()
         var newRoutine:Routine!
         var checkPrimaryKey:Bool!
@@ -144,7 +142,6 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
                         realm?.add(newRoutine)
                 }
             }
-                
             }
             self.routineCollectionView.reloadData()
             print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -166,7 +163,6 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         }
         return false
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goTaskSegue" {
