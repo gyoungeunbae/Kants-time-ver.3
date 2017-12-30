@@ -26,7 +26,6 @@ class AddTaskViewController: UIViewController {
         startTimeTextField.clearsOnBeginEditing = true
         endTimeTextField.isUserInteractionEnabled = true
         endTimeTextField.clearsOnBeginEditing = true
-        let realm = try? Realm()
         if let passedtask = existingTask {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
@@ -58,7 +57,7 @@ class AddTaskViewController: UIViewController {
     func createDatePicker() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneToolbarButtonPressed))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneToolbarButtonPressed))
         toolBar.setItems([doneButton], animated: false)
         timeDatePicker.datePickerMode = .time
         timeDatePicker.minuteInterval = 5
@@ -170,11 +169,11 @@ class AddTaskViewController: UIViewController {
                 var index:Int!
                 dateFormatter.dateFormat = "hh:mm a"
                 if fetchedTask != nil {
-                    var checkStartTime = dateFormatter.date(from: newTask.starttime)
-                    var checkEndTime = dateFormatter.date(from: newTask.endtime)
+                    let checkStartTime = dateFormatter.date(from: newTask.starttime)
+                    let checkEndTime = dateFormatter.date(from: newTask.endtime)
                     for i in 0..<fetchedTask.count {
-                        var startTime = dateFormatter.date(from: fetchedTask[i].starttime)
-                        var endTime = dateFormatter.date(from: fetchedTask[i].endtime)
+                        let startTime = dateFormatter.date(from: fetchedTask[i].starttime)
+                        let endTime = dateFormatter.date(from: fetchedTask[i].endtime)
                         if(checkEndTime! > startTime! && checkStartTime! < endTime!)
                         {
                             timeOverap = true

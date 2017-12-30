@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RoutineCollectionViewController: ViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class RoutineCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var routineCollectionView: UICollectionView!
     var routineNameFromTextField:UITextField!
@@ -162,10 +162,10 @@ class RoutineCollectionViewController: ViewController,UICollectionViewDataSource
         present(alert, animated: true, completion: nil)
     }
     func ifPrimaryKeyExists(id: String) -> Bool{
-        let realm = try?Realm()
+        let realm = try? Realm()
         let predicate = NSPredicate(format: "routinetitle = %@", id)
-        let object = try?realm?.objects(Routine.self).filter(predicate).first
-        if object??.routinetitle == id {
+        let object = realm?.objects(Routine.self).filter(predicate).first
+        if object?.routinetitle == id {
             return true
         }
         return false

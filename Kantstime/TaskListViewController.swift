@@ -20,18 +20,17 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         tableView.delegate = self
         tableView.dataSource = self
         let realm = try? Realm()
-        var name = existingRoutine.routinetitle
+        let name = existingRoutine.routinetitle
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
         routineNameLabel.text = existingRoutine.routinetitle
         tableView.rowHeight = 200
         self.navigationItem.hidesBackButton = true
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = fetchedTask?.count {
             return count
@@ -47,21 +46,17 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TaskTableViewCell
         
         let count = indexPath.row%6
-       // let view = UIView()
         cell.colorChip.applyGradient(colors:view.colorList(index: count))
         let sort = Sorting()
         taskList = sort.mergeSort(list: fetchedTask)
         
-        let realm = try? Realm()
         cell.taskTitle.text = taskList[indexPath.row].tasktitle
         cell.startTime.text = (taskList[indexPath.row].starttime)
         cell.endTime.text = taskList[indexPath.row].endtime
-        //cell.colorChip.backgroundColor = 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
         let task = taskList[indexPath.row]
         performSegue(withIdentifier: "editSegue", sender: task)
     }

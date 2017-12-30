@@ -26,9 +26,16 @@ class MainViewController: UIViewController {
     }
     func getRountineTitle() -> String {
         let realm = try? Realm()
-        let routineName  = try? realm?.objects(Routine.self).filter("routineButton = true").first?.routinetitle
-        return routineName as! String
-    
+        
+        if var routineName  = try? realm?.objects(Routine.self).filter("routineButton = true").first?.routinetitle {
+            if routineName == nil {
+                routineName = " "
+                return (routineName as? String)!
+            }
+            return (routineName as? String)!
+
+        }
+        
     }
     
 }

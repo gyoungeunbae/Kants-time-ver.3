@@ -21,18 +21,14 @@
 		6FA8D5AB1FE24D930048098F /* RoutineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D5AA1FE24D930048098F /* RoutineCollectionViewCell.swift */; };
 		6FA8D5D11FE28ECA0048098F /* RoutineCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D5D01FE28ECA0048098F /* RoutineCircle.swift */; };
 		6FBCCE701FB40DCF00A1A272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE6F1FB40DCF00A1A272 /* AppDelegate.swift */; };
-		6FBCCE721FB40DCF00A1A272 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE711FB40DCF00A1A272 /* ViewController.swift */; };
 		6FBCCE751FB40DCF00A1A272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBCCE731FB40DCF00A1A272 /* Main.storyboard */; };
 		6FBCCE771FB40DCF00A1A272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FBCCE761FB40DCF00A1A272 /* Assets.xcassets */; };
 		6FBCCE7A1FB40DCF00A1A272 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBCCE781FB40DCF00A1A272 /* LaunchScreen.storyboard */; };
 		6FBCCE831FB42DFB00A1A272 /* BackgroungCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE821FB42DFB00A1A272 /* BackgroungCircle.swift */; };
 		6FBCCE8C1FB5C05300A1A272 /* Circlebasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE8B1FB5C05300A1A272 /* Circlebasic.swift */; };
-		6FBCCE8E1FB5C5D600A1A272 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE8D1FB5C5D600A1A272 /* MenuViewController.swift */; };
-		6FBCCE921FB5CD4800A1A272 /* MenuButtonCircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE911FB5CD4800A1A272 /* MenuButtonCircularTransition.swift */; };
-		6FBCCE941FB6048500A1A272 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE931FB6048400A1A272 /* Task.swift */; };
+		6FBCCE941FB6048500A1A272 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE931FB6048400A1A272 /* RealmModel.swift */; };
 		6FBCCE9A1FB9BDCF00A1A272 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE991FB9BDCF00A1A272 /* AddTaskViewController.swift */; };
 		6FBCCEA01FBDE31C00A1A272 /* CircleBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE9F1FBDE31C00A1A272 /* CircleBorderView.swift */; };
-		6FD207401FC8FF42008458CE /* Taskmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD2073F1FC8FF42008458CE /* Taskmodel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,19 +48,15 @@
 		6FA8D5D01FE28ECA0048098F /* RoutineCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCircle.swift; sourceTree = "<group>"; };
 		6FBCCE6C1FB40DCF00A1A272 /* Kantstime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kantstime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBCCE6F1FB40DCF00A1A272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6FBCCE711FB40DCF00A1A272 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6FBCCE741FB40DCF00A1A272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6FBCCE761FB40DCF00A1A272 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FBCCE791FB40DCF00A1A272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FBCCE7B1FB40DCF00A1A272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FBCCE821FB42DFB00A1A272 /* BackgroungCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroungCircle.swift; sourceTree = "<group>"; };
 		6FBCCE8B1FB5C05300A1A272 /* Circlebasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circlebasic.swift; sourceTree = "<group>"; };
-		6FBCCE8D1FB5C5D600A1A272 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		6FBCCE911FB5CD4800A1A272 /* MenuButtonCircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCircularTransition.swift; sourceTree = "<group>"; };
-		6FBCCE931FB6048400A1A272 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		6FBCCE931FB6048400A1A272 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		6FBCCE991FB9BDCF00A1A272 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		6FBCCE9F1FBDE31C00A1A272 /* CircleBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBorderView.swift; sourceTree = "<group>"; };
-		6FD2073F1FC8FF42008458CE /* Taskmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskmodel.swift; sourceTree = "<group>"; };
 		C2DD92BA19CB24817214BC50 /* Pods_Kantstime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kantstime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,25 +113,21 @@
 		6FBCCE6E1FB40DCF00A1A272 /* Kantstime */ = {
 			isa = PBXGroup;
 			children = (
-				6FBCCE711FB40DCF00A1A272 /* ViewController.swift */,
+				6F32F2E31FF826240065D6B2 /* MainViewController.swift */,
 				6FA8D5A81FE247170048098F /* RoutineCollectionViewController.swift */,
 				6F4594A51FDE9948001825C9 /* TaskListViewController.swift */,
 				6FBCCE991FB9BDCF00A1A272 /* AddTaskViewController.swift */,
 				6FBCCE731FB40DCF00A1A272 /* Main.storyboard */,
-				6F32F2E31FF826240065D6B2 /* MainViewController.swift */,
 				6FBCCE761FB40DCF00A1A272 /* Assets.xcassets */,
 				6FBCCE781FB40DCF00A1A272 /* LaunchScreen.storyboard */,
 				6FBCCE7B1FB40DCF00A1A272 /* Info.plist */,
 				6FBCCE6F1FB40DCF00A1A272 /* AppDelegate.swift */,
-				6FBCCE8D1FB5C5D600A1A272 /* MenuViewController.swift */,
-				6FBCCE931FB6048400A1A272 /* Task.swift */,
+				6FBCCE931FB6048400A1A272 /* RealmModel.swift */,
 				6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */,
 				6FA8D5AA1FE24D930048098F /* RoutineCollectionViewCell.swift */,
-				6FBCCE911FB5CD4800A1A272 /* MenuButtonCircularTransition.swift */,
 				6FBCCE8B1FB5C05300A1A272 /* Circlebasic.swift */,
 				6FBCCE9F1FBDE31C00A1A272 /* CircleBorderView.swift */,
 				6FBCCE821FB42DFB00A1A272 /* BackgroungCircle.swift */,
-				6FD2073F1FC8FF42008458CE /* Taskmodel.swift */,
 				6FA8D5D01FE28ECA0048098F /* RoutineCircle.swift */,
 				6F35DDEE1FEDE4B100B84AA5 /* Sorting.swift */,
 				6F20DF451FF244B1004BF78F /* GradientView.swift */,
@@ -284,23 +272,19 @@
 			files = (
 				6FBCCE8C1FB5C05300A1A272 /* Circlebasic.swift in Sources */,
 				6F4594A61FDE9948001825C9 /* TaskListViewController.swift in Sources */,
-				6FBCCE8E1FB5C5D600A1A272 /* MenuViewController.swift in Sources */,
 				6FA8D5D11FE28ECA0048098F /* RoutineCircle.swift in Sources */,
-				6FD207401FC8FF42008458CE /* Taskmodel.swift in Sources */,
 				6F20DF461FF244B1004BF78F /* GradientView.swift in Sources */,
 				6FA8D5A71FE01D480048098F /* TaskTableViewCell .swift in Sources */,
-				6FBCCE721FB40DCF00A1A272 /* ViewController.swift in Sources */,
 				6FBCCEA01FBDE31C00A1A272 /* CircleBorderView.swift in Sources */,
 				6FA8D5AB1FE24D930048098F /* RoutineCollectionViewCell.swift in Sources */,
 				6FBCCE831FB42DFB00A1A272 /* BackgroungCircle.swift in Sources */,
-				6FBCCE941FB6048500A1A272 /* Task.swift in Sources */,
+				6FBCCE941FB6048500A1A272 /* RealmModel.swift in Sources */,
 				6FBCCE701FB40DCF00A1A272 /* AppDelegate.swift in Sources */,
 				6FA8D5A91FE247170048098F /* RoutineCollectionViewController.swift in Sources */,
 				6FBCCE9A1FB9BDCF00A1A272 /* AddTaskViewController.swift in Sources */,
 				6F32F2E41FF826240065D6B2 /* MainViewController.swift in Sources */,
 				6F32F2E61FF838C20065D6B2 /* Date.swift in Sources */,
 				6F35DDEF1FEDE4B100B84AA5 /* Sorting.swift in Sources */,
-				6FBCCE921FB5CD4800A1A272 /* MenuButtonCircularTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

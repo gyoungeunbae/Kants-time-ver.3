@@ -13,8 +13,8 @@ class Sorting {
         if list.count <= 1 {
             return list
         }
-        var lList = List<Task>()
-        var rList = List<Task>()
+        let lList = List<Task>()
+        let rList = List<Task>()
         
         let mid = list.count / 2
         for i in 0..<mid {
@@ -26,8 +26,8 @@ class Sorting {
         }
         
         
-        var left = mergeSort(list: lList)
-        var right = mergeSort(list: rList)
+        let left = mergeSort(list: lList)
+        let right = mergeSort(list: rList)
         
         return merge(left: left, right: right)
     }
@@ -56,7 +56,6 @@ class Sorting {
         dateform.dateFormat = "hh:mm a"
         dateform.amSymbol = "AM"
         dateform.pmSymbol = "PM"
-        var sort = Sorting()
         dateform.locale = Locale(identifier: "ko_KR")
         let date = dateform.date(from:"\(task.starttime)")
         return date!
