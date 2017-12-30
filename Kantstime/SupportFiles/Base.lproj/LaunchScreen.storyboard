@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Seoulhangang_L.otf">
+            <string>SeH-CL</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="루틴스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQy-vU-lPi">
+                                <rect key="frame" x="152" y="260" width="71" height="30"/>
+                                <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Routines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTI-SF-EOG">
+                                <rect key="frame" x="152" y="302" width="71" height="20"/>
+                                <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96863818170000004" green="0.96862006190000005" blue="0.96863234040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="xQy-vU-lPi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="240" id="53k-pm-pxL"/>
+                            <constraint firstItem="xQy-vU-lPi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ayv-1h-2nV"/>
+                            <constraint firstItem="LTI-SF-EOG" firstAttribute="trailing" secondItem="xQy-vU-lPi" secondAttribute="trailing" id="Bn7-NY-R2r"/>
+                            <constraint firstItem="LTI-SF-EOG" firstAttribute="leading" secondItem="xQy-vU-lPi" secondAttribute="leading" id="VOh-23-mQP"/>
+                            <constraint firstItem="LTI-SF-EOG" firstAttribute="top" secondItem="xQy-vU-lPi" secondAttribute="bottom" constant="12" id="spY-tX-3Lp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+</document>

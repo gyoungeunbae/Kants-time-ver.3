@@ -1,15 +1,13 @@
+//
+//  Task.swift
+//  Kantstime
+//
+//  Created by gyoungeun ola bae on 31/12/2017.
+//  Copyright © 2017 gyoungeun ola bae. All rights reserved.
+//
+
 import Foundation
 import RealmSwift
-
-class Routine: Object {
-    @objc dynamic var routinetitle=""
-    @objc dynamic var routineButton=false
-    var task = List<Task>()
-    override static func primaryKey() -> String? {
-        return "routinetitle"
-    }
-}
-
 class Task: Object {
     @objc dynamic var routinetitle = ""
     @objc dynamic var tasktitle = ""
@@ -19,5 +17,3 @@ class Task: Object {
     @objc dynamic var integerEtime=0
     @objc dynamic var timeinterval=0
 }
-
-
