@@ -86,10 +86,8 @@
 		6F32F2E71FF84BFC0065D6B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6F32F2F01FF84FBB0065D6B2 /* Main */,
 				6F32F2F11FF84FCB0065D6B2 /* Routine */,
 				6F32F2F21FF84FE40065D6B2 /* Task */,
-				6F32F2F31FF850060065D6B2 /* Add */,
 			);
 			name = Views;
 			path = Controllers;
@@ -155,7 +153,6 @@
 		6F32F2F11FF84FCB0065D6B2 /* Routine */ = {
 			isa = PBXGroup;
 			children = (
-				6FA8D5A81FE247170048098F /* RoutineCollectionViewController.swift */,
 				6FA8D5AA1FE24D930048098F /* RoutineCollectionViewCell.swift */,
 			);
 			path = Routine;
@@ -164,7 +161,6 @@
 		6F32F2F21FF84FE40065D6B2 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				6F4594A51FDE9948001825C9 /* TaskListViewController.swift */,
 				6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */,
 			);
 			name = Task;
@@ -177,6 +173,33 @@
 				6FBCCE991FB9BDCF00A1A272 /* AddTaskViewController.swift */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		6F32F2F41FF8510B0065D6B2 /* Contorollers */ = {
+			isa = PBXGroup;
+			children = (
+				6F32F2F01FF84FBB0065D6B2 /* Main */,
+				6F32F2F61FF851370065D6B2 /* Routine */,
+				6F32F2F51FF8511B0065D6B2 /* Task */,
+				6F32F2F31FF850060065D6B2 /* Add */,
+			);
+			path = Contorollers;
+			sourceTree = "<group>";
+		};
+		6F32F2F51FF8511B0065D6B2 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				6F4594A51FDE9948001825C9 /* TaskListViewController.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		6F32F2F61FF851370065D6B2 /* Routine */ = {
+			isa = PBXGroup;
+			children = (
+				6FA8D5A81FE247170048098F /* RoutineCollectionViewController.swift */,
+			);
+			path = Routine;
 			sourceTree = "<group>";
 		};
 		6FBCCE631FB40DCF00A1A272 = {
@@ -200,11 +223,12 @@
 		6FBCCE6E1FB40DCF00A1A272 /* Kantstime */ = {
 			isa = PBXGroup;
 			children = (
-				6F32F2ED1FF84EC50065D6B2 /* Assets */,
+				6F32F2F41FF8510B0065D6B2 /* Contorollers */,
 				6F32F2E71FF84BFC0065D6B2 /* Views */,
-				6F32F2EA1FF84C200065D6B2 /* SupportFiles */,
+				6F32F2ED1FF84EC50065D6B2 /* Assets */,
 				6F32F2E91FF84C180065D6B2 /* Models */,
 				6F32F2EF1FF84F270065D6B2 /* Extensions */,
+				6F32F2EA1FF84C200065D6B2 /* SupportFiles */,
 			);
 			path = Kantstime;
 			sourceTree = "<group>";
