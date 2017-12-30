@@ -12,8 +12,9 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
     var timeDatePicker = UIDatePicker()
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     var endIntegerValue = 0
     var startIntegerValue = 0
     
@@ -192,7 +193,6 @@ class AddTaskViewController: UIViewController {
                     let alert = UIAlertController(title: "다시 입력해주세요", message: "\n\(fetchedTask[index].tasktitle) (\(fetchedTask[index].starttime)~\(fetchedTask[index].endtime))와 \n시간이 겹칩니다.", preferredStyle: .alert)
                     let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
                     timeOverap = true
-                    self.doneButton.isUserInteractionEnabled = true
                     })
                     alert.addAction(doneAction)
                     self.present(alert, animated: true, completion: nil)
