@@ -105,6 +105,7 @@
 		6F32F2EA1FF84C200065D6B2 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6F32F2ED1FF84EC50065D6B2 /* Assets */,
 				6FBCCE7B1FB40DCF00A1A272 /* Info.plist */,
 				6FBCCE781FB40DCF00A1A272 /* LaunchScreen.storyboard */,
 				6FBCCE731FB40DCF00A1A272 /* Main.storyboard */,
@@ -223,10 +224,9 @@
 		6FBCCE6E1FB40DCF00A1A272 /* Kantstime */ = {
 			isa = PBXGroup;
 			children = (
-				6F32F2F41FF8510B0065D6B2 /* Contorollers */,
-				6F32F2E71FF84BFC0065D6B2 /* Views */,
-				6F32F2ED1FF84EC50065D6B2 /* Assets */,
 				6F32F2E91FF84C180065D6B2 /* Models */,
+				6F32F2E71FF84BFC0065D6B2 /* Views */,
+				6F32F2F41FF8510B0065D6B2 /* Contorollers */,
 				6F32F2EF1FF84F270065D6B2 /* Extensions */,
 				6F32F2EA1FF84C200065D6B2 /* SupportFiles */,
 			);
