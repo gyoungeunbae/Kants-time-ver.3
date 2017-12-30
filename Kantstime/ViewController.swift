@@ -15,9 +15,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondVC = segue.destination as! MenuViewController
-        secondVC.transitioningDelegate = self
-        secondVC.modalPresentationStyle = .custom
+     //   let secondVC = segue.destination as! MenuViewController
+     //   secondVC.transitioningDelegate = self
+      //  secondVC.modalPresentationStyle = .custom
     }
     
     

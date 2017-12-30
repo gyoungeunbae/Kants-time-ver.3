@@ -24,6 +24,7 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(name)'").first?.task
         routineNameLabel.text = existingRoutine.routinetitle
         tableView.rowHeight = 200
+        self.navigationItem.hidesBackButton = true
     }
    
     override func viewWillAppear(_ animated: Bool) {
