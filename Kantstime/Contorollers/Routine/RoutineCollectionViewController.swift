@@ -124,7 +124,6 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
         let realm = try? Realm()
         var newRoutine:Routine!
         var checkPrimaryKey:Bool!
-        //var newTaskList:List<Task>!
         newRoutine = Routine()
         let alert = UIAlertController(title: "Routine", message:"Routine 이름을 입력해주세요" , preferredStyle: .alert)
         alert.addTextField(configurationHandler: configurationTextField)

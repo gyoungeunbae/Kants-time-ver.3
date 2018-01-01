@@ -82,7 +82,6 @@ class TaskListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     @IBAction func openAddVC(_ sender: Any) {
         let routine  = existingRoutine.routinetitle
-        print(routine)
         performSegue(withIdentifier: "passRoutineName", sender: routine)
     }
     

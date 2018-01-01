@@ -59,6 +59,6 @@ extension UIView {
             return[UIColor.init(red: 247.0/255.0, green: 112.0/255.0, blue: 98.0/255.0, alpha: 1),UIColor.init(red: 254.0/255.0, green: 81.0/255.0, blue: 150.0/255.0, alpha: 1)]
         }
     }
-   
+ 
 
 }
