@@ -15,9 +15,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var routineTitle: UILabel!
     @IBOutlet weak var scrollview: UIScrollView!
     
-    @IBOutlet weak var baseCircle: Circle!
+    var border: UIButton!=UIButton()
     
-    @IBOutlet weak var border: Border!
     var sum:Int!
     var taskList:[Task]!
     var fetchedTask:List<Task>!
@@ -31,15 +30,6 @@ class MainViewController: UIViewController {
     var y:Int!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        //view.layer.addSublayer(shapeLayer)
-       let buttonTest = UIButton(frame: CGRect(x: 200, y: 200, width: 200, height: 200))
-        buttonTest.layer.cornerRadius = buttonTest.bounds.width/2
-        buttonTest.layer.borderColor = UIColor.orange.cgColor
-        buttonTest.layer.borderWidth = 40
-        buttonTest.backgroundColor = UIColor.white
-        buttonTest.addTarget(self, action: #selector(clicked), for: .touchUpInside)
-        //self.view.addSubview(buttonTest)
         
     }
     @objc func clicked() {
@@ -64,7 +54,9 @@ class MainViewController: UIViewController {
                 for i in 0..<fetchedTask.count {
                     setTaskUI(index: i)
                 }
+            border = Border(frame: CGRect(x: 45, y: 100, width: 200, height: 200), task: fetchedTask[2], startAngle: 3 * π / 2, endAngle:  π / 2)
         }
+        self.view.addSubview(border)
         
     }
 

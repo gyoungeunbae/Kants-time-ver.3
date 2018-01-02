@@ -9,11 +9,28 @@
 import UIKit
 import RealmSwift
 class Border: UIButton {
+    
         var count=0
         @IBInspectable var counterColor=UIColor.init ( red: 6.0/255.0, green: 131.0/255.0, blue: 145.0/255.0, alpha: 1 )
-        var taskList:[Task]!
-
-        func colorList(count: Int)->UIColor
+        var taskList:[Task] = [Task]()
+    var task : Task! = Task()
+    var startAngle : CGFloat! = CGFloat()
+    var endAngle : CGFloat! = CGFloat()
+    
+        init(frame: CGRect,task:Task,startAngle:CGFloat,endAngle:CGFloat) {
+            super.init(frame: frame)
+            self.task = task
+            self.startAngle = startAngle
+            self.endAngle = endAngle
+            
+        }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+   
+    func colorList(count: Int)->UIColor
         {
             if count==0
             {
@@ -47,8 +64,8 @@ class Border: UIButton {
     
             return counterColor
         }
-     func draw(_ rect: CGRect,task:Task,startAngle:CGFloat,endAngle:CGFloat) {
-            //var startAngle: CGFloat = 3 * π / 2
+        override func draw(_ rect: CGRect) {
+                    //var startAngle: CGFloat = 3 * π / 2
                     //let sort = Sorting()
                     //taskList = sort.mergeSort(list: fetchedTask!)
                     counterColor=colorList(count: count)
@@ -71,10 +88,7 @@ class Border: UIButton {
                     path.stroke()
                    // startAngle=endAngle
         
-        
-        
-
-        
     }
+    
     
 }

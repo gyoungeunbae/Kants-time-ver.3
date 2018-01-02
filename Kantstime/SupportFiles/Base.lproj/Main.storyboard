@@ -346,57 +346,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXQ-lG-T0j">
-                                <rect key="frame" x="0.0" y="256" width="414" height="1244"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
+                                <rect key="frame" x="57" y="600" width="300" height="300"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
-                                        <rect key="frame" x="57" y="96" width="300" height="300"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBg-Qy-S4w" customClass="CircleLine" customModule="Kantstime" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBg-Qy-S4w" customClass="CircleLine" customModule="Kantstime" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="VAL-TT-XVa"/>
-                                            <constraint firstAttribute="height" constant="300" id="z0B-dn-stg"/>
-                                        </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-dY-bMT">
-                                        <rect key="frame" x="52" y="96" width="310" height="310"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="310" id="fzg-q6-hsg"/>
-                                            <constraint firstAttribute="height" constant="310" id="l3l-PQ-gz8"/>
-                                        </constraints>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96863818168640137" green="0.96862006187438965" blue="0.96863234043121338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="WEp-M3-mvQ" firstAttribute="top" secondItem="UXQ-lG-T0j" secondAttribute="top" constant="96" id="BD3-KA-wiZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="WEp-M3-mvQ" secondAttribute="bottom" constant="848" id="WOX-J9-GS1"/>
-                                    <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerX" secondItem="UXQ-lG-T0j" secondAttribute="centerX" id="WmX-kM-u15"/>
-                                    <constraint firstAttribute="trailing" secondItem="WEp-M3-mvQ" secondAttribute="trailing" constant="57" id="eW4-ac-E2b"/>
-                                    <constraint firstItem="2QD-dY-bMT" firstAttribute="centerX" secondItem="WEp-M3-mvQ" secondAttribute="centerX" id="sw2-Hh-lJm"/>
-                                    <constraint firstItem="2QD-dY-bMT" firstAttribute="top" secondItem="UXQ-lG-T0j" secondAttribute="top" constant="96" id="wSj-br-nwM"/>
+                                    <constraint firstAttribute="width" constant="300" id="VAL-TT-XVa"/>
+                                    <constraint firstAttribute="height" constant="300" id="z0B-dn-stg"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96863818168640137" green="0.96862006187438965" blue="0.96863234043121338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="0j7-d4-pD0"/>
                             <constraint firstItem="ITv-1y-lrX" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="A68-Bn-ETi"/>
-                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="bottom" secondItem="7WP-1P-oXm" secondAttribute="bottom" id="D1H-NO-4OD"/>
-                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="leading" secondItem="7WP-1P-oXm" secondAttribute="leading" id="DCp-Hu-9V0"/>
                             <constraint firstItem="svJ-vj-lcz" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="25" id="DHr-1k-C7P"/>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="top" secondItem="ITv-1y-lrX" secondAttribute="bottom" constant="12" id="G5s-yI-yQl"/>
-                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="top" secondItem="zy9-Sb-WOp" secondAttribute="bottom" constant="75.666666666666657" id="GrG-Jr-qYP"/>
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="leading" secondItem="svJ-vj-lcz" secondAttribute="leading" id="Lq0-Bt-n4a"/>
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="leading" secondItem="7WP-1P-oXm" secondAttribute="leading" constant="20" id="MpV-te-mW6"/>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="TTm-2w-n0V"/>
+                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerY" secondItem="aGI-L4-ZFF" secondAttribute="centerY" id="XGL-vt-Grv"/>
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="top" secondItem="svJ-vj-lcz" secondAttribute="bottom" constant="10" id="a1S-AA-kBY"/>
-                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="trailing" secondItem="7WP-1P-oXm" secondAttribute="trailing" id="gEX-w9-Tz8"/>
+                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerX" secondItem="zy9-Sb-WOp" secondAttribute="centerX" id="imP-IN-Wa0"/>
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="trailing" secondItem="svJ-vj-lcz" secondAttribute="trailing" id="rce-4X-On7"/>
                             <constraint firstItem="ITv-1y-lrX" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="61" id="xuW-j1-EhS"/>
                         </constraints>
@@ -416,7 +393,6 @@
                         <outlet property="day" destination="bh2-UX-2Ny" id="bwI-IE-gNW"/>
                         <outlet property="month" destination="svJ-vj-lcz" id="hMC-dy-0T0"/>
                         <outlet property="routineTitle" destination="zy9-Sb-WOp" id="mPD-6r-8SE"/>
-                        <outlet property="scrollview" destination="UXQ-lG-T0j" id="1aM-ui-z7A"/>
                         <outlet property="time" destination="ITv-1y-lrX" id="Gan-7u-nI5"/>
                     </connections>
                 </viewController>
