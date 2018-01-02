@@ -37,10 +37,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Routine을 선택해 주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKN-Fu-kzY">
-                                <rect key="frame" x="115.33333333333333" y="124" width="183.66666666666669" height="20"/>
-                                <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="20"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the Routine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKN-Fu-kzY">
+                                <rect key="frame" x="83.000000000000014" y="124.00000000000001" width="249.33333333333337" height="35.666666666666671"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vDc-zI-Efi">
@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyO-k1-7Rt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="-1154"/>
+            <point key="canvasLocation" x="1565" y="-796"/>
         </scene>
         <!--Task List View Controller-->
         <scene sceneID="JET-Rv-8d1">
@@ -176,7 +176,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="7Ov-LJ-YFf"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="18"/>
                                                     <color key="textColor" white="0.22788089513778687" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -313,52 +313,92 @@
             <objects>
                 <viewController id="wKv-lm-T90" customClass="MainViewController" customModule="Kantstime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aGI-L4-ZFF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12월" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svJ-vj-lcz">
-                                <rect key="frame" x="180.33333333333334" y="134" width="53.333333333333343" height="30"/>
+                                <rect key="frame" x="20" y="89" width="53" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PLh-hs-rYd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bh2-UX-2Ny">
-                                <rect key="frame" x="180.33333333333334" y="174" width="53.333333333333343" height="30"/>
+                                <rect key="frame" x="20" y="129" width="53" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YIK-uJ-amN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수련회2일차" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Sb-WOp">
+                                <rect key="frame" x="159" y="158" width="96" height="22"/>
+                                <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="22"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITv-1y-lrX">
-                                <rect key="frame" x="180.33333333333334" y="217" width="53.333333333333343" height="21.333333333333343"/>
+                                <rect key="frame" x="184" y="125" width="45" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수련회2일차" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Sb-WOp">
-                                <rect key="frame" x="159.33333333333334" y="268.33333333333331" width="95.666666666666657" height="22"/>
-                                <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXQ-lG-T0j">
+                                <rect key="frame" x="0.0" y="256" width="414" height="1244"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
+                                        <rect key="frame" x="57" y="96" width="300" height="300"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBg-Qy-S4w" customClass="CircleLine" customModule="Kantstime" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="VAL-TT-XVa"/>
+                                            <constraint firstAttribute="height" constant="300" id="z0B-dn-stg"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-dY-bMT">
+                                        <rect key="frame" x="52" y="96" width="310" height="310"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="310" id="fzg-q6-hsg"/>
+                                            <constraint firstAttribute="height" constant="310" id="l3l-PQ-gz8"/>
+                                        </constraints>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96863818168640137" green="0.96862006187438965" blue="0.96863234043121338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="WEp-M3-mvQ" firstAttribute="top" secondItem="UXQ-lG-T0j" secondAttribute="top" constant="96" id="BD3-KA-wiZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="WEp-M3-mvQ" secondAttribute="bottom" constant="848" id="WOX-J9-GS1"/>
+                                    <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerX" secondItem="UXQ-lG-T0j" secondAttribute="centerX" id="WmX-kM-u15"/>
+                                    <constraint firstAttribute="trailing" secondItem="WEp-M3-mvQ" secondAttribute="trailing" constant="57" id="eW4-ac-E2b"/>
+                                    <constraint firstItem="2QD-dY-bMT" firstAttribute="centerX" secondItem="WEp-M3-mvQ" secondAttribute="centerX" id="sw2-Hh-lJm"/>
+                                    <constraint firstItem="2QD-dY-bMT" firstAttribute="top" secondItem="UXQ-lG-T0j" secondAttribute="top" constant="96" id="wSj-br-nwM"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.96863818168640137" green="0.96862006187438965" blue="0.96863234043121338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="leading" secondItem="svJ-vj-lcz" secondAttribute="leading" id="1Vg-Zp-v5c"/>
-                            <constraint firstItem="svJ-vj-lcz" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="GtQ-HB-fhR"/>
-                            <constraint firstItem="ITv-1y-lrX" firstAttribute="leading" secondItem="bh2-UX-2Ny" secondAttribute="leading" id="GyW-lt-ofs"/>
-                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="trailing" secondItem="svJ-vj-lcz" secondAttribute="trailing" id="LhE-Ur-Rzb"/>
+                            <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="0j7-d4-pD0"/>
+                            <constraint firstItem="ITv-1y-lrX" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="A68-Bn-ETi"/>
+                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="bottom" secondItem="7WP-1P-oXm" secondAttribute="bottom" id="D1H-NO-4OD"/>
+                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="leading" secondItem="7WP-1P-oXm" secondAttribute="leading" id="DCp-Hu-9V0"/>
+                            <constraint firstItem="svJ-vj-lcz" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="25" id="DHr-1k-C7P"/>
+                            <constraint firstItem="zy9-Sb-WOp" firstAttribute="top" secondItem="ITv-1y-lrX" secondAttribute="bottom" constant="12" id="G5s-yI-yQl"/>
+                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="top" secondItem="zy9-Sb-WOp" secondAttribute="bottom" constant="75.666666666666657" id="GrG-Jr-qYP"/>
+                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="leading" secondItem="svJ-vj-lcz" secondAttribute="leading" id="Lq0-Bt-n4a"/>
+                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="leading" secondItem="7WP-1P-oXm" secondAttribute="leading" constant="20" id="MpV-te-mW6"/>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="TTm-2w-n0V"/>
-                            <constraint firstItem="ITv-1y-lrX" firstAttribute="trailing" secondItem="bh2-UX-2Ny" secondAttribute="trailing" id="bfX-v7-MX2"/>
-                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="top" secondItem="svJ-vj-lcz" secondAttribute="bottom" constant="10" id="rvW-yu-lj2"/>
-                            <constraint firstItem="zy9-Sb-WOp" firstAttribute="top" secondItem="ITv-1y-lrX" secondAttribute="bottom" constant="30" id="tl0-2d-NaI"/>
-                            <constraint firstItem="ITv-1y-lrX" firstAttribute="top" secondItem="bh2-UX-2Ny" secondAttribute="bottom" constant="13" id="uUb-XT-SW9"/>
-                            <constraint firstItem="svJ-vj-lcz" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="70" id="vIl-Wp-xsC"/>
+                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="top" secondItem="svJ-vj-lcz" secondAttribute="bottom" constant="10" id="a1S-AA-kBY"/>
+                            <constraint firstItem="UXQ-lG-T0j" firstAttribute="trailing" secondItem="7WP-1P-oXm" secondAttribute="trailing" id="gEX-w9-Tz8"/>
+                            <constraint firstItem="bh2-UX-2Ny" firstAttribute="trailing" secondItem="svJ-vj-lcz" secondAttribute="trailing" id="rce-4X-On7"/>
+                            <constraint firstItem="ITv-1y-lrX" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="61" id="xuW-j1-EhS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7WP-1P-oXm"/>
                     </view>
@@ -370,10 +410,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1500"/>
                     <connections>
                         <outlet property="day" destination="bh2-UX-2Ny" id="bwI-IE-gNW"/>
                         <outlet property="month" destination="svJ-vj-lcz" id="hMC-dy-0T0"/>
                         <outlet property="routineTitle" destination="zy9-Sb-WOp" id="mPD-6r-8SE"/>
+                        <outlet property="scrollview" destination="UXQ-lG-T0j" id="1aM-ui-z7A"/>
                         <outlet property="time" destination="ITv-1y-lrX" id="Gan-7u-nI5"/>
                     </connections>
                 </viewController>
@@ -435,7 +478,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="PkI-NS-3iO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="SeH-CL" family="SeoulHangang CL" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnw-Iu-TrD">

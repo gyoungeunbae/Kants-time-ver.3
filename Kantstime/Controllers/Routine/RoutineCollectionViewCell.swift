@@ -53,7 +53,6 @@ class RoutineCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelega
             self.contentView.frame = CGRect(x: 0,y: p.y, width: width, height: height)
             
             self.deleteLabel1.frame = CGRect(x: self.bounds.midX/2+30, y: height/12, width: width, height: height)
-            deleteLabel1.font = UIFont(name: "BM DoHyeon OTF", size: 20.0)
         }
         
     }

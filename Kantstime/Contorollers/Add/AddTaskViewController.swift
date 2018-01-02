@@ -60,7 +60,7 @@ class AddTaskViewController: UIViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneToolbarButtonPressed))
         toolBar.setItems([doneButton], animated: false)
         timeDatePicker.datePickerMode = .time
-        timeDatePicker.minuteInterval = 5
+        timeDatePicker.minuteInterval = 30
         dateFormatter.dateFormat = "hh:mm a"
         timeDatePicker.date = dateFormatter.date(from: "06:30 AM")!
         timeTextField.inputView = timeDatePicker

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RoutineCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class RoutineCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate {
     
     @IBOutlet weak var routineCollectionView: UICollectionView!
     var routineNameFromTextField:UITextField!
@@ -120,7 +120,8 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
         routineNameFromTextField = textField
     }
     
-    @IBAction func addNewRoutine(_ sender: Any) {
+    
+    @IBAction func addNewRoutine(_ sender: UIButton) {
         let realm = try? Realm()
         var newRoutine:Routine!
         var checkPrimaryKey:Bool!
@@ -169,7 +170,7 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
         }
         return false
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goTaskSegue" {
             if let destination = segue.destination as? TaskListViewController {
