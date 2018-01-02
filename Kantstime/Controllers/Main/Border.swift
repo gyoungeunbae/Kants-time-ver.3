@@ -47,9 +47,8 @@ class Border: UIButton {
     
             return counterColor
         }
-    override func draw(_ rect: CGRect,task:Task,startAngle:CGFloat,endAngle:CGFloat) {
+     func draw(_ rect: CGRect,task:Task,startAngle:CGFloat,endAngle:CGFloat) {
             //var startAngle: CGFloat = 3 * π / 2
-            if fetchedTask != nil {
                     //let sort = Sorting()
                     //taskList = sort.mergeSort(list: fetchedTask!)
                     counterColor=colorList(count: count)
@@ -70,10 +69,10 @@ class Border: UIButton {
                     path.lineWidth = arcWidth
                     counterColor.setStroke()
                     path.stroke()
-                    startAngle=endAngle
-                
-            }
-        }
+                   // startAngle=endAngle
+        
+        
+        
 
         
     }
