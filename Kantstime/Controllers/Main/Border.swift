@@ -47,22 +47,20 @@ class Border: UIButton {
     
             return counterColor
         }
-    override func draw(_ rect: CGRect,routineTitle:String,startAngle:CGFloat,endAngle:CGFloat) {
-            let realm = try? Realm()
-            var fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle)'").first?.task
+    override func draw(_ rect: CGRect,task:Task,startAngle:CGFloat,endAngle:CGFloat) {
             //var startAngle: CGFloat = 3 * π / 2
             if fetchedTask != nil {
-                //let sort = Sorting()
-                //taskList = sort.mergeSort(list: fetchedTask!)
+                    //let sort = Sorting()
+                    //taskList = sort.mergeSort(list: fetchedTask!)
                     counterColor=colorList(count: count)
-                    startAngle=(CGFloat(taskList[i].integerStime) * π/360) + 3 * π / 2
-                    let interval = CGFloat(taskList[i].timeinterval)
+                    //startAngle=(CGFloat(taskList[i].integerStime) * π/360) + 3 * π / 2
+                    //let interval = CGFloat(taskList[i].timeinterval)
                     let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
                     
                     let radius: CGFloat = max(bounds.width, bounds.height)
                     
                     let arcWidth: CGFloat = 50
-                    let endAngle: CGFloat =  (startAngle)+(interval * π/360)
+                    //let endAngle: CGFloat =  (startAngle)+(interval * π/360)
                     let path = UIBezierPath(arcCenter: center,
                                             radius: radius/2.2 - arcWidth/2.2,
                                             startAngle: startAngle,
