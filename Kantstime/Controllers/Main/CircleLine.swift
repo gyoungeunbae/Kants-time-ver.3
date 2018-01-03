@@ -16,12 +16,12 @@ class CircleLine: UIView {
         for i in 0..<48{
             let order = CGFloat(i)
             let angle = 3*π/2+order*(π/24)
-            path.move(to: CGPoint(x: bounds.width/2, y: bounds.width/2))
+            path.move(to: CGPoint(x: bounds.width/2+sin(angle)*50, y:bounds.width/2+cos(angle)*50))
             path.addLine(to: CGPoint(x: bounds.width/2+sin(angle)*126, y: bounds.width/2+cos(angle)*126))
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = path.cgPath
             UIColor.init(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 0.4).setStroke()
-            shapeLayer.lineWidth = 1
+            shapeLayer.lineWidth = 0.3
             path.stroke()
         }
     }

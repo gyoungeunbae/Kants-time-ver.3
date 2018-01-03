@@ -13,21 +13,22 @@ class MainViewController: UIViewController {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var routineTitle: UILabel!
-    @IBOutlet weak var scrollview: UIScrollView!
     
     var border: UIButton!=UIButton()
-    
-    var sum:Int!
-    var taskList:[Task]!
-    var fetchedTask:List<Task>!
-    var routineBorders:[UIButton]!
-    var startTime:[UILabel]!
-    var taskName:[UILabel]!
-    var colorView:[UIView]!
-    var endInteger:Int!
-    var startInteger:Int!
-    var interval:Int!
-    var y:Int!
+    var startAngle:CGFloat! = CGFloat()
+    var endAngle:CGFloat! = CGFloat()
+    var sum:Int! = Int()
+    var taskList:[Task]! = [Task]()
+    var fetchedTask:List<Task>! = List<Task>()
+    var routineBorders:[UIButton]! = [UIButton]()
+    var startTime:[UILabel]! = [UILabel]()
+    var taskName:[UILabel]! = [UILabel]()
+    var colorView:[UIView]! = [UIView]()
+    var endInteger:Int! = Int()
+    var startInteger:Int! = Int()
+    var interval:Int = Int()
+    var angleInterval : Int! = Int()
+    var y:Int! = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,10 +38,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        colorView = [UIView]()
-        startTime = [UILabel]()
-        taskName = [UILabel]()
-        routineBorders = [UIButton]()
         let date = Date()
         month.text = date.getMonthName()
         day.text = date.getDay()
@@ -48,15 +45,30 @@ class MainViewController: UIViewController {
         routineTitle.text = getRountineTitle()
         let realm = try? Realm()
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
+        startAngle = π/6
+
         if fetchedTask != nil {
             let sort = Sorting()
             taskList = sort.mergeSort(list: fetchedTask)
-                for i in 0..<fetchedTask.count {
+
+            for i in 0..<fetchedTask.count {
                     setTaskUI(index: i)
+                    angleInterval = taskList[i].timeinterval/30
+                print(i)
+                print(taskList[i].timeinterval)
+                print(Realm.Configuration.defaultConfiguration.fileURL!)
+
+                    endAngle = startAngle+CGFloat(angleInterval)*(π/12)
+//                    print(angleInterval)
+//                    print("****")
+                
+                    setRoutineBorders(frame: CGRect(x:57, y:250, width: 300, height: 300), task: taskList[i],startAngle: startAngle, endAngle: endAngle, index: i)
+                  
+                    startAngle = endAngle
                 }
-            border = Border(frame: CGRect(x: 45, y: 100, width: 200, height: 200), task: fetchedTask[2], startAngle: 3 * π / 2, endAngle:  π / 2)
+            
         }
-        self.view.addSubview(border)
+        //self.view.addSubview(border)
         
     }
 
@@ -115,10 +127,17 @@ class MainViewController: UIViewController {
             startTime[index].text = fetchedTaskstartTime
             taskName.append(UILabel(frame: CGRect(x: 100, y: 390+sum, width: 100, height: 30)))
             taskName[index].text = fetchedTaskName
-            self.view.addSubview(startTime[index])
-            self.view.addSubview(taskName[index])
-            self.view.addSubview(colorView[index])
+            //self.view.addSubview(startTime[index])
+            //self.view.addSubview(taskName[index])
+            //self.view.addSubview(colorView[index])
       
+    }
+    func setRoutineBorders(frame:CGRect,task:Task,startAngle:CGFloat, endAngle: CGFloat, index:Int) {
+        //start endangle
+        
+        border = Border(frame: frame, task: task, startAngle: startAngle, endAngle: endAngle,index: index)
+        routineBorders.append(border)
+        self.view.addSubview(routineBorders[index])
     }
     
     

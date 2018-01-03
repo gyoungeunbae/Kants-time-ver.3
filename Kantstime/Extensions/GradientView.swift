@@ -16,12 +16,14 @@ extension UIView {
     
     func applyGradient(colors: [UIColor], locations: [NSNumber]?) -> Void {
         let gradient: CAGradientLayer = CAGradientLayer()
+        
         gradient.frame = self.bounds
         gradient.colors = colors.map { $0.cgColor }
         gradient.startPoint = CGPoint(x:0,y:0.5)
         gradient.endPoint = CGPoint(x:1,y:0.8)
         gradient.locations = locations
         gradient.cornerRadius = self.bounds.width/2
+        
         self.layer.addSublayer(gradient)
     }
     func colorList(index: Int) -> [UIColor]{

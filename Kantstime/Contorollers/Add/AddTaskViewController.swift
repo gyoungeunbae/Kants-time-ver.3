@@ -14,7 +14,7 @@ class AddTaskViewController: UIViewController {
     var timeDatePicker = UIDatePicker()
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    
+    var taskList:[Task]=[Task]()
     var endIntegerValue = 0
     var startIntegerValue = 0
     
@@ -167,18 +167,28 @@ class AddTaskViewController: UIViewController {
             }
                 var timeOverap = false
                 var index:Int!
+            
                 dateFormatter.dateFormat = "hh:mm a"
+                let sort = Sorting()
+                taskList = sort.mergeSort(list: fetchedTask)
                 if fetchedTask != nil {
                     let checkStartTime = dateFormatter.date(from: newTask.starttime)
                     let checkEndTime = dateFormatter.date(from: newTask.endtime)
                     for i in 0..<fetchedTask.count {
-                        let startTime = dateFormatter.date(from: fetchedTask[i].starttime)
-                        let endTime = dateFormatter.date(from: fetchedTask[i].endtime)
-                        if(checkEndTime! > startTime! && checkStartTime! < endTime!)
+                        let startTime = dateFormatter.date(from: taskList[i].starttime)
+                        let endTime = dateFormatter.date(from: taskList[i].endtime)
+                        if(checkEndTime! < endTime! && checkStartTime! < startTime!)
                         {
                             timeOverap = true
                             index = i
+                        }else if(checkStartTime! > startTime! && checkStartTime! < endTime!) {
+                            timeOverap = true
+                            index = i
+                        }else if(checkEndTime! > startTime! && checkEndTime! < endTime!) {
+                            timeOverap = true
+                            index = i
                         }
+                        
                 }
             }
             if timeOverap == false && nilTime == false {
