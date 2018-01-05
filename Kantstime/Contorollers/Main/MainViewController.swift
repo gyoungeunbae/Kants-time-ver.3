@@ -29,13 +29,15 @@ class MainViewController: UIViewController {
     var interval:Int = Int()
     var angleInterval : Int! = Int()
     var y:Int! = Int()
+    var count:Int! = Int()
+    var reCount:Int! = Int()
+
+    @IBOutlet weak var nightCircle: Circle!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
-    @objc func clicked() {
-        print("coke")
-    }
+   
     
     override func viewWillAppear(_ animated: Bool) {
         let date = Date()
@@ -46,35 +48,35 @@ class MainViewController: UIViewController {
         let realm = try? Realm()
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
         startAngle = π/6
-
         if fetchedTask != nil {
-            let sort = Sorting()
-            taskList = sort.mergeSort(list: fetchedTask)
-
             for i in 0..<fetchedTask.count {
-                    setTaskUI(index: i)
-                    angleInterval = taskList[i].timeinterval/30
-                print(i)
-                print(taskList[i].timeinterval)
-                print(Realm.Configuration.defaultConfiguration.fileURL!)
-
-                    endAngle = startAngle+CGFloat(angleInterval)*(π/12)
-//                    print(angleInterval)
-//                    print("****")
-                
-                    setRoutineBorders(frame: CGRect(x:57, y:250, width: 300, height: 300), task: taskList[i],startAngle: startAngle, endAngle: endAngle, index: i)
-                  
+                    angleInterval = fetchedTask[i].timeinterval/30
+                    endAngle = startAngle+CGFloat(angleInterval)*(π/24)
+                    setRoutineBorders(frame: CGRect(x:12, y:250, width: 350, height: 350), task: fetchedTask[i],startAngle: startAngle, endAngle: endAngle, index: i)
                     startAngle = endAngle
+                reCount = fetchedTask.count
+
                 }
-            
+
         }
-        //self.view.addSubview(border)
+        if count != reCount{
+         print("what\(reCount)")
+            print("is?\(count)")
+            for i in 0..<routineBorders.count {
+                routineBorders[i].isHidden = false
+                routineBorders[i].setNeedsDisplay()
+            }
+        }
+        
         
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goRoutine" {
-            clearUI()
+            if fetchedTask != nil {
+                count = fetchedTask!.count
+                clearUI()
+            }
         }
     }
     func clearUI() {
@@ -82,12 +84,8 @@ class MainViewController: UIViewController {
             sum = 0
             y = 0
             for i in 0..<fetchedTask.count {
-                startTime[i].removeFromSuperview()
-                taskName[i].removeFromSuperview()
-                colorView[i].removeFromSuperview()
-                startTime[i].isHidden = true
-                taskName[i].isHidden = true
-                colorView[i].isHidden = true
+              routineBorders[i].removeFromSuperview()
+              routineBorders[i].isHidden = true
             }
         }
     }
@@ -133,13 +131,13 @@ class MainViewController: UIViewController {
       
     }
     func setRoutineBorders(frame:CGRect,task:Task,startAngle:CGFloat, endAngle: CGFloat, index:Int) {
-        //start endangle
-        
         border = Border(frame: frame, task: task, startAngle: startAngle, endAngle: endAngle,index: index)
         routineBorders.append(border)
         self.view.addSubview(routineBorders[index])
+
+
     }
-    
+
     
 }
 

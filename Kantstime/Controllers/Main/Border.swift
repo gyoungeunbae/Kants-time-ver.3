@@ -13,7 +13,9 @@ class Border: UIButton {
         var count:Int! = Int()
         @IBInspectable var counterColor=UIColor.init (red: 6.0/255.0, green: 131.0/255.0, blue: 145.0/255.0, alpha: 1 )
         var taskList:[Task] = [Task]()
-        var task : Task! = Task()
+        var task : Task! = Task(){
+            didSet { setNeedsDisplay() }
+        }
         var startAngle : CGFloat! = CGFloat()
         var endAngle : CGFloat! = CGFloat()
     

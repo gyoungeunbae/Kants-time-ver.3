@@ -11,28 +11,70 @@ let π:CGFloat = CGFloat(M_PI)
 
 class Circle: UIView {
 
-     @IBInspectable var circleOutLineColor: UIColor = UIColor.gray
+     @IBInspectable var circleOutLineColor: UIColor = UIColor()
     
      override func draw(_ rect: CGRect) {
-     
-     let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
-     let radius: CGFloat = max(bounds.width, bounds.height)//지름
-     let arcWidth: CGFloat = 1//굵기
-     let startAngle: CGFloat = 3 * π / 2
-     let endAngle: CGFloat = 7 * π / 2
-     var path = UIBezierPath(arcCenter: center,
-     radius: radius/2.4 - arcWidth/2.4,
-     startAngle: startAngle,
-     endAngle: endAngle,
-     clockwise: true)
-     
-     
-     UIColor.clear.setFill()//안쪽 원 색깔
-     path.lineWidth = arcWidth
-     path.fill()
-     circleOutLineColor.setStroke()
-     path.stroke()
-     
+        //setNigthCircle()
+       // setDaytimeCircle()
+
      
      }
+    func setNigthCircle() {
+        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
+        let radius: CGFloat = max(bounds.width, bounds.height)//지름
+        let arcWidth: CGFloat = 5//굵기
+        let startAngle: CGFloat = 0
+        let endAngle: CGFloat = 2 * π
+        var path = UIBezierPath(arcCenter: center,
+                                radius: radius/2.4 - arcWidth/2.4,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
+        
+        
+        let colors = [UIColor.black.cgColor,UIColor.white.cgColor]
+        
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.lineCap = "round"
+        shape.lineWidth = arcWidth
+        shape.strokeColor = UIColor.black.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        self.layer.addSublayer(shape)
+        let gradient = CAGradientLayer()
+        gradient.frame = CGRect(x: bounds.minX, y: bounds.minY, width: bounds.width, height: bounds.height)
+        gradient.colors = colors
+        gradient.mask = shape
+        self.layer.addSublayer(gradient)
+        
+    }
+    func setDaytimeCircle() {
+        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
+        let radius: CGFloat = max(bounds.width, bounds.height)//지름
+        let arcWidth: CGFloat = 30//굵기
+        let startAngle: CGFloat = 10 * π / 9 +  π
+        let endAngle: CGFloat = 10 * π / 9 +  π +  π
+        var path = UIBezierPath(arcCenter: center,
+                                radius: radius/2.4 - arcWidth/2.4,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
+        
+        
+        let colors = [UIColor.init(red: 255.0/255.0, green: 154.0/255.0, blue: 158.0/255.0, alpha: 1).cgColor,UIColor.init(red: 250.0/255.0, green: 208.0/255.0, blue: 196.0/255.0, alpha: 1).cgColor]
+        
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.lineCap = "round"
+        shape.lineWidth = arcWidth
+        shape.strokeColor = UIColor.black.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        self.layer.addSublayer(shape)
+        let gradient = CAGradientLayer()
+        gradient.frame = CGRect(x: bounds.minX, y: bounds.minY, width: bounds.width, height: bounds.height)
+        gradient.colors = colors
+        gradient.mask = shape
+        self.layer.addSublayer(gradient)
+    }
+
 }

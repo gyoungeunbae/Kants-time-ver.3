@@ -26,6 +26,8 @@ extension UIView {
         
         self.layer.addSublayer(gradient)
     }
+   
+    
     func colorList(index: Int) -> [UIColor]{
     
         switch index {

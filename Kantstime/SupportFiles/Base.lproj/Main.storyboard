@@ -120,7 +120,7 @@
                     <navigationItem key="navigationItem" id="6gn-AX-4Fi">
                         <barButtonItem key="leftBarButtonItem" id="h6D-HN-F2K">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2DP-co-mQY">
-                                <rect key="frame" x="20" y="0.0" width="40" height="44"/>
+                                <rect key="frame" x="20" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
@@ -347,18 +347,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
-                                <rect key="frame" x="57" y="250" width="300" height="300"/>
+                                <rect key="frame" x="12" y="230" width="390" height="390"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBg-Qy-S4w" customClass="CircleLine" customModule="Kantstime" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="390"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="VAL-TT-XVa"/>
-                                    <constraint firstAttribute="height" constant="300" id="z0B-dn-stg"/>
+                                    <constraint firstAttribute="width" constant="390" id="VAL-TT-XVa"/>
+                                    <constraint firstAttribute="height" constant="390" id="z0B-dn-stg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -372,8 +372,8 @@
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="leading" secondItem="7WP-1P-oXm" secondAttribute="leading" constant="20" id="MpV-te-mW6"/>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="TTm-2w-n0V"/>
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="top" secondItem="svJ-vj-lcz" secondAttribute="bottom" constant="10" id="a1S-AA-kBY"/>
-                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="top" secondItem="zy9-Sb-WOp" secondAttribute="bottom" constant="70" id="hFu-Up-uO4"/>
-                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerX" secondItem="zy9-Sb-WOp" secondAttribute="centerX" id="imP-IN-Wa0"/>
+                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="top" secondItem="zy9-Sb-WOp" secondAttribute="bottom" constant="50" id="hFu-Up-uO4"/>
+                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="oVK-XG-zxb"/>
                             <constraint firstItem="bh2-UX-2Ny" firstAttribute="trailing" secondItem="svJ-vj-lcz" secondAttribute="trailing" id="rce-4X-On7"/>
                             <constraint firstItem="ITv-1y-lrX" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="61" id="xuW-j1-EhS"/>
                         </constraints>
@@ -391,6 +391,7 @@
                     <connections>
                         <outlet property="day" destination="bh2-UX-2Ny" id="bwI-IE-gNW"/>
                         <outlet property="month" destination="svJ-vj-lcz" id="hMC-dy-0T0"/>
+                        <outlet property="nightCircle" destination="WEp-M3-mvQ" id="eyN-Bs-Foe"/>
                         <outlet property="routineTitle" destination="zy9-Sb-WOp" id="mPD-6r-8SE"/>
                         <outlet property="time" destination="ITv-1y-lrX" id="Gan-7u-nI5"/>
                     </connections>

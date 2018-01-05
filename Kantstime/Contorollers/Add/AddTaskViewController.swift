@@ -165,7 +165,6 @@ class AddTaskViewController: UIViewController {
                     nilTime = true
                 }
             }
-                var timeOverap = false
                 var index:Int!
             
                 dateFormatter.dateFormat = "hh:mm a"
@@ -174,44 +173,23 @@ class AddTaskViewController: UIViewController {
                 if fetchedTask != nil {
                     let checkStartTime = dateFormatter.date(from: newTask.starttime)
                     let checkEndTime = dateFormatter.date(from: newTask.endtime)
-                    for i in 0..<fetchedTask.count {
-                        let startTime = dateFormatter.date(from: taskList[i].starttime)
-                        let endTime = dateFormatter.date(from: taskList[i].endtime)
-                        if(checkEndTime! < endTime! && checkStartTime! < startTime!)
-                        {
-                            timeOverap = true
-                            index = i
-                        }else if(checkStartTime! > startTime! && checkStartTime! < endTime!) {
-                            timeOverap = true
-                            index = i
-                        }else if(checkEndTime! > startTime! && checkEndTime! < endTime!) {
-                            timeOverap = true
-                            index = i
-                        }
-                        
-                }
+                
             }
-            if timeOverap == false && nilTime == false {
+            if nilTime == false {
                 try? realm?.write {
                     fetchedTask.append(newTask)
                 }
                 navigationController?.popViewController(animated: true)
 
             } else {
-                if timeOverap == true {
-                    let alert = UIAlertController(title: "다시 입력해주세요", message: "\n\(fetchedTask[index].tasktitle) (\(fetchedTask[index].starttime)~\(fetchedTask[index].endtime))와 \n시간이 겹칩니다.", preferredStyle: .alert)
+                if nilTime == true {
+                    let alert = UIAlertController(title: "입력해주세요", message: "\n시간을 선택해주세요", preferredStyle: .alert)
                     let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
-                    timeOverap = true
+                        
                     })
                     alert.addAction(doneAction)
-                    self.present(alert, animated: true, completion: nil)
-
-                }
-                if nilTime == true {
-                    //ALERT
-                }
+                    self.present(alert, animated: true, completion: nil)                }
                 print("다시 알림")
-                print(timeOverap)
                 print(nilTime)
                 
             }

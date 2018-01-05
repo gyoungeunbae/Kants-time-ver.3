@@ -35,6 +35,7 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+        
     }
     
     
