@@ -12,19 +12,17 @@ class Border: UIButton {
     
         var count:Int! = Int()
         @IBInspectable var counterColor=UIColor.init (red: 6.0/255.0, green: 131.0/255.0, blue: 145.0/255.0, alpha: 1 )
-        var taskList:[Task] = [Task]()
-        var task : Task! = Task(){
-            didSet { setNeedsDisplay() }
+        var fetchedTask:List<Task>!=List<Task>(){
+        didSet { setNeedsDisplay() }
+        willSet{setNeedsDisplay()}
         }
+        var task : Task! = Task()
         var startAngle : CGFloat! = CGFloat()
         var endAngle : CGFloat! = CGFloat()
-    
-        init(frame: CGRect,task:Task,startAngle:CGFloat,endAngle:CGFloat,index:Int) {
+        var angleInterval:Int! = Int()
+        init(frame: CGRect,task:List<Task>) {
             super.init(frame: frame)
-            self.task = task
-            self.startAngle = startAngle
-            self.endAngle = endAngle
-            self.count = index
+            self.fetchedTask = task
         }
     
         required init?(coder aDecoder: NSCoder) {
@@ -67,28 +65,45 @@ class Border: UIButton {
             return counterColor
         }
         override func draw(_ rect: CGRect) {
-                    //var startAngle: CGFloat = 3 * π / 2
-                    //let sort = Sorting()
-                    //taskList = sort.mergeSort(list: fetchedTask!)
-                    //startAngle=(CGFloat(taskList[i].integerStime) * π/360) + 3 * π / 2
-                    //let interval = CGFloat(taskList[i].timeinterval)
+                startAngle = π/6
+                for i in 0..<fetchedTask.count {
                     let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-                    counterColor=colorList(count: count)
-                    print(count)
+                    counterColor=colorList(count: i)
+                    angleInterval = fetchedTask[i].timeinterval/30
+                    endAngle = startAngle+CGFloat(angleInterval)*(π/12)
+                
                     let radius: CGFloat = max(bounds.width, bounds.height)
-                    let arcWidth: CGFloat = 50
-                    //let endAngle: CGFloat =  (startAngle)+(interval * π/360)
+                    let arcWidth: CGFloat = 20
                     let path = UIBezierPath(arcCenter: center,
                                             radius: radius/2.2 - arcWidth/2.2,
-                                            startAngle: startAngle,
+                                             startAngle: startAngle,
                                             endAngle: endAngle,
                                             clockwise: true)
                     
                     path.lineWidth = arcWidth
                     counterColor.setStroke()
                     path.stroke()
-                   // startAngle=endAngle
+                    
+                    startAngle=endAngle
+                    self.layer.setNeedsDisplay()
         
+    }
+    }
+    
+    func drawTaskCircle() {
+        let context = UIGraphicsGetCurrentContext()
+        for i in 0..<10{
+            let order = CGFloat(i)
+            let angle = 3*π/2+order*(π/12)
+            
+            var x = bounds.width/2+sin(angle)*100-10*sin(angle)
+            var y = bounds.width/2+cos(angle)*100-10*cos(angle)
+            
+            let rectangle = CGRect(x: x, y: y, width: 10, height: 10)
+            context?.addEllipse(in: rectangle)
+            context?.setFillColor(UIColor.red.cgColor)
+            context?.fillEllipse(in: rectangle)
+        }
     }
     
     

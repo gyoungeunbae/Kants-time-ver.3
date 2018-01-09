@@ -10,12 +10,12 @@ import UIKit
 
 class CircleLine: UIView {
     override func draw(_ rect: CGRect) {
-        let path = UIBezierPath()
+       /* let path = UIBezierPath()
       
         
-        for i in 0..<48{
+        for i in 0..<24{
             let order = CGFloat(i)
-            let angle = 3*π/2+order*(π/24)
+            let angle = 3*π/2+order*(π/12)
             var x = bounds.width/2+sin(angle)*150
             var y = bounds.width/2+cos(angle)*150
             path.move(to: CGPoint(x: bounds.width/2, y:bounds.width/2))
@@ -24,7 +24,8 @@ class CircleLine: UIView {
             shapeLayer.path = path.cgPath
             UIColor.init(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 0.4).setStroke()
             path.stroke()
-        }
+        }*/
     }
+   
 
 }

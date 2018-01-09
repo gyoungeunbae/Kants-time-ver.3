@@ -15,14 +15,14 @@ class Circle: UIView {
     
      override func draw(_ rect: CGRect) {
         //setNigthCircle()
-       // setDaytimeCircle()
-
+        //setDaytimeCircle()
+        shadowCircle()
      
      }
     func setNigthCircle() {
         let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
         let radius: CGFloat = max(bounds.width, bounds.height)//지름
-        let arcWidth: CGFloat = 5//굵기
+        let arcWidth: CGFloat = 0.7//굵기
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * π
         var path = UIBezierPath(arcCenter: center,
@@ -50,10 +50,10 @@ class Circle: UIView {
     }
     func setDaytimeCircle() {
         let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
-        let radius: CGFloat = max(bounds.width, bounds.height)//지름
-        let arcWidth: CGFloat = 30//굵기
-        let startAngle: CGFloat = 10 * π / 9 +  π
-        let endAngle: CGFloat = 10 * π / 9 +  π +  π
+        let radius: CGFloat = min(bounds.width-100, bounds.height-100)//지름
+        let arcWidth: CGFloat = 0.7//굵기
+        let startAngle: CGFloat = 0
+        let endAngle: CGFloat = 2 * π
         var path = UIBezierPath(arcCenter: center,
                                 radius: radius/2.4 - arcWidth/2.4,
                                 startAngle: startAngle,
@@ -75,6 +75,22 @@ class Circle: UIView {
         gradient.colors = colors
         gradient.mask = shape
         self.layer.addSublayer(gradient)
+    }
+    func shadowCircle() {
+        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
+        let radius: CGFloat = min(bounds.width-100, bounds.height-100)//지름
+        let arcWidth: CGFloat = 0.7//굵기
+        let startAngle: CGFloat = 0
+        let endAngle: CGFloat = 2 * π
+        var path = UIBezierPath(arcCenter: center,
+                                radius: radius/2.4 - arcWidth/2.4,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
+        
+        UIColor.black.setStroke()
+        
+        path.stroke()
     }
 
 }
