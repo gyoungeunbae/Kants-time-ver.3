@@ -97,7 +97,6 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
         routineCollectionView.reloadData()
         let realm = try? Realm()
         if  sender.isOn == true {
-            print(sender.tag)
             try? realm?.write {
                 fetchedRoutine[sender.tag].routineButton = true
             }

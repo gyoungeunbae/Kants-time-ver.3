@@ -36,13 +36,13 @@ class MainViewController: UIViewController {
     var angleInterval : Int! = Int()
     var y:Int! = Int()
     var count:Int! = Int()
-
+    
     @IBOutlet weak var nightCircle: Circle!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-   
+    
     
     override func viewWillAppear(_ animated: Bool) {
         print("**")
@@ -54,13 +54,13 @@ class MainViewController: UIViewController {
         let realm = try? Realm()
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
         if fetchedTask != nil {
-               setRoutineBorders(frame:CGRect(x:12, y:250, width: 350, height: 350), task: fetchedTask)
-               border.setNeedsDisplay()
-               border.layoutIfNeeded()
+            setRoutineBorders(frame:CGRect(x:12, y:250, width: 350, height: 350), task: fetchedTask)
+            border.setNeedsDisplay()
+            border.layoutIfNeeded()
         }
-       
+        
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goRoutine" {
             if fetchedTask != nil {
@@ -73,12 +73,12 @@ class MainViewController: UIViewController {
         if fetchedTask != nil {
             sum = 0
             y = 0
-              border.removeFromSuperview()
-              border.isHidden = true
+            border.removeFromSuperview()
+            border.isHidden = true
             
         }
     }
- 
+    
     
     func getRountineTitle() -> String {
         let realm = try? Realm()
@@ -88,16 +88,15 @@ class MainViewController: UIViewController {
                 return (routineName as? String)!
             }
             return (routineName as? String)!
-
+            
         }
         
     }
- 
+    
     func setRoutineBorders(frame:CGRect,task:List<Task>) {
         border = Border(frame:frame, task: fetchedTask)
         self.view.addSubview(border)
     }
-
+    
     
 }
-
