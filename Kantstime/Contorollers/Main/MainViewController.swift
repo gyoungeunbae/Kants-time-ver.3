@@ -36,7 +36,6 @@ class MainViewController: UIViewController {
     var angleInterval : Int! = Int()
     var y:Int! = Int()
     var count:Int! = Int()
-    var reCount:Int! = Int()
 
     @IBOutlet weak var nightCircle: Circle!
     override func viewDidLoad() {
@@ -58,7 +57,6 @@ class MainViewController: UIViewController {
                setRoutineBorders(frame:CGRect(x:12, y:250, width: 350, height: 350), task: fetchedTask)
                border.setNeedsDisplay()
                border.layoutIfNeeded()
-               reCount = fetchedTask.count
         }
        
     }
@@ -66,7 +64,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goRoutine" {
             if fetchedTask != nil {
-                count = fetchedTask!.count
+                //count = fetchedTask!.count
                 clearUI()
             }
         }
@@ -95,8 +93,6 @@ class MainViewController: UIViewController {
         
     }
  
-
-    
     func setRoutineBorders(frame:CGRect,task:List<Task>) {
         border = Border(frame:frame, task: fetchedTask)
         self.view.addSubview(border)
