@@ -172,7 +172,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVh-Dz-E5Z" id="MIr-pG-Yt4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grq-wE-gJJ">
@@ -323,7 +323,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수련회2일차" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Sb-WOp">
                                 <rect key="frame" x="159" y="164" width="96" height="22"/>
                                 <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="22"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
@@ -341,7 +341,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ali-Ow-1di">
-                                        <rect key="frame" x="186.33333333333334" y="15" width="19" height="15"/>
+                                        <rect key="frame" x="186.33333333333334" y="10" width="19" height="15"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -375,14 +375,14 @@
                                     <constraint firstItem="ITv-1y-lrX" firstAttribute="centerX" secondItem="WEp-M3-mvQ" secondAttribute="centerX" id="hW9-pP-zvU"/>
                                     <constraint firstItem="Fj4-oh-wyh" firstAttribute="leading" secondItem="WEp-M3-mvQ" secondAttribute="leading" constant="15" id="joE-aT-yhz"/>
                                     <constraint firstItem="Ali-Ow-1di" firstAttribute="centerX" secondItem="WEp-M3-mvQ" secondAttribute="centerX" id="m8Q-G7-GFI"/>
-                                    <constraint firstItem="Ali-Ow-1di" firstAttribute="top" secondItem="WEp-M3-mvQ" secondAttribute="top" constant="15" id="suo-IY-QBi"/>
+                                    <constraint firstItem="Ali-Ow-1di" firstAttribute="top" secondItem="WEp-M3-mvQ" secondAttribute="top" constant="10" id="suo-IY-QBi"/>
                                     <constraint firstItem="ITv-1y-lrX" firstAttribute="top" secondItem="sbv-Ga-kEX" secondAttribute="top" id="t2e-l8-gWX"/>
                                     <constraint firstItem="sbv-Ga-kEX" firstAttribute="centerY" secondItem="WEp-M3-mvQ" secondAttribute="centerY" id="tgN-Re-KfE"/>
                                     <constraint firstAttribute="height" constant="390" id="z0B-dn-stg"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.96863818168640137" green="0.96862006187438965" blue="0.96863234043121338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.043269250539999998" green="0.043267514559999998" blue="0.043268684299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="0j7-d4-pD0"/>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="TTm-2w-n0V"/>
@@ -394,7 +394,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9ov-vz-syO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OEF-DB-zPo">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="Has-vx-0Di" kind="show" identifier="goRoutine" id="Rju-DQ-Zh4"/>
                             </connections>
@@ -570,6 +570,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ss8-s2-WgB">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.043269250539999998" green="0.043267514559999998" blue="0.043268684299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

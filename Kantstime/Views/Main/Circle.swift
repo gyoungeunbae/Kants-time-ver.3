@@ -88,7 +88,7 @@ class Circle: UIView {
                                 endAngle: endAngle,
                                 clockwise: true)
         
-        UIColor.black.setStroke()
+        UIColor.white.setStroke()
         
         path.stroke()
     }
