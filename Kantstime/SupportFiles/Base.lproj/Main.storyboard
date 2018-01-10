@@ -321,13 +321,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수련회2일차" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Sb-WOp">
-                                <rect key="frame" x="159" y="164" width="96" height="22"/>
+                                <rect key="frame" x="159" y="664" width="96" height="22"/>
                                 <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="22"/>
                                 <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
-                                <rect key="frame" x="12" y="236" width="390" height="390"/>
+                                <rect key="frame" x="12" y="114" width="390" height="390"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBg-Qy-S4w" customClass="CircleLine" customModule="Kantstime" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="390"/>
@@ -386,8 +386,8 @@
                         <constraints>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="0j7-d4-pD0"/>
                             <constraint firstItem="zy9-Sb-WOp" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="TTm-2w-n0V"/>
-                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="top" secondItem="zy9-Sb-WOp" secondAttribute="bottom" constant="50" id="hFu-Up-uO4"/>
-                            <constraint firstItem="zy9-Sb-WOp" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="100" id="i2S-gD-pit"/>
+                            <constraint firstItem="WEp-M3-mvQ" firstAttribute="top" secondItem="7WP-1P-oXm" secondAttribute="top" constant="50" id="bVL-5Z-ecD"/>
+                            <constraint firstItem="7WP-1P-oXm" firstAttribute="bottom" secondItem="zy9-Sb-WOp" secondAttribute="bottom" constant="50" id="kCR-9I-HEt"/>
                             <constraint firstItem="WEp-M3-mvQ" firstAttribute="centerX" secondItem="aGI-L4-ZFF" secondAttribute="centerX" id="oVK-XG-zxb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7WP-1P-oXm"/>

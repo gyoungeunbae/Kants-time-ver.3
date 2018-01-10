@@ -9,11 +9,11 @@
 import UIKit
 
 class TaskTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var colorChip: UIView!
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var endTime: UILabel!
     
-   
+    
 }

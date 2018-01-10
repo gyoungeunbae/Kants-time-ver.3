@@ -40,7 +40,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nightCircle: Circle!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     
@@ -54,7 +53,7 @@ class MainViewController: UIViewController {
         let realm = try? Realm()
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
         if fetchedTask != nil {
-            setRoutineBorders(frame:CGRect(x:12, y:250, width: 350, height: 350), task: fetchedTask)
+            setRoutineBorders(frame:CGRect(x:12, y:190, width: 350, height: 350), task: fetchedTask)
             border.setNeedsDisplay()
             border.layoutIfNeeded()
         }
@@ -97,6 +96,6 @@ class MainViewController: UIViewController {
         border = Border(frame:frame, task: fetchedTask)
         self.view.addSubview(border)
     }
-    
+  
     
 }
