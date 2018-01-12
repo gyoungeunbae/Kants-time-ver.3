@@ -10,7 +10,7 @@ import Foundation
 extension Date {
     func getMonthName() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM"
+        dateFormatter.dateFormat = "MMMM"
         let stringMonth = dateFormatter.string(from: self)
         return stringMonth
     }

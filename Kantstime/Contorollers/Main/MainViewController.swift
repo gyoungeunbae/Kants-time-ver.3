@@ -46,8 +46,8 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("**")
         let date = Date()
-        //month.text = date.getMonthName()
-        //day.text = date.getDay()
+        month.text = date.getMonthName()
+        day.text = date.getDay()
         time.text = date.getTime()
         routineTitle.text = getRountineTitle()
         let realm = try? Realm()
@@ -63,7 +63,6 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goRoutine" {
             if fetchedTask != nil {
-                //count = fetchedTask!.count
                 clearUI()
             }
         }

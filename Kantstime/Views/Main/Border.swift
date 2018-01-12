@@ -31,33 +31,33 @@ class Border: UIButton {
     {
         if count==0
         {
-             counterColor=UIColor.init ( red: 232.0/255.0, green: 223.0/255.0, blue: 131.0/255.0, alpha: 1 )
+             counterColor=UIColor.init ( red: 248.0/255.0, green: 252.0/255.0, blue: 253.0/255.0, alpha: 1 )
         }
         else if count==1
         {
             
-            counterColor=UIColor.init ( red: 235.0/255.0, green: 206.0/255.0, blue: 107.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 227.0/255.0, green: 236.0/255.0, blue: 253.0/255.0, alpha: 1 )
            
             
         }
         else if count==2
         {
-            counterColor=UIColor.init ( red: 230.0/255.0, green: 182.0/255.0, blue: 82.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 195.0/255.0, green: 210.0/255.0, blue: 228.0/255.0, alpha: 1 )
             return counterColor
         }
         else if count==3
         {
-            counterColor=UIColor.init ( red: 208.0/255.0, green: 116.0/255.0, blue: 82.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 166.0/255.0, green: 187.0/255.0, blue: 216.0/255.0, alpha: 1 )
             
         }
         else if count==4
         {
-            counterColor=UIColor.init ( red: 187.0/255.0, green: 91.0/255.0, blue: 89.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 142.0/255.0, green: 149.0/255.0, blue: 195.0/255.0, alpha: 1 )
             
         }
         else if count==5
         {
-            counterColor=UIColor.init ( red: 181.0/255.0, green: 123.0/255.0, blue: 125.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 130.0/255.0, green: 106.0/255.0, blue: 174.0/255.0, alpha: 1 )
             
         }
         else if count==6
