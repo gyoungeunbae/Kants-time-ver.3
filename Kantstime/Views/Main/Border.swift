@@ -62,13 +62,22 @@ class Border: UIButton {
         }
         else if count==6
         {
-            counterColor=UIColor.init ( red: 123.0/255.0, green: 98.0/255.0, blue: 131.0/255.0, alpha: 1 )
-            
+          
+            counterColor=UIColor.init ( red: 120.0/255.0, green: 67.0/255.0, blue: 153.0/255.0, alpha: 1 )
         }
         else if count==7
         {
-            counterColor=UIColor.init ( red: 103.0/255.0, green: 128.0/255.0, blue: 156.0/255.0, alpha: 1 )
             
+            counterColor=UIColor.init ( red: 94.0/255.0, green: 44.0/255.0, blue: 133.0/255.0, alpha: 1 )
+        }
+        else if count==8
+        {
+             counterColor=UIColor.init ( red: 110.0/255.0, green: 21.0/255.0, blue: 121.0/255.0, alpha: 1 )
+          
+        }
+        else if count == 9
+        {
+            counterColor=UIColor.init ( red: 67.0/255.0, green: 1.0/255.0, blue: 75.0/255.0, alpha: 1 )
         }
         
         return counterColor
@@ -101,12 +110,10 @@ class Border: UIButton {
         }
     }
     @objc func pressed(sender: UIButton!) {
-        print(">>>>>>>")
-        print(sender.tag)
         var alertView = UIAlertView()
-        alertView.addButton(withTitle: "test")
+        alertView.addButton(withTitle: "OK")
         alertView.title = fetchedTask[sender.tag].tasktitle
-        alertView.message = "\n\(fetchedTask[sender.tag].starttime) ~ \(fetchedTask[sender.tag].endtime)"
+        alertView.message = "\n\(fetchedTask[sender.tag].starttime) - \(fetchedTask[sender.tag].endtime)"
         alertView.show()
     }
     
