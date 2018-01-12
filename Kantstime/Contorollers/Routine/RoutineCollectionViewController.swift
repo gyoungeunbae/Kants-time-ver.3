@@ -58,16 +58,24 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
       
        if buttonValue == true {
              var colors = [UIColor]()
-             colors.append(UIColor.init(red: 0.0/255.0, green: 219.0/255.0, blue: 222.0/255.0, alpha: 1))
-             colors.append(UIColor.init(red: 252.0/255.0, green: 0.0/255.0, blue: 255.0/255.0, alpha: 1))
+            colors.append(UIColor.init (red: 232.0/255.0, green: 200.0/255.0, blue: 165.0/255.0, alpha: 1))
+            colors.append(UIColor.init (red: 233.0/255.0, green: 193.0/255.0, blue: 153.0/255.0, alpha: 1))
+            colors.append(UIColor.init (red: 220.0/255.0, green: 131.0/255.0, blue: 127.0/255.0, alpha: 1))
+        
+
+            colors.append(UIColor.init ( red: 115.0/255.0, green: 115.0/255.0, blue: 125.0/255.0, alpha: 1 ))
+        
+        
+        
              cell.routineColor.applyGradient(colors: colors)
              cell.routineName.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.7)
              cell.routineButton.thumbTintColor = UIColor.white
 
         }else {
             var colors = [UIColor]()
-            colors.append(UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1))
-            colors.append(UIColor.init(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1))
+            colors.append(UIColor.white)
+            colors.append(UIColor.gray)
+            colors.append(UIColor.black)
             cell.routineColor.applyGradient(colors: colors)
             cell.routineName.textColor = UIColor.gray
             cell.routineColor.applyGradient(colors: colors)

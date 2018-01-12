@@ -31,31 +31,43 @@ class Border: UIButton {
     {
         if count==0
         {
-            counterColor=UIColor.init ( red: 33.0/255.0, green: 255.0/255.0, blue: 194.0/255.0, alpha: 1 )
+             counterColor=UIColor.init ( red: 232.0/255.0, green: 223.0/255.0, blue: 131.0/255.0, alpha: 1 )
         }
         else if count==1
         {
-            counterColor=UIColor.init ( red: 255.0/255.0, green: 33.0/255.0, blue: 199.0/255.0, alpha: 1 )
+            
+            counterColor=UIColor.init ( red: 235.0/255.0, green: 206.0/255.0, blue: 107.0/255.0, alpha: 1 )
+           
             
         }
         else if count==2
         {
-            counterColor=UIColor.init ( red: 33.0/255.0, green: 203.0/255.0, blue: 255.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 230.0/255.0, green: 182.0/255.0, blue: 82.0/255.0, alpha: 1 )
             return counterColor
         }
         else if count==3
         {
-            counterColor=UIColor.init ( red: 255.0/255.0, green: 33.0/255.0, blue: 73.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 208.0/255.0, green: 116.0/255.0, blue: 82.0/255.0, alpha: 1 )
             
         }
         else if count==4
         {
-            counterColor=UIColor.init ( red: 245.0/255.0, green: 255.0/255.0, blue: 33.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 187.0/255.0, green: 91.0/255.0, blue: 89.0/255.0, alpha: 1 )
             
         }
         else if count==5
         {
-            counterColor=UIColor.init ( red: 145.0/255.0, green: 33.0/255.0, blue: 255.0/255.0, alpha: 1 )
+            counterColor=UIColor.init ( red: 181.0/255.0, green: 123.0/255.0, blue: 125.0/255.0, alpha: 1 )
+            
+        }
+        else if count==6
+        {
+            counterColor=UIColor.init ( red: 123.0/255.0, green: 98.0/255.0, blue: 131.0/255.0, alpha: 1 )
+            
+        }
+        else if count==7
+        {
+            counterColor=UIColor.init ( red: 103.0/255.0, green: 128.0/255.0, blue: 156.0/255.0, alpha: 1 )
             
         }
         

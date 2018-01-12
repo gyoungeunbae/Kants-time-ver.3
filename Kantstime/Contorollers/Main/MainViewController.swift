@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
         let realm = try? Realm()
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
         if fetchedTask != nil {
-            setRoutineBorders(frame:CGRect(x:12, y:190, width: 350, height: 350), task: fetchedTask)
+            setRoutineBorders(frame:CGRect(x:22, y:80, width: 330, height: 330), task: fetchedTask)
             border.setNeedsDisplay()
             border.layoutIfNeeded()
         }
