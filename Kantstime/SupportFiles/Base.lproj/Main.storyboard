@@ -171,7 +171,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bz-F5-3pO">
-                                                    <rect key="frame" x="30.333333333333336" y="30" width="40.000000000000007" height="40"/>
+                                                    <rect key="frame" x="30" y="30" width="40" height="40"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="0sB-bn-ERF"/>
@@ -179,7 +179,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMq-tP-Lpq">
-                                                    <rect key="frame" x="90.333333333333314" y="38" width="110" height="24"/>
+                                                    <rect key="frame" x="90" y="38" width="110" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="puB-lU-ZeM"/>
                                                     </constraints>
@@ -188,7 +188,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhD-jA-INp">
-                                                    <rect key="frame" x="220.33333333333334" y="40.666666666666664" width="60.000000000000028" height="18.666666666666664"/>
+                                                    <rect key="frame" x="220" y="41" width="60" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="FkH-iq-w2j"/>
                                                     </constraints>
@@ -197,7 +197,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-td-bpi">
-                                                    <rect key="frame" x="294" y="40.666666666666664" width="60" height="18.333333333333336"/>
+                                                    <rect key="frame" x="296" y="41" width="60" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="74F-Xu-Ush"/>
                                                     </constraints>
@@ -206,7 +206,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzu-El-P5Y">
-                                                    <rect key="frame" x="283.33333333333331" y="40.666666666666664" width="7.6666666666666856" height="21"/>
+                                                    <rect key="frame" x="283" y="41" width="10" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="kO9-Jx-GgE"/>
                                                     </constraints>
@@ -219,7 +219,6 @@
                                             <constraints>
                                                 <constraint firstItem="YhD-jA-INp" firstAttribute="top" secondItem="iTV-td-bpi" secondAttribute="top" id="7j7-gN-4eT"/>
                                                 <constraint firstItem="wMq-tP-Lpq" firstAttribute="centerY" secondItem="2bz-F5-3pO" secondAttribute="centerY" id="BBg-cw-hJw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="iTV-td-bpi" secondAttribute="trailing" constant="20" id="Lg3-Kr-1wk"/>
                                                 <constraint firstItem="2bz-F5-3pO" firstAttribute="leading" secondItem="MIr-pG-Yt4" secondAttribute="leading" constant="30" id="MSh-AY-Dix"/>
                                                 <constraint firstItem="YhD-jA-INp" firstAttribute="leading" secondItem="wMq-tP-Lpq" secondAttribute="trailing" constant="20" id="PIz-LT-a2U"/>
                                                 <constraint firstItem="Yzu-El-P5Y" firstAttribute="leading" secondItem="YhD-jA-INp" secondAttribute="trailing" constant="3" id="PU5-VM-bih"/>
