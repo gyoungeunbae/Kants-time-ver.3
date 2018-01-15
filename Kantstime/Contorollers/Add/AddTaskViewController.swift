@@ -153,9 +153,12 @@ class AddTaskViewController: UIViewController {
                         
                         var timeInterval = endIntegerValue-startIntegerValue
                         if(timeInterval<0) {
-                            timeInterval = 1440-startIntegerValue+endIntegerValue
-                            newTask.timeinterval = timeInterval
-                            newTask.integerEtime = startIntegerValue+timeInterval-1
+                            nilTime = true
+                            let alert = UIAlertController(title: "다시 입력해주세요", message: "\n Endtime은 12시를 넘길 수 없습니다.", preferredStyle: .alert)
+                            let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
+                            })
+                            alert.addAction(doneAction)
+                            self.present(alert, animated: true, completion: nil)
                             
                         } else {
                             newTask.timeinterval = timeInterval
@@ -168,28 +171,29 @@ class AddTaskViewController: UIViewController {
                 }
             }
             var timeOverlap = false
+            var overlapTask:Task!
+        
             for i in 0..<fetchedTask.count {
                 var startTime = fetchedTask[i].integerStime
                 var endTime = fetchedTask[i].integerEtime
                 var checkStartTime = newTask.integerStime
                 var checkEndTime = newTask.integerEtime
-                
                 if(checkStartTime > startTime && checkEndTime < endTime)
                 {
-                    print(fetchedTask[i].tasktitle)
                     timeOverlap = true
+                    overlapTask = fetchedTask[i]
                 }else if(checkStartTime > startTime && checkStartTime < endTime){
-                    print(fetchedTask[i].tasktitle)
                     timeOverlap = true
+                    overlapTask = fetchedTask[i]
                 }else if(checkEndTime > startTime && checkEndTime < endTime){
-                    print(fetchedTask[i].tasktitle)
                     timeOverlap = true
+                    overlapTask = fetchedTask[i]
                 }else if(checkStartTime==startTime || checkEndTime==endTime){
-                    print(fetchedTask[i].tasktitle)
                     timeOverlap = true
+                    overlapTask = fetchedTask[i]
                 }else if(startTime > checkStartTime && endTime < checkEndTime){
-                    print(fetchedTask[i].tasktitle)
                     timeOverlap = true
+                    overlapTask = fetchedTask[i]
                 }
             }
              if timeOverlap == false && nilTime == false {
@@ -201,7 +205,7 @@ class AddTaskViewController: UIViewController {
 
             } else {
                 if timeOverlap == true {
-                    let alert = UIAlertController(title: "다시 입력해주세요", message: "시간이 겹칩니다.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "다시 입력해주세요", message: "\(overlapTask.tasktitle)(\(overlapTask.starttime) ~ \(overlapTask.endtime))와 시간이 겹칩니다.", preferredStyle: .alert)
                     let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
                         //timeOverlap = true
                     })
@@ -216,8 +220,6 @@ class AddTaskViewController: UIViewController {
                     })
                     alert.addAction(doneAction)
                     self.present(alert, animated: true, completion: nil)                }
-                print("다시 알림")
-                print(nilTime)
                 
             }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
