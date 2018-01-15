@@ -129,7 +129,6 @@ class AddTaskViewController: UIViewController {
                 }
             }
             
-            
             if let endTime = endTimeTextField.text {
                 if endTime != "종료시간" {
                     if endTime != ""{

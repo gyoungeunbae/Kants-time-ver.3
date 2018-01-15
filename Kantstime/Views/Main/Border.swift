@@ -83,11 +83,14 @@ class Border: UIButton {
         return counterColor
     }
     override func draw(_ rect: CGRect) {
-        startAngle = π/6
+        
         for i in 0..<fetchedTask.count {
+            if fetchedTask[i].integerStime >= 720{
+            
             let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
             counterColor=colorList(count: i)
             angleInterval = fetchedTask[i].timeinterval/30
+            startAngle = CGFloat((fetchedTask[i].integerStime-720)/30)*π/12+18*π/12
             endAngle = startAngle+CGFloat(angleInterval)*(π/12)
             
             let radius: CGFloat = max(bounds.width, bounds.height)
@@ -97,7 +100,7 @@ class Border: UIButton {
                                     startAngle: startAngle,
                                     endAngle: endAngle,
                                     clockwise: true)
-            startAngle=endAngle
+            //startAngle=endAngle
             path.lineWidth = arcWidth
             counterColor.setStroke()
             path.stroke()
@@ -106,7 +109,7 @@ class Border: UIButton {
             testButton.backgroundColor = UIColor.clear
             self.addSubview(testButton)
             testButton.addTarget(self, action: #selector(self.pressed(sender:)), for: .touchUpInside)
-            
+            }
         }
     }
     @objc func pressed(sender: UIButton!) {
