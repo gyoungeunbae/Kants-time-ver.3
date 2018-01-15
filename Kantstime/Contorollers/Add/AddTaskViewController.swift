@@ -153,10 +153,10 @@ class AddTaskViewController: UIViewController {
                         
                         var timeInterval = endIntegerValue-startIntegerValue
                         if(timeInterval<0) {
-                            timeInterval = startIntegerValue - endIntegerValue
+                            timeInterval = 1440-startIntegerValue+endIntegerValue
                             newTask.timeinterval = timeInterval
-                            newTask.integerEtime = startIntegerValue+timeInterval
-                            print("\(newTask.integerEtime)😇")
+                            newTask.integerEtime = startIntegerValue+timeInterval-1
+                            
                         } else {
                             newTask.timeinterval = timeInterval
                         }
