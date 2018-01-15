@@ -17,7 +17,7 @@ class AddTaskViewController: UIViewController {
     var taskList:[Task]=[Task]()
     var endIntegerValue = 0
     var startIntegerValue = 0
-    
+    var timeCheckDic:[Int:String]!=[Int:String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         startTimeTextField.text = "시작시간"
@@ -31,11 +31,12 @@ class AddTaskViewController: UIViewController {
             startTimeTextField.text = passedtask.starttime
             endTimeTextField.text = passedtask.endtime
         }
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -79,7 +80,6 @@ class AddTaskViewController: UIViewController {
         var newTask:Task!
         var nilTime:Bool!
         nilTime = false
-        
         if existingTask == nil {
             newTask = Task()
             routineName = passedRoutineName
@@ -155,6 +155,8 @@ class AddTaskViewController: UIViewController {
                         if(timeInterval<0) {
                             timeInterval = startIntegerValue - endIntegerValue
                             newTask.timeinterval = timeInterval
+                            newTask.integerEtime = startIntegerValue+timeInterval
+                            print("\(newTask.integerEtime)😇")
                         } else {
                             newTask.timeinterval = timeInterval
                         }
@@ -165,23 +167,48 @@ class AddTaskViewController: UIViewController {
                     nilTime = true
                 }
             }
-                var index:Int!
-            
-                dateFormatter.dateFormat = "hh:mm a"
-                let sort = Sorting()
-                taskList = sort.mergeSort(list: fetchedTask)
-                if fetchedTask != nil {
-                    let checkStartTime = dateFormatter.date(from: newTask.starttime)
-                    let checkEndTime = dateFormatter.date(from: newTask.endtime)
+            var timeOverlap = false
+            for i in 0..<fetchedTask.count {
+                var startTime = fetchedTask[i].integerStime
+                var endTime = fetchedTask[i].integerEtime
+                var checkStartTime = newTask.integerStime
+                var checkEndTime = newTask.integerEtime
                 
+                if(checkStartTime > startTime && checkEndTime < endTime)
+                {
+                    print(fetchedTask[i].tasktitle)
+                    timeOverlap = true
+                }else if(checkStartTime > startTime && checkStartTime < endTime){
+                    print(fetchedTask[i].tasktitle)
+                    timeOverlap = true
+                }else if(checkEndTime > startTime && checkEndTime < endTime){
+                    print(fetchedTask[i].tasktitle)
+                    timeOverlap = true
+                }else if(checkStartTime==startTime || checkEndTime==endTime){
+                    print(fetchedTask[i].tasktitle)
+                    timeOverlap = true
+                }else if(startTime > checkStartTime && endTime < checkEndTime){
+                    print(fetchedTask[i].tasktitle)
+                    timeOverlap = true
+                }
             }
-            if nilTime == false {
+             if timeOverlap == false && nilTime == false {
                 try? realm?.write {
                     fetchedTask.append(newTask)
                 }
+                
                 navigationController?.popViewController(animated: true)
 
             } else {
+                if timeOverlap == true {
+                    let alert = UIAlertController(title: "다시 입력해주세요", message: "시간이 겹칩니다.", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
+                        //timeOverlap = true
+                    })
+                    alert.addAction(doneAction)
+                    self.present(alert, animated: true, completion: nil)
+
+                }
                 if nilTime == true {
                     let alert = UIAlertController(title: "입력해주세요", message: "\n시간을 선택해주세요", preferredStyle: .alert)
                     let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
