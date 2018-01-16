@@ -13,7 +13,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var routineTitle: UILabel!
-    var border: UIButton!=UIButton()
+    var pmBorder: UIButton!=UIButton()
+    var amBorder: UIView!=UIView()
     var startAngle:CGFloat! = CGFloat()
     var endAngle:CGFloat! = CGFloat()
     var sum:Int! = Int()
@@ -54,8 +55,12 @@ class MainViewController: UIViewController {
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
         if fetchedTask != nil {
             setRoutineBorders(frame:CGRect(x:22, y:80, width: 330, height: 330), task: fetchedTask)
-            border.setNeedsDisplay()
-            border.layoutIfNeeded()
+            pmBorder.setNeedsDisplay()
+            pmBorder.layoutIfNeeded()
+            amBorder.setNeedsDisplay()
+            amBorder.layoutIfNeeded()
+            
+            
         }
         
     }
@@ -71,9 +76,10 @@ class MainViewController: UIViewController {
         if fetchedTask != nil {
             sum = 0
             y = 0
-            border.removeFromSuperview()
-            border.isHidden = true
-            
+            pmBorder.removeFromSuperview()
+            pmBorder.isHidden = true
+            amBorder.removeFromSuperview()
+            amBorder.isHidden = true
         }
     }
     
@@ -92,8 +98,11 @@ class MainViewController: UIViewController {
     }
     
     func setRoutineBorders(frame:CGRect,task:List<Task>) {
-        border = Border(frame:frame, task: fetchedTask)
-        self.view.addSubview(border)
+        pmBorder = PMBorder(frame:frame, task: fetchedTask)
+        amBorder = AMBorder(frame:CGRect(x:50, y:111, width: 270, height: 270), task: fetchedTask)
+        amBorder.backgroundColor = UIColor.clear
+        self.view.addSubview(pmBorder)
+        self.view.addSubview(amBorder)
     }
   
     

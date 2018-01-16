@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-class Border: UIButton {
+class PMBorder: UIButton {
     
     var count:Int! = Int()
     @IBInspectable var counterColor=UIColor.init (red: 6.0/255.0, green: 131.0/255.0, blue: 145.0/255.0, alpha: 1 )
