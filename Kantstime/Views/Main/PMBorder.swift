@@ -100,7 +100,6 @@ class PMBorder: UIButton {
                                     startAngle: startAngle,
                                     endAngle: endAngle,
                                     clockwise: true)
-            //startAngle=endAngle
             path.lineWidth = arcWidth
             counterColor.setStroke()
             path.stroke()
