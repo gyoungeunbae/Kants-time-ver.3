@@ -85,7 +85,7 @@ class PMBorder: UIButton {
     override func draw(_ rect: CGRect) {
         
         for i in 0..<fetchedTask.count {
-            if fetchedTask[i].integerStime >= 720{
+            if fetchedTask[i].integerStime >= 720 && fetchedTask[i].integerStime<1440{
             
             let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
             counterColor=colorList(count: i)

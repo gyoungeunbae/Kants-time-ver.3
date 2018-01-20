@@ -84,7 +84,7 @@ class AMBorder: UIView {
     }
     override func draw(_ rect: CGRect) {
         for i in 0..<fetchedTask.count {
-            if fetchedTask[i].integerStime < 720{
+            if fetchedTask[i].integerStime >= 0 && fetchedTask[i].integerStime < 720{
                 
                 let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
                 counterColor=colorList(count: i)

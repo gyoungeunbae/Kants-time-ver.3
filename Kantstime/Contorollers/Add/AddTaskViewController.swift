@@ -107,6 +107,7 @@ class AddTaskViewController: UIViewController {
                         if(splitStartTime![1]=="PM") {
                             startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
                             newTask.integerStime = startIntegerValue
+                            
                         } else if(splitStartTime![1]=="AM"){
                             if startTimeArray[0] == "12" {
                                 startTimeArray[0] = "0"
@@ -133,16 +134,30 @@ class AddTaskViewController: UIViewController {
                         var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
                         
                         if(splitEndTime[1]=="PM") {
-                            endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
+                            print("\(endTimeArray[1])!!!!!!!!!!!!!")
+                            endIntegerValue = (Int(endTimeArray[0])!)*60 + Int(endTimeArray[1])!
                             newTask.integerEtime = endIntegerValue-1
                         } else if(splitEndTime[1]=="AM"){
+                            if endTimeArray[0] == "12" && endTimeArray[1] == "00" {
+                                endTimeArray[0] = "24"
+                            
+                            } else if endTimeArray[0] == "12" && endTimeArray[1] == "30" {
+                                endTimeArray[0] = "00"
+                                endTimeArray[1] = "30"
+                            }
+                            
                             endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
                             newTask.integerEtime = endIntegerValue-1
+                            print(endIntegerValue-1)
                         }
+                        print("????????????????\(newTask.integerStime)")
+
+                        print("????????????????\(newTask.integerEtime)")
                         var timeInterval = endIntegerValue-startIntegerValue
-                        if(newTask.integerStime>720 && timeInterval<0) {
+                        print("???\(timeInterval)")
+                        if(newTask.integerEtime<=720&&timeInterval<0) {
                             nilTime = true
-                            let alert = UIAlertController(title: "다시 입력해주세요", message: "\n Endtime은 12시를 넘길 수 없습니다.", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "다시 입력해주세요", message: "\n Endtime은 12시까지 입니다.", preferredStyle: .alert)
                             let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
                             })
                             alert.addAction(doneAction)
@@ -199,7 +214,6 @@ class AddTaskViewController: UIViewController {
                     })
                     alert.addAction(doneAction)
                     self.present(alert, animated: true, completion: nil)
-
                 }
                 if nilTime == true {
                     let alert = UIAlertController(title: "입력해주세요", message: "\n시간을 선택해주세요", preferredStyle: .alert)
@@ -251,7 +265,6 @@ class AddTaskViewController: UIViewController {
                             newTask.endtime = endTime
                             var splitEndTime = endTime.characters.split(separator: " ").map{String($0)}
                             var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
-                            
                             if(splitEndTime[1]=="PM") {
                                 endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
                                 newTask.integerEtime = endIntegerValue-1
