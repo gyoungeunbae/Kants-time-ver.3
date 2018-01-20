@@ -38,7 +38,6 @@ class PMBorder: UIButton {
             
             counterColor=UIColor.init ( red: 227.0/255.0, green: 236.0/255.0, blue: 253.0/255.0, alpha: 1 )
            
-            
         }
         else if count==2
         {
@@ -86,28 +85,51 @@ class PMBorder: UIButton {
         
         for i in 0..<fetchedTask.count {
             if fetchedTask[i].integerStime >= 720 && fetchedTask[i].integerStime<1440{
-            
-            let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-            counterColor=colorList(count: i)
-            angleInterval = fetchedTask[i].timeinterval/30
-            startAngle = CGFloat((fetchedTask[i].integerStime-720)/30)*π/12+18*π/12
-            endAngle = startAngle+CGFloat(angleInterval)*(π/12)
-            
-            let radius: CGFloat = max(bounds.width, bounds.height)
-            let arcWidth: CGFloat = 20
-            let path = UIBezierPath(arcCenter: center,
-                                    radius: radius/2.2 - arcWidth/2.2,
-                                    startAngle: startAngle,
-                                    endAngle: endAngle,
-                                    clockwise: true)
-            path.lineWidth = arcWidth
-            counterColor.setStroke()
-            path.stroke()
-            let testButton = UIButton(frame: path.bounds)
-            testButton.tag = i
-            testButton.backgroundColor = UIColor.clear
-            self.addSubview(testButton)
-            testButton.addTarget(self, action: #selector(self.pressed(sender:)), for: .touchUpInside)
+                if fetchedTask[i].integerEtime >= 720 && fetchedTask[i].integerEtime<1440{
+                    let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
+                    counterColor=colorList(count: i)
+                    angleInterval = fetchedTask[i].timeinterval/30
+                    startAngle = CGFloat((fetchedTask[i].integerStime-720)/30)*π/12+18*π/12
+                    endAngle = startAngle+CGFloat(angleInterval)*(π/12)
+                
+                    let radius: CGFloat = max(bounds.width, bounds.height)
+                    let arcWidth: CGFloat = 20
+                    let path = UIBezierPath(arcCenter: center,
+                                            radius: radius/2.2 - arcWidth/2.2,
+                                            startAngle: startAngle,
+                                            endAngle: endAngle,
+                                            clockwise: true)
+                    path.lineWidth = arcWidth
+                    counterColor.setStroke()
+                    path.stroke()
+                    let testButton = UIButton(frame: path.bounds)
+                    testButton.tag = i
+                    testButton.backgroundColor = UIColor.clear
+                    self.addSubview(testButton)
+                    testButton.addTarget(self, action: #selector(self.pressed(sender:)), for: .touchUpInside)
+                }
+            } else if fetchedTask[i].integerStime < 720 {
+                let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
+                counterColor=colorList(count: i)
+                angleInterval = (fetchedTask[i].integerEtime+1-720)/30
+                startAngle = 18*π/12
+                endAngle = startAngle+CGFloat(angleInterval)*(π/12)
+                
+                let radius: CGFloat = max(bounds.width, bounds.height)
+                let arcWidth: CGFloat = 20
+                let path = UIBezierPath(arcCenter: center,
+                                        radius: radius/2.2 - arcWidth/2.2,
+                                        startAngle: startAngle,
+                                        endAngle: endAngle,
+                                        clockwise: true)
+                path.lineWidth = arcWidth
+                counterColor.setStroke()
+                path.stroke()
+                let testButton = UIButton(frame: path.bounds)
+                testButton.tag = i
+                testButton.backgroundColor = UIColor.clear
+                self.addSubview(testButton)
+                testButton.addTarget(self, action: #selector(self.pressed(sender:)), for: .touchUpInside)
             }
         }
     }

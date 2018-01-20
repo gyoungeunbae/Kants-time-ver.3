@@ -96,7 +96,6 @@ class AddTaskViewController: UIViewController {
                     newTask.routinetitle = routineName
                     newTask.tasktitle = name
                 }
-                
             }
             if let startTime = startTimeTextField.text {
                 if startTime != "시작시간" {
@@ -105,7 +104,11 @@ class AddTaskViewController: UIViewController {
                         var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
                         var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
                         if(splitStartTime![1]=="PM") {
-                            startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
+                            if startTimeArray[0] == "12" {
+                                startIntegerValue = (Int(startTimeArray[0])!)*60 + Int(startTimeArray[1])!
+                            }else {
+                                startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
+                            }
                             newTask.integerStime = startIntegerValue
                             
                         } else if(splitStartTime![1]=="AM"){
@@ -134,8 +137,11 @@ class AddTaskViewController: UIViewController {
                         var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
                         
                         if(splitEndTime[1]=="PM") {
-                            print("\(endTimeArray[1])!!!!!!!!!!!!!")
-                            endIntegerValue = (Int(endTimeArray[0])!)*60 + Int(endTimeArray[1])!
+                            if endTimeArray[0] == "12" {
+                                endIntegerValue = (Int(endTimeArray[0])!)*60 + Int(endTimeArray[1])!
+                            }else {
+                                endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
+                            }
                             newTask.integerEtime = endIntegerValue-1
                         } else if(splitEndTime[1]=="AM"){
                             if endTimeArray[0] == "12" && endTimeArray[1] == "00" {
@@ -150,11 +156,7 @@ class AddTaskViewController: UIViewController {
                             newTask.integerEtime = endIntegerValue-1
                             print(endIntegerValue-1)
                         }
-                        print("????????????????\(newTask.integerStime)")
-
-                        print("????????????????\(newTask.integerEtime)")
                         var timeInterval = endIntegerValue-startIntegerValue
-                        print("???\(timeInterval)")
                         if(newTask.integerEtime<=720&&timeInterval<0) {
                             nilTime = true
                             let alert = UIAlertController(title: "다시 입력해주세요", message: "\n Endtime은 12시까지 입니다.", preferredStyle: .alert)
