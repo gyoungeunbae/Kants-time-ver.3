@@ -14,15 +14,13 @@ class Circle: UIView {
      @IBInspectable var circleOutLineColor: UIColor = UIColor()
     
      override func draw(_ rect: CGRect) {
-        //setNigthCircle()
-        //setDaytimeCircle()
         shadowCircle()
      
      }
     func setNigthCircle() {
-        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
-        let radius: CGFloat = max(bounds.width, bounds.height)//지름
-        let arcWidth: CGFloat = 0.7//굵기
+        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
+        let radius: CGFloat = max(bounds.width, bounds.height)
+        let arcWidth: CGFloat = 0.7
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * π
         var path = UIBezierPath(arcCenter: center,
@@ -49,9 +47,9 @@ class Circle: UIView {
         
     }
     func setDaytimeCircle() {
-        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
-        let radius: CGFloat = min(bounds.width-100, bounds.height-100)//지름
-        let arcWidth: CGFloat = 0.7//굵기
+        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
+        let radius: CGFloat = min(bounds.width-100, bounds.height-100)
+        let arcWidth: CGFloat = 0.7
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * π
         var path = UIBezierPath(arcCenter: center,
@@ -77,9 +75,9 @@ class Circle: UIView {
         self.layer.addSublayer(gradient)
     }
     func shadowCircle() {
-        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)//view 위치의 가운데
-        let radius: CGFloat = min(bounds.width-100, bounds.height-100)//지름
-        let arcWidth: CGFloat = 0.7//굵기
+        let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
+        let radius: CGFloat = min(bounds.width-100, bounds.height-100)
+        let arcWidth: CGFloat = 0.7
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * π
         var path = UIBezierPath(arcCenter: center,

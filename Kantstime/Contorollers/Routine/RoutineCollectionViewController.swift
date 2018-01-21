@@ -159,7 +159,6 @@ class RoutineCollectionViewController: UIViewController,UICollectionViewDataSour
             }
             }
             self.routineCollectionView.reloadData()
-            print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         })
         let cancelAction = UIAlertAction(title: "CANCEL", style: .default, handler:{(action:UIAlertAction!) in

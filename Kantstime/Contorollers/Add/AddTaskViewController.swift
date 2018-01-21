@@ -156,8 +156,7 @@ class AddTaskViewController: UIViewController {
                             
                             endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
                             newTask.integerEtime = endIntegerValue-1
-                            print("????\(newTask.integerStime)")
-                            print("????\(newTask.integerEtime)")
+                            
                             
                         }
                         var timeInterval = endIntegerValue-startIntegerValue
@@ -229,7 +228,6 @@ class AddTaskViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)                }
                 
             }
-            print(Realm.Configuration.defaultConfiguration.fileURL!)
             
         }else {
             newTask = existingTask
@@ -250,7 +248,6 @@ class AddTaskViewController: UIViewController {
             }
                 navigationController?.popViewController(animated: true)      
         }
-            print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         }
     }

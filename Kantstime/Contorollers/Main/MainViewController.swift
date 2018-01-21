@@ -49,6 +49,10 @@ class MainViewController: UIViewController {
         routineTitle.text = getRountineTitle()
         let realm = try? Realm()
         fetchedTask = realm?.objects(Routine.self).filter("routinetitle = '\(routineTitle!.text!)'").first?.task
+        currentCircle.setNeedsDisplay()
+        currentCircle.layoutIfNeeded()
+        currentTaskTitle.layoutIfNeeded()
+        currentTaskTitle.setNeedsDisplay()
         if fetchedTask != nil {
             setRoutineBorders(frame:CGRect(x:22, y:80, width: 330, height: 330), task: fetchedTask)
             pmBorder.setNeedsDisplay()
@@ -61,13 +65,12 @@ class MainViewController: UIViewController {
             }
             let integerCurrentTime = Int(currentTime[0])!*60+Int(currentTime[1])!
             let color = UIColor()
-            print("\(integerCurrentTime)")
             for i in 0..<fetchedTask.count {
                 if integerCurrentTime >= fetchedTask[i].integerStime && integerCurrentTime <= fetchedTask[i].integerEtime {
                     currentCircle.backgroundColor = color.colorList(count: i)
                     currentTaskTitle.text = fetchedTask[i].tasktitle
                     currentTaskTitle.textColor = UIColor.white
-                    
+                    break
                 }else {
                     currentCircle.backgroundColor = UIColor.black
                     currentTaskTitle.textColor = UIColor.black
