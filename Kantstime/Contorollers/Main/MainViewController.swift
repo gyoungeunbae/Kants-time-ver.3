@@ -13,20 +13,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var routineTitle: UILabel!
-    var pmBorder: UIButton!=UIButton()
+    var pmBorder: UIView!=UIView()
     var amBorder: UIView!=UIView()
     var startAngle:CGFloat! = CGFloat()
     var endAngle:CGFloat! = CGFloat()
     var sum:Int! = Int()
     var taskList:[Task]! = [Task]()
-    var fetchedTask:List<Task>! = List<Task>(){
-        didSet{
-            self.view.setNeedsDisplay()
-        }
-        willSet{
-            self.view.setNeedsDisplay()
-        }
-    }
+    var fetchedTask:List<Task>! = List<Task>()
     var routineBorders:[UIButton]! = [UIButton]()
     var startTime:[UILabel]! = [UILabel]()
     var taskName:[UILabel]! = [UILabel]()
@@ -37,6 +30,10 @@ class MainViewController: UIViewController {
     var angleInterval : Int! = Int()
     var y:Int! = Int()
     var count:Int! = Int()
+    @IBOutlet weak var currentCircle: UIView!
+    @IBOutlet weak var currentTaskTitle: UILabel!
+    
+    
     
     @IBOutlet weak var nightCircle: Circle!
     override func viewDidLoad() {
@@ -45,7 +42,6 @@ class MainViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("**")
         let date = Date()
         month.text = date.getMonthName()
         day.text = date.getDay()
@@ -59,8 +55,28 @@ class MainViewController: UIViewController {
             pmBorder.layoutIfNeeded()
             amBorder.setNeedsDisplay()
             amBorder.layoutIfNeeded()
+            var currentTime = time.text!.split(separator: ":")
+            if currentTime[0] == "24" {
+                currentTime[0] = "0"
+            }
+            let integerCurrentTime = Int(currentTime[0])!*60+Int(currentTime[1])!
+            let color = UIColor()
+            print("\(integerCurrentTime)")
+            for i in 0..<fetchedTask.count {
+                if integerCurrentTime >= fetchedTask[i].integerStime && integerCurrentTime <= fetchedTask[i].integerEtime {
+                    currentCircle.backgroundColor = color.colorList(count: i)
+                    currentTaskTitle.text = fetchedTask[i].tasktitle
+                    currentTaskTitle.textColor = UIColor.white
+                    
+                }else {
+                    currentCircle.backgroundColor = UIColor.black
+                    currentTaskTitle.textColor = UIColor.black
+                }
+            }
             
-            
+        } else {
+            currentCircle.backgroundColor = UIColor.black
+            currentTaskTitle.textColor = UIColor.black
         }
         
     }
@@ -99,7 +115,8 @@ class MainViewController: UIViewController {
     
     func setRoutineBorders(frame:CGRect,task:List<Task>) {
         pmBorder = PMBorder(frame:frame, task: fetchedTask)
-        amBorder = AMBorder(frame:CGRect(x:50, y:111, width: 270, height: 270), task: fetchedTask)
+        amBorder = AMBorder(frame:CGRect(x:97, y:157, width: 180, height: 180), task: fetchedTask)
+        pmBorder.backgroundColor = UIColor.clear
         amBorder.backgroundColor = UIColor.clear
         self.view.addSubview(pmBorder)
         self.view.addSubview(amBorder)

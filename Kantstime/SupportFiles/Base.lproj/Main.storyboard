@@ -316,6 +316,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-9Q-dXo">
+                                <rect key="frame" x="360" y="525" width="23.666666666666686" height="26.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수련회2일차" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Sb-WOp">
                                 <rect key="frame" x="40" y="519" width="135" height="32.333333333333371"/>
                                 <constraints>
@@ -331,95 +337,89 @@
                                 <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-9Q-dXo">
-                                <rect key="frame" x="360.33333333333331" y="525" width="23.666666666666686" height="26.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-M3-mvQ" customClass="Circle" customModule="Kantstime" customModuleProvider="target">
                                 <rect key="frame" x="12" y="114" width="390" height="390"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yd-db-MmX">
-                                        <rect key="frame" x="44.333333333333336" y="270.66666666666669" width="13.666666666666664" height="15"/>
+                                        <rect key="frame" x="35.666666666666664" y="270.66666666666669" width="17" height="17.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ali-Ow-1di">
-                                        <rect key="frame" x="186.33333333333334" y="10" width="19" height="15"/>
+                                        <rect key="frame" x="184.33333333333334" y="10.000000000000002" width="23" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbv-Ga-kEX">
-                                        <rect key="frame" x="357" y="185" width="18" height="20"/>
+                                        <rect key="frame" x="352.66666666666669" y="183.33333333333331" width="22.333333333333314" height="23.333333333333343"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="20"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIS-Hi-ky2">
-                                        <rect key="frame" x="328.33333333333331" y="270.66666666666669" width="13.666666666666686" height="23.333333333333314"/>
+                                        <rect key="frame" x="334" y="270.66666666666669" width="17" height="17.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-N5-U2f">
-                                        <rect key="frame" x="274.66666666666669" y="334" width="13.666666666666686" height="15"/>
+                                        <rect key="frame" x="277" y="328.33333333333331" width="17" height="17.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj4-oh-wyh">
-                                        <rect key="frame" x="15" y="183.66666666666669" width="18" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj4-oh-wyh">
+                                        <rect key="frame" x="14.999999999999998" y="183.66666666666669" width="19.333333333333329" height="23"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="20"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGT-SJ-vKd">
-                                        <rect key="frame" x="43.666666666666664" y="104.66666666666666" width="13.666666666666664" height="15"/>
+                                        <rect key="frame" x="35" y="102" width="17" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfe-tr-5EE">
-                                        <rect key="frame" x="103.33333333333333" y="45" width="13.666666666666671" height="15"/>
+                                        <rect key="frame" x="98" y="47.666666666666657" width="17" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ais-CY-Upc">
-                                        <rect key="frame" x="274" y="45" width="13.666666666666686" height="15"/>
+                                        <rect key="frame" x="276.33333333333331" y="47.666666666666657" width="17" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftp-me-nMY">
-                                        <rect key="frame" x="186.66666666666666" y="355" width="18" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftp-me-nMY">
+                                        <rect key="frame" x="184.66666666666666" y="352" width="22.333333333333343" height="23"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="20"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-Aa-Whk">
-                                        <rect key="frame" x="103" y="334" width="13.666666666666671" height="15"/>
+                                        <rect key="frame" x="97.666666666666671" y="328.33333333333331" width="17" height="17.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRw-ln-sY2">
-                                        <rect key="frame" x="327.66666666666669" y="104.66666666666666" width="13.666666666666686" height="15"/>
+                                        <rect key="frame" x="333.33333333333331" y="102" width="17" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SeH-CB" family="SeoulHangang CB" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfD-ND-srN">
-                                        <rect key="frame" x="181" y="184.66666666666669" width="68" height="21"/>
+                                        <rect key="frame" x="182.33333333333334" y="184.66666666666669" width="62.333333333333343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.94449830059999995" green="0.95428204539999995" blue="0.89020216460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="TOI-20-jYu">
-                                        <rect key="frame" x="141" y="179.66666666666669" width="30" height="30"/>
+                                        <rect key="frame" x="142.33333333333334" y="179.66666666666669" width="30" height="30"/>
                                         <color key="backgroundColor" red="0.42236265540122986" green="0.49948999285697937" blue="0.60006910562515259" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KJB-Wx-3Gs"/>
@@ -503,6 +503,8 @@
                     </navigationItem>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="currentCircle" destination="TOI-20-jYu" id="vIh-WM-Ofv"/>
+                        <outlet property="currentTaskTitle" destination="QfD-ND-srN" id="Jo1-VE-TJt"/>
                         <outlet property="day" destination="VXl-9Q-dXo" id="gce-So-UJn"/>
                         <outlet property="month" destination="HqA-z7-qA3" id="QIy-7m-Pzf"/>
                         <outlet property="nightCircle" destination="WEp-M3-mvQ" id="eyN-Bs-Foe"/>

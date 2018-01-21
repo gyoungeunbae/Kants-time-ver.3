@@ -30,6 +30,8 @@ class AddTaskViewController: UIViewController {
             titleTextField.text = passedtask.tasktitle
             startTimeTextField.text = passedtask.starttime
             endTimeTextField.text = passedtask.endtime
+            startTimeTextField.isEnabled = false
+            endTimeTextField.isEnabled = false
         }
     
     }
@@ -154,7 +156,9 @@ class AddTaskViewController: UIViewController {
                             
                             endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
                             newTask.integerEtime = endIntegerValue-1
-                            print(endIntegerValue-1)
+                            print("????\(newTask.integerStime)")
+                            print("????\(newTask.integerEtime)")
+                            
                         }
                         var timeInterval = endIntegerValue-startIntegerValue
                         if(newTask.integerEtime<=720&&timeInterval<0) {
@@ -212,7 +216,6 @@ class AddTaskViewController: UIViewController {
                 if timeOverlap == true {
                     let alert = UIAlertController(title: "다시 입력해주세요", message: "\(overlapTask.tasktitle)(\(overlapTask.starttime) ~ \(overlapTask.endtime))와 시간이 겹칩니다.", preferredStyle: .alert)
                     let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (UIAlertAction) in
-                        //timeOverlap = true
                     })
                     alert.addAction(doneAction)
                     self.present(alert, animated: true, completion: nil)
@@ -245,50 +248,6 @@ class AddTaskViewController: UIViewController {
                     newTask.tasktitle = name
                 }
             }
-                if let startTime = startTimeTextField.text {
-                    if startTime != "시작시간" {
-                        if startTime != ""{
-                            newTask.starttime = startTime
-                            var splitStartTime = startTimeTextField.text?.characters.split(separator: " ").map{String($0)}
-                            var startTimeArray = splitStartTime![0].characters.split(separator:":").map{String($0)}
-                            if(splitStartTime![1]=="PM") {
-                                startIntegerValue = (Int(startTimeArray[0])!+12)*60 + Int(startTimeArray[1])!
-                                newTask.integerStime = startIntegerValue
-                            } else if(splitStartTime![1]=="AM"){
-                                startIntegerValue = Int(startTimeArray[0])!*60 + Int(startTimeArray[1])!
-                                newTask.integerStime = startIntegerValue
-                            }
-                        } else {}
-                    } else {}
-                }
-                if let endTime = endTimeTextField.text {
-                    if endTime != "종료시간" {
-                        if endTime != ""{
-                            newTask.endtime = endTime
-                            var splitEndTime = endTime.characters.split(separator: " ").map{String($0)}
-                            var endTimeArray = splitEndTime[0].characters.split(separator:":").map{String($0)}
-                            if(splitEndTime[1]=="PM") {
-                                endIntegerValue = (Int(endTimeArray[0])!+12)*60 + Int(endTimeArray[1])!
-                                newTask.integerEtime = endIntegerValue-1
-                            } else if(splitEndTime[1]=="AM"){
-                                endIntegerValue = Int(endTimeArray[0])!*60 + Int(endTimeArray[1])!
-                                newTask.integerEtime = endIntegerValue-1
-                            }
-                            var timeInterval = endIntegerValue-startIntegerValue
-                            if(timeInterval<0) {
-                                timeInterval = startIntegerValue - endIntegerValue
-                                newTask.timeinterval = timeInterval
-                            } else {
-                                newTask.timeinterval = timeInterval
-                            }
-                        } else {
-                            //Todo: 종료시간을 입력해 주세여
-                        }
-                    } else {
-                        //Todo: 종료시간을 입력해 주세여
-                    }
-                    
-                }
                 navigationController?.popViewController(animated: true)      
         }
             print(Realm.Configuration.defaultConfiguration.fileURL!)
