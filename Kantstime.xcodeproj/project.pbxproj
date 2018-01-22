@@ -8,21 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		18147067CC25CC495049CCB1 /* Pods_Kantstime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD92BA19CB24817214BC50 /* Pods_Kantstime.framework */; };
-		6F0031991FF500E6007641E0 /* Seoulhangang_L.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F0031981FF500DE007641E0 /* Seoulhangang_L.otf */; };
-		6F00319A1FF500EA007641E0 /* Seoulhangang_M.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F0031961FF500DD007641E0 /* Seoulhangang_M.otf */; };
-		6F00319B1FF500EE007641E0 /* Seoulhangang_B.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F0031971FF500DD007641E0 /* Seoulhangang_B.otf */; };
 		6F20DF461FF244B1004BF78F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F20DF451FF244B1004BF78F /* GradientView.swift */; };
 		6F32F2E41FF826240065D6B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F32F2E31FF826240065D6B2 /* MainViewController.swift */; };
 		6F32F2E61FF838C20065D6B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F32F2E51FF838C20065D6B2 /* Date.swift */; };
 		6F32F2EC1FF84C9C0065D6B2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F32F2EB1FF84C9C0065D6B2 /* Task.swift */; };
-		6F32F2FA1FFA548C0065D6B2 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F32F2F91FFA548C0065D6B2 /* Circle.swift */; };
-		6F32F31F1FFB37B60065D6B2 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F32F31E1FFB37B60065D6B2 /* Border.swift */; };
-		6F32F3211FFB92490065D6B2 /* CircleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F32F3201FFB92480065D6B2 /* CircleLine.swift */; };
+		6F3342542005F9990007209E /* RoutineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3342532005F9990007209E /* RoutineCollectionViewCell.swift */; };
+		6F33425A2005F9E60007209E /* PMBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3342572005F9E50007209E /* PMBorder.swift */; };
+		6F33425C2005F9E60007209E /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3342592005F9E50007209E /* Circle.swift */; };
+		6F33425E2005FA740007209E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33425D2005FA740007209E /* TaskTableViewCell.swift */; };
 		6F35DDEF1FEDE4B100B84AA5 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35DDEE1FEDE4B100B84AA5 /* Sorting.swift */; };
+		6F3A1841200E2F1500D01CE9 /* AMBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A1840200E2F1500D01CE9 /* AMBorder.swift */; };
+		6F3A184320145C2B00D01CE9 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A184220145C2B00D01CE9 /* ColorList.swift */; };
 		6F4594A61FDE9948001825C9 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4594A51FDE9948001825C9 /* TaskListViewController.swift */; };
-		6FA8D5A71FE01D480048098F /* TaskTableViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */; };
+		6F99D7E22014AF8C004A0E0A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F99D7E12014AF8C004A0E0A /* Media.xcassets */; };
 		6FA8D5A91FE247170048098F /* RoutineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D5A81FE247170048098F /* RoutineCollectionViewController.swift */; };
-		6FA8D5AB1FE24D930048098F /* RoutineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D5AA1FE24D930048098F /* RoutineCollectionViewCell.swift */; };
 		6FBCCE701FB40DCF00A1A272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCCE6F1FB40DCF00A1A272 /* AppDelegate.swift */; };
 		6FBCCE751FB40DCF00A1A272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBCCE731FB40DCF00A1A272 /* Main.storyboard */; };
 		6FBCCE771FB40DCF00A1A272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FBCCE761FB40DCF00A1A272 /* Assets.xcassets */; };
@@ -34,21 +33,20 @@
 /* Begin PBXFileReference section */
 		4291246907ED1BDAB8DF4539 /* Pods-Kantstime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kantstime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kantstime/Pods-Kantstime.debug.xcconfig"; sourceTree = "<group>"; };
 		46ED091D738D9DC571490646 /* Pods-Kantstime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kantstime.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kantstime/Pods-Kantstime.release.xcconfig"; sourceTree = "<group>"; };
-		6F0031961FF500DD007641E0 /* Seoulhangang_M.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seoulhangang_M.otf; sourceTree = "<group>"; };
-		6F0031971FF500DD007641E0 /* Seoulhangang_B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seoulhangang_B.otf; sourceTree = "<group>"; };
-		6F0031981FF500DE007641E0 /* Seoulhangang_L.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seoulhangang_L.otf; sourceTree = "<group>"; };
 		6F20DF451FF244B1004BF78F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		6F32F2E31FF826240065D6B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6F32F2E51FF838C20065D6B2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		6F32F2EB1FF84C9C0065D6B2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		6F32F2F91FFA548C0065D6B2 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
-		6F32F31E1FFB37B60065D6B2 /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
-		6F32F3201FFB92480065D6B2 /* CircleLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLine.swift; sourceTree = "<group>"; };
+		6F3342532005F9990007209E /* RoutineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineCollectionViewCell.swift; sourceTree = "<group>"; };
+		6F3342572005F9E50007209E /* PMBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMBorder.swift; sourceTree = "<group>"; };
+		6F3342592005F9E50007209E /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		6F33425D2005FA740007209E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		6F35DDEE1FEDE4B100B84AA5 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
+		6F3A1840200E2F1500D01CE9 /* AMBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBorder.swift; sourceTree = "<group>"; };
+		6F3A184220145C2B00D01CE9 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		6F4594A51FDE9948001825C9 /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
-		6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TaskTableViewCell .swift"; sourceTree = "<group>"; };
+		6F99D7E12014AF8C004A0E0A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6FA8D5A81FE247170048098F /* RoutineCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCollectionViewController.swift; sourceTree = "<group>"; };
-		6FA8D5AA1FE24D930048098F /* RoutineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FBCCE6C1FB40DCF00A1A272 /* Kantstime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kantstime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBCCE6F1FB40DCF00A1A272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBCCE741FB40DCF00A1A272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,17 +87,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6F32F2E71FF84BFC0065D6B2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				6F32F2F81FFA54620065D6B2 /* Main */,
-				6F32F2F11FF84FCB0065D6B2 /* Routine */,
-				6F32F2F21FF84FE40065D6B2 /* Task */,
-			);
-			name = Views;
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		6F32F2E91FF84C180065D6B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,20 +111,10 @@
 		6F32F2ED1FF84EC50065D6B2 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				6F32F2EE1FF84EEB0065D6B2 /* Fonts */,
+				6F99D7E12014AF8C004A0E0A /* Media.xcassets */,
 				6FBCCE761FB40DCF00A1A272 /* Assets.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		6F32F2EE1FF84EEB0065D6B2 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				6F0031971FF500DD007641E0 /* Seoulhangang_B.otf */,
-				6F0031981FF500DE007641E0 /* Seoulhangang_L.otf */,
-				6F0031961FF500DD007641E0 /* Seoulhangang_M.otf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		6F32F2EF1FF84F270065D6B2 /* Extensions */ = {
@@ -146,6 +123,7 @@
 				6F20DF451FF244B1004BF78F /* GradientView.swift */,
 				6F35DDEE1FEDE4B100B84AA5 /* Sorting.swift */,
 				6F32F2E51FF838C20065D6B2 /* Date.swift */,
+				6F3A184220145C2B00D01CE9 /* ColorList.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -156,23 +134,6 @@
 				6F32F2E31FF826240065D6B2 /* MainViewController.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		6F32F2F11FF84FCB0065D6B2 /* Routine */ = {
-			isa = PBXGroup;
-			children = (
-				6FA8D5AA1FE24D930048098F /* RoutineCollectionViewCell.swift */,
-			);
-			path = Routine;
-			sourceTree = "<group>";
-		};
-		6F32F2F21FF84FE40065D6B2 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				6FA8D5A61FE01D480048098F /* TaskTableViewCell .swift */,
-			);
-			name = Task;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		6F32F2F31FF850060065D6B2 /* Add */ = {
@@ -210,14 +171,40 @@
 			path = Routine;
 			sourceTree = "<group>";
 		};
-		6F32F2F81FFA54620065D6B2 /* Main */ = {
+		6F33424E2005F7B90007209E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				6F32F31E1FFB37B60065D6B2 /* Border.swift */,
-				6F32F2F91FFA548C0065D6B2 /* Circle.swift */,
-				6F32F3201FFB92480065D6B2 /* CircleLine.swift */,
+				6F3342592005F9E50007209E /* Circle.swift */,
+				6F3A1840200E2F1500D01CE9 /* AMBorder.swift */,
+				6F3342572005F9E50007209E /* PMBorder.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		6F33424F2005F7C20007209E /* Routine */ = {
+			isa = PBXGroup;
+			children = (
+				6F3342532005F9990007209E /* RoutineCollectionViewCell.swift */,
+			);
+			path = Routine;
+			sourceTree = "<group>";
+		};
+		6F3342502005F7D30007209E /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				6F33425D2005FA740007209E /* TaskTableViewCell.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		6F3342512005F8CD0007209E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F3342502005F7D30007209E /* Task */,
+				6F33424F2005F7C20007209E /* Routine */,
+				6F33424E2005F7B90007209E /* Main */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6FBCCE631FB40DCF00A1A272 = {
@@ -241,8 +228,8 @@
 		6FBCCE6E1FB40DCF00A1A272 /* Kantstime */ = {
 			isa = PBXGroup;
 			children = (
+				6F3342512005F8CD0007209E /* Views */,
 				6F32F2E91FF84C180065D6B2 /* Models */,
-				6F32F2E71FF84BFC0065D6B2 /* Views */,
 				6F32F2F41FF8510B0065D6B2 /* Contorollers */,
 				6F32F2EF1FF84F270065D6B2 /* Extensions */,
 				6F32F2EA1FF84C200065D6B2 /* SupportFiles */,
@@ -312,11 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F00319B1FF500EE007641E0 /* Seoulhangang_B.otf in Resources */,
-				6F0031991FF500E6007641E0 /* Seoulhangang_L.otf in Resources */,
 				6FBCCE7A1FB40DCF00A1A272 /* LaunchScreen.storyboard in Resources */,
-				6F00319A1FF500EA007641E0 /* Seoulhangang_M.otf in Resources */,
 				6FBCCE771FB40DCF00A1A272 /* Assets.xcassets in Resources */,
+				6F99D7E22014AF8C004A0E0A /* Media.xcassets in Resources */,
 				6FBCCE751FB40DCF00A1A272 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,17 +370,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F4594A61FDE9948001825C9 /* TaskListViewController.swift in Sources */,
-				6F32F31F1FFB37B60065D6B2 /* Border.swift in Sources */,
 				6F20DF461FF244B1004BF78F /* GradientView.swift in Sources */,
-				6FA8D5A71FE01D480048098F /* TaskTableViewCell .swift in Sources */,
-				6FA8D5AB1FE24D930048098F /* RoutineCollectionViewCell.swift in Sources */,
 				6F32F2EC1FF84C9C0065D6B2 /* Task.swift in Sources */,
 				6FBCCE941FB6048500A1A272 /* Routine.swift in Sources */,
+				6F33425A2005F9E60007209E /* PMBorder.swift in Sources */,
+				6F3A1841200E2F1500D01CE9 /* AMBorder.swift in Sources */,
 				6FBCCE701FB40DCF00A1A272 /* AppDelegate.swift in Sources */,
+				6F3342542005F9990007209E /* RoutineCollectionViewCell.swift in Sources */,
+				6F33425E2005FA740007209E /* TaskTableViewCell.swift in Sources */,
+				6F33425C2005F9E60007209E /* Circle.swift in Sources */,
 				6FA8D5A91FE247170048098F /* RoutineCollectionViewController.swift in Sources */,
 				6FBCCE9A1FB9BDCF00A1A272 /* AddTaskViewController.swift in Sources */,
-				6F32F3211FFB92490065D6B2 /* CircleLine.swift in Sources */,
-				6F32F2FA1FFA548C0065D6B2 /* Circle.swift in Sources */,
+				6F3A184320145C2B00D01CE9 /* ColorList.swift in Sources */,
 				6F32F2E41FF826240065D6B2 /* MainViewController.swift in Sources */,
 				6F32F2E61FF838C20065D6B2 /* Date.swift in Sources */,
 				6F35DDEF1FEDE4B100B84AA5 /* Sorting.swift in Sources */,
