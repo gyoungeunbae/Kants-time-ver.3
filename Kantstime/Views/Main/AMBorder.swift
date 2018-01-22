@@ -33,7 +33,7 @@ class AMBorder: UIView {
             if fetchedTask[i].integerStime >= 0 && fetchedTask[i].integerStime < 720{
                 if fetchedTask[i].integerEtime >= 0 && fetchedTask[i].integerEtime < 720{
                     let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-                    counterColor = color.colorList(count: i)
+                    counterColor = color.colorListAM(count: i%10)
                     angleInterval = fetchedTask[i].timeinterval/30
                     startAngle = CGFloat((fetchedTask[i].integerStime-720)/30)*π/12+18*π/12
                     endAngle = startAngle+CGFloat(angleInterval)*(π/12)
@@ -55,7 +55,7 @@ class AMBorder: UIView {
                     testButton.addTarget(self, action: #selector(self.pressed(sender:)), for: .touchUpInside)
                 } else if fetchedTask[i].integerEtime >= 720{
                     let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-                    counterColor = color.colorList(count: i)
+                    counterColor = color.colorListAM(count: i%10)
                     angleInterval = fetchedTask[i].timeinterval/30
                     startAngle = CGFloat((fetchedTask[i].integerStime-720)/30)*π/12+18*π/12
                     endAngle = 18*(π/12)

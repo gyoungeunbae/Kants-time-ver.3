@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
             let color = UIColor()
             for i in 0..<fetchedTask.count {
                 if integerCurrentTime >= fetchedTask[i].integerStime && integerCurrentTime <= fetchedTask[i].integerEtime {
-                    currentCircle.backgroundColor = color.colorList(count: i)
+                    currentCircle.backgroundColor = color.colorListPM(count: i%10)//if문 추가, 값에 따른 color list
                     currentTaskTitle.text = fetchedTask[i].tasktitle
                     currentTaskTitle.textColor = UIColor.white
                     break

@@ -29,12 +29,13 @@ class PMBorder: UIView {
     
    
     override func draw(_ rect: CGRect) {
+        
         var color = UIColor()
         for i in 0..<fetchedTask.count {
             if fetchedTask[i].integerStime >= 720 && fetchedTask[i].integerStime<1440{
                 if fetchedTask[i].integerEtime >= 720 && fetchedTask[i].integerEtime<1440{
                     let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-                    counterColor = color.colorList(count: i)
+                    counterColor = color.colorListPM(count: i%10)
                     angleInterval = fetchedTask[i].timeinterval/30
                     startAngle = CGFloat((fetchedTask[i].integerStime-720)/30)*π/12+18*π/12
                     endAngle = startAngle+CGFloat(angleInterval)*(π/12)
@@ -57,7 +58,7 @@ class PMBorder: UIView {
                 }
             } else if fetchedTask[i].integerStime < 720 && fetchedTask[i].integerEtime>=720{
                 let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-                counterColor = color.colorList(count: i)
+                counterColor = color.colorListPM(count: i%10)
                 angleInterval = (fetchedTask[i].integerEtime+1-720)/30
                 startAngle = 18*π/12
                 endAngle = startAngle+CGFloat(angleInterval)*(π/12)
